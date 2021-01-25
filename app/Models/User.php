@@ -2,30 +2,29 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
-use Laratrust\Traits\LaratrustUserTrait;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use LaratrustUserTrait;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
+    use HasRoles;
 
     protected $fillable = [
-        'name', 'email', 'password', 'is_admin'
+        'name',
+        'email',
+        'password',
     ];
-
 
     protected $hidden = [
         'password',
@@ -34,14 +33,11 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
-
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-
     protected $appends = [
         'profile_photo_url',
     ];
-
 }

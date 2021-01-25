@@ -8,39 +8,34 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Jenssegers\Date\Date;
 
 class SiteController extends Controller
 {
-
     public function main()
     {
         return view('main');
     }
-
 
     public function before()
     {
         return view('site.before');
     }
 
-
     public function services()
     {
         return view('site.services');
     }
-
 
     public function possibilities()
     {
         return view('site.possibilities');
     }
 
-
     public function contact()
     {
         return view('contact');
     }
-
 
     protected function validator(array $data)
     {
@@ -52,10 +47,8 @@ class SiteController extends Controller
         ]);
     }
 
-
     public function submit(Request $data)
     {
-
         $data = array(
             'name' => $data->name,
             'email' => $data->email,

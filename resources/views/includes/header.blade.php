@@ -4,7 +4,7 @@ p-2 px-md-4 mb-3 border-bottom shadow-sm navbar sticky-top navbar-light bg-light
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="{{ route('services') }}">Наши услуги</a>
         <a class="p-2 text-dark" href="{{ route('autoparts') }}">Автозапчасти</a>
-        <a class="p-2 text-dark" href="{{ route('posts') }}">Автожурнал</a>
+        <a class="p-2 text-dark" href="{{ route('blog') }}">Автожурнал</a>
         <a class="p-2 text-dark" href="{{ route('reviews') }}">Отзывы</a>
         <a class="p-2 text-dark" href="{{ route('contact') }}">Контакты</a>
     </nav>

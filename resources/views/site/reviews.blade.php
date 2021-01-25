@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label class="p-1" for="message">Сообщение:</label>
-                        <textarea name="message" required minlength="10" rows="7" id="message" class="form-control" placeholder="Введите ваше сообщение"></textarea>
+                        <textarea name="review" required minlength="10" rows="7" id="review" class="form-control" placeholder="Введите ваше сообщение"></textarea>
                     </div>
                     <p><button type="submit" class="btn btn-md btn-success">Отправить</button></p>
                 </form>
@@ -27,7 +27,7 @@
                     <div class="alert alert-info">
                         <h6>{{ $review->name }}</h6>
                         <h7>{{ $review->created_at }}</h7>
-                        <p>{{ $review->message }}</p>
+                        <p>{{ $review->review }}</p>
                     </div>
                 @endforeach
             </div>

@@ -1,36 +1,36 @@
-@extends('layouts.site')
+@extends('layouts.blog')
 @section('title-block')Автожурнал@endsection('title-block')
 @section('content')
-    <div class="container">
-        <div class="site-index">
-            <div class="jumbotron blog">
-                <p>108814,<br>город Москва, поселение Сосенское,<br>
-                    поселок Коммунарка, Бачуринская улица,<br>
-                    дом 317Ю, офис 5а</p>
-                <h1 class="spacePromo">Автожурнал: блог обо всем</h1>
-                <h2 class="lead">Последние новости</h2>
-                @include('includes.contact_button')
-                @include('includes.messages_success')
-                <div class="phone">
-                    Позвоните нам:<br>
-                    <a href="tel:+79999999999" class="textAddress">+7 999 9999999</a>
-                </div>
-            </div>
-            <div class="body-content">
-                <div class="row">
-                    <contact-component :urldata="{{ json_encode($posts) }}"></contact-component>
-                    <div class="col-lg-6 col-xl-6 col-md-6">
-                        @foreach($posts as $post)
-                            <div class="alert alert-info">
-                                <h6>{{ $post->title }}</h6>
-                                <p>{{ $post->text }}</p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+<div class="row">
+    @forelse($posts as $post)
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+            <div class="card mb-4 bg-dark">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="{{ route('post', $post->id) }}" style="color: black">
+                            <strong>
+                                {{ $post->title }}
+                            </strong>
+                        </a>
+                    </li>
+                    <li class="list-group-item w-40" style="display: flex; justify-content: center;">
+                        <img src="{{ url('/storage/docs/' . $post->img) }}" style="width: 200px; height: 100px" alt="{{ $post->title }}" />
+                    </li>
+                    <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
+                    <li class="list-group-item" style="white-space: pre-wrap;"><strong>{{ $post->quote }}</strong></li>
+                    <li class="list-group-item"><a href="{{ route('post', $post->id) }}">Комментарии</a></li>
+                </ul>
             </div>
         </div>
-    </div>
+    @empty
+</div>
+<p class="text-center">
+    Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
+</p>
+@endforelse
+<div class="text-center">
+    {{ $posts->appends(['search' => request()->query('search')])->links() }}
+</div>
 @endsection('content')
 
 

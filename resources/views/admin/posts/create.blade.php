@@ -1,59 +1,87 @@
-@section('title-block')Автожурнал: посты@endsection('title-block')
-@extends('layouts.admin')
-@section('content')
-    <div class="py-5">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h1>Форма добавления постов</h1>
-            <div>
-                <div class="md:grid md:grid-cols-2 md:gap-6 py-5">
-                    <div class="mt-10 md:mt-0 md:col-span-2">
-                        <form action="{{ route('admin.posts.store') }}" method="POST">
-                            @csrf
-                            @include('includes.admin.messages_success')
-                            <div class="shadow sm:rounded-md sm:overflow-hidden">
-                                <div class="px-10 py-5 bg-white sm:p-6">
-                                    <div class="grid grid-cols-1 gap-6">
-                                        <div class="col-span-3 sm:col-span-2">
-                                            <label for="title" class="block text-sm font-medium leading-5 text-gray-700">
-                                                Название
-                                            </label>
-                                            <div class="mt-1 flex rounded-md shadow-sm">
-                                                <x-jet-input required id="title" type="text" name="title" class="form-input
-                                                                    @error('title') is-invalid @enderror
-                                                    flex-1 block w-full rounded-none rounded-md transition duration-150
-                                                    ease-in-out sm:text-sm sm:leading-5" minlength="3" placeholder="Введите название">
-                                                </x-jet-input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-6">
-                                        <label for="text" class="block text-sm leading-5 font-medium text-gray-700">
-                                            Текст
-                                        </label>
-                                        <div class="rounded-md shadow-sm">
-                                            <textarea required id="text" name="text" rows="5" class="form-textarea
-                                            @error('text') is-invalid @enderror
-                                                mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
-                                                      placeholder="Введите текст поста" minlength="10"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                    <span class="inline-flex rounded-md shadow-sm">
-                                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent
-                                      text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500
-                                      focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700
-                                      transition duration-150 ease-in-out">
-                                        Сохранить
-                                      </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
+<div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl
+        transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true"
+             aria-labelledby="modal-headline">
+            <form>
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="">
+                        <p style="margin-bottom: 10px">Новый пост</p>
+                        <div class="mb-4">
+                            <select wire:model="category_id" class="form-select" aria-label="Default select example">
+                                <option selected>Выберите категорию</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                                @if($category_id)
+                                    {{ $category_id }}
+                                @endif
+                                @error('category_id') <span class="text-red-500">{{ $message }}</span>@enderror
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
+                                Документ или фото:
+                            </label>
+                            <input type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" wire:model="img">
+                            @error('img') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
+                                Название:
+                            </label>
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
+                                   placeholder="Введите название" wire:model="title">
+                            @error('title') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
+                                Цитата поста:
+                            </label>
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
+                                   placeholder="Введите цитату" wire:model="quote">
+                            @error('quote') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">
+                                Текст:
+                            </label>
+                            <textarea wrap="hard" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput3"
+                                      wire:model="body" placeholder="Введите текст"></textarea>
+                            @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                          <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full
+                          rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium
+                          text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700
+                          focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                            Сохранить
+                          </button>
+                    </span>
+                    <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                          <button wire:click="closeModal()" type="button" class="inline-flex justify-center w-full
+                          rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium
+                          text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300
+                          focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                            Выход
+                          </button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
-@endsection('content)
-
+</div>

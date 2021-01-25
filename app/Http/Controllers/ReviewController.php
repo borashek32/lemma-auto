@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Jenssegers\Date\Date;
 
 class ReviewController extends Controller
 {
@@ -18,7 +19,7 @@ class ReviewController extends Controller
     {
         $review = new Review();
         $review->name    = $req->input('name');
-        $review->message = $req->input('message');
+        $review->review  = $req->input('review');
         $review->save();
 
         return redirect('reviews')->with('success', 'Ваше сообщение опубликовано');
