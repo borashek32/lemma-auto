@@ -32,18 +32,14 @@
             <div class="body-content">
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-                        @foreach($categories as $category)
-                            <a href="{{ route('category', $category->id) }}" style="font-size:16px;color: black">
-                                {{ $category->name }}
-                            </a>
-                        @endforeach
+                        <livewire:cats />
                     </div>
                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                         @include('includes.search')
                         @yield('content')
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-                        Advertisements
+                        Advs
                     </div>
                 </div>
             </div>

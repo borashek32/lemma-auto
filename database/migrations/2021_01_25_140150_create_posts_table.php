@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 100);
             $table->integer('category_id')
                 ->references('id')
-                ->on('categories')
+                ->on('cats.blade.php')
                 ->onUpdate('cascade')
                 ->onDelete('some action');
             $table->string('img', 200);

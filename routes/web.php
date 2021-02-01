@@ -3,6 +3,9 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\Categories;
+use App\Http\Livewire\Comments;
+use App\Http\Livewire\OneCat;
+use App\Http\Livewire\PostOne;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SiteController;
@@ -21,11 +24,11 @@ Route::get('/auto-parts', [AutopartsController::class, 'autoparts'])->name('auto
 Route::get('/partners', [AutopartsController::class, 'partners'])->name('partners');
 Route::get('/law', [AutopartsController::class, 'law'])->name('law');
 Route::get('/auto-magazine', [PostController::class, 'blog'])->name('blog');
-Route::get('/post/{id}', [PostController::class, 'post'])->name('post');
+Route::get('/post/{id}', PostOne::class)->name('post');
 Route::post('/post/{id}', [PostController::class, 'addComment'])->name('comment');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
-Route::get('/auto-magazine/category/{id}', [CategoryController::class, 'categories'])->name('category');
+Route::get('/auto-magazine/category/{id}', OneCat::class)->name('category');
 
 //Users dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -34,5 +37,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/dashboard/contacts', [DashboardController::class, 'contacts'])->name('contacts');
 //CRUD routes for an admin
 Route::get('/dashboard/posts', Posts::class)->name('posts');
-Route::get('dashboard/categories', Categories::class)->name('categories');
+Route::get('/dashboard/categories', Categories::class)->name('cats');
+Route::get('/dashboard/comments', Comments::class)->name('comments-admin');
 

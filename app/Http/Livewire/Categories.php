@@ -13,7 +13,7 @@ class Categories extends Component
     public function render()
     {
         $categories  = Category::all();
-        return view('admin.categories.categories', ['categories' => $categories]);
+        return view('admin.categories.cats', ['categories' => $categories]);
     }
 
     public function create()

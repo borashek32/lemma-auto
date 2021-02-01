@@ -9,9 +9,7 @@
             </li>
             <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
             <li class="list-group-item"><strong>{{ $post->title }}</strong></li>
-            <li class="list-group-item">
-                <pre>{{ $post->body }}</pre>
-            </li>
+            <li class="list-group-item"><pre>{{ $post->body }}</pre></li>
         </ul>
     </div>
     <div class="card mb-4" style="padding:20px">

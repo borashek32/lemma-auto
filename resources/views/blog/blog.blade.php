@@ -28,7 +28,7 @@
     Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
 </p>
 @endforelse
-<div class="text-center">
+<div class="mx-auto">
     {{ $posts->appends(['search' => request()->query('search')])->links() }}
 </div>
 @endsection('content')

@@ -20,7 +20,7 @@ class PostController extends Controller
                 ->latest()
                 ->simplePaginate(6);
         } else {
-            $posts = Post::latest()->simplePaginate(6);
+            $posts = Post::latest()->paginate(6);
             $posts->withPath('/auto-magazine');
         }
         return view('blog.blog', compact('categories', 'posts'));

@@ -26,7 +26,7 @@
             </div>
         @endforeach
     </div>
-    <div class="text-center">
+    <div class="mx-auto">
         {{ $posts->links() }}
     </div>
 @endsection('content')
