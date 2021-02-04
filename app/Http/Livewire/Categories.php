@@ -7,13 +7,13 @@ use App\Models\Category;
 
 class Categories extends Component
 {
-    public $category, $name, $category_id;
+    public $category, $name, $category_id, $postCount;
     public $isOpen = 0;
 
     public function render()
     {
         $categories  = Category::all();
-        return view('admin.categories.cats', ['categories' => $categories]);
+        return view('admin.categories.cats', compact('categories'));
     }
 
     public function create()

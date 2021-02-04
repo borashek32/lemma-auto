@@ -8,8 +8,24 @@
                 <img src="{{ url('/storage/docs/' . $post->img) }}" width="400px" alt="{{ $post->title }}" />
             </li>
             <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
-            <li class="list-group-item"><strong>{{ $post->title }}</strong></li>
+            <li class="list-group-item">
+                <strong>
+                    {{ $post->title }}
+                </strong>
+            </li>
             <li class="list-group-item"><pre>{{ $post->body }}</pre></li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                        <p style="color:red;font-weight:700;font-size:18px">
+                            Нравится {{ $post->likes->count() }}
+                        </p>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                        <livewire:likes />
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="card mb-4" style="padding:20px">
@@ -43,7 +59,7 @@
             @endif
         </form>
     </div>
-    <h5 style="margin-top:40px">Комментарии:</h5>
+    <h5 style="margin-top:40px">Комментарии ({{ $post->comments->count() }})</h5>
     @foreach($post->comments as $comment)
         <div class="card mb-4 bg-primary" style="margin-top:10px">
             <ul class="list-group list-group-flush">

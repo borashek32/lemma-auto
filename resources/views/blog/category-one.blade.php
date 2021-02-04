@@ -19,7 +19,7 @@
                             </a>
                         </li>
                         <li class="list-group-item" style="white-space: pre-wrap;"><strong>{{ $post->quote }}</strong></li>
-{{--                        <li class="list-group-item" style="white-space: pre-wrap;">{{ $post->body }}</li>--}}
+                        {{--                        <li class="list-group-item" style="white-space: pre-wrap;">{{ $post->body }}</li>--}}
                         <li class="list-group-item"><a href="{{ route('post', $post->id) }}">Комментарии</a></li>
                     </ul>
                 </div>

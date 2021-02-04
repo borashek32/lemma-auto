@@ -18,17 +18,17 @@
                     </li>
                     <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
                     <li class="list-group-item" style="white-space: pre-wrap;"><strong>{{ $post->quote }}</strong></li>
-                    <li class="list-group-item"><a href="{{ route('post', $post->id) }}">Комментарии</a></li>
+                    <li class="list-group-item"><a href="{{ route('post', $post->id) }}">Комментарии ({{ $post->comments->count() }})</a></li>
                 </ul>
             </div>
         </div>
     @empty
+        <p class="text-center">
+            Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
+        </p>
+    @endforelse
 </div>
-<p class="text-center">
-    Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
-</p>
-@endforelse
-<div class="mx-auto">
+<div style="display: flex;justify-content: center">
     {{ $posts->appends(['search' => request()->query('search')])->links() }}
 </div>
 @endsection('content')

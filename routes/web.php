@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LikeController;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\Comments;
 use App\Http\Livewire\OneCat;
@@ -29,6 +29,7 @@ Route::post('/post/{id}', [PostController::class, 'addComment'])->name('comment'
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
 Route::get('/auto-magazine/category/{id}', OneCat::class)->name('category');
+//Route::get('/post/{id}', [LikeController::class, 'getLike'])->name('like');
 
 //Users dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

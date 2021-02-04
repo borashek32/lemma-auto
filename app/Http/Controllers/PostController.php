@@ -12,7 +12,6 @@ class PostController extends Controller
 {
     public function blog()
     {
-        $categories = Category::all();
         $search = request()->query('search');
         if ($search) {
             $posts = Post::where('body', 'LIKE', "%{$search}%")
@@ -23,16 +22,16 @@ class PostController extends Controller
             $posts = Post::latest()->paginate(6);
             $posts->withPath('/auto-magazine');
         }
-        return view('blog.blog', compact('categories', 'posts'));
+
+        return view('blog.blog', compact( 'posts'));
     }
 
-    public function post(Post $id)
-    {
-        $post = Post::find($id)->first();
-        $categories = Category::all();
-
-        return view('blog.post', compact('post', 'categories'));
-    }
+//    public function post(Post $id)
+//    {
+//        $post = Post::find($id)->first();
+//
+//        return view('blog.post', compact('post'));
+//    }
 
 //    public function __construct()
 //    {
