@@ -6,12 +6,14 @@ use App\Http\Livewire\Categories;
 use App\Http\Livewire\Comments;
 use App\Http\Livewire\OneCat;
 use App\Http\Livewire\PostOne;
+use App\Http\Livewire\Reviews;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AutopartsController;
 use App\Http\Controllers\PostController;
 use App\Http\Livewire\Posts;
+use App\Http\Livewire\Users;
 
 //Common routes
 Route::get('/', [SiteController::class, 'main'])->name('main');
@@ -40,4 +42,6 @@ Route::get('/dashboard/contacts', [DashboardController::class, 'contacts'])->nam
 Route::get('/dashboard/posts', Posts::class)->name('posts');
 Route::get('/dashboard/categories', Categories::class)->name('cats');
 Route::get('/dashboard/comments', Comments::class)->name('comments-admin');
+Route::get('/dashboard/users', Users::class)->name('users');
+Route::get('/dashboard/reviews', Reviews::class)->name('reviews-admin');
 

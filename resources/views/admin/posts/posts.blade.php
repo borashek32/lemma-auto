@@ -25,7 +25,7 @@
                 <div class="w-full md:w-8/10 text-center">
                     <input wire:model="search" type="text" class="w-full shadow appearance-none border my-3 rounded py-2
                         px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1"
-                           placeholder="Search posts:" name="search">
+                           placeholder="Поиск постов" name="search">
                     @error('search')<span class="text-red-500">{{ $message }}</span>@enderror
                 </div>
                 <div class="w-full md:w-1/10">

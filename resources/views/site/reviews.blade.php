@@ -27,7 +27,7 @@
                     <div class="alert alert-info">
                         <h6>{{ $review->name }}</h6>
                         <h7>{{ $review->created_at }}</h7>
-                        <p>{{ $review->review }}</p>
+                        <pre>{{ $review->review }}</pre>
                     </div>
                 @endforeach
             </div>

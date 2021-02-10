@@ -28,7 +28,7 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <img src="/storage/{{ $this->user->profile_photo_path }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -42,11 +42,11 @@
                     {{ __('Выбрать новое фото') }}
                 </x-jet-secondary-button>
 
-                @if ($this->user->profile_photo_path)
-                    <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Изменить фото') }}
-                    </x-jet-secondary-button>
-                @endif
+{{--                @if ($this->user->profile_photo_url)--}}
+{{--                    <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">--}}
+{{--                        {{ __('Изменить фото') }}--}}
+{{--                    </x-jet-secondary-button>--}}
+{{--                @endif--}}
 
                 <x-jet-input-error for="photo" class="mt-2" />
             </div>

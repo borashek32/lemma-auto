@@ -37,7 +37,7 @@
                                         {{ __('Manage Users') }}
                                     </div>
                                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                                        <x-jet-nav-link href="#">
+                                        <x-jet-nav-link href="{{ route('users') }}">
                                             {{ __('Все пользователи') }}
                                         </x-jet-nav-link>
                                     </div>
@@ -47,7 +47,7 @@
                                         </x-jet-nav-link>
                                     </div>
                                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                                        <x-jet-nav-link href="#">
+                                        <x-jet-nav-link href="{{ route('reviews-admin') }}">
                                             {{ __('Отзывы клиентов') }}
                                         </x-jet-nav-link>
                                     </div>
@@ -105,7 +105,7 @@
                     <x-slot name="trigger">
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                <img class="h-8 w-8 rounded-full object-cover" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
                             </button>
                         @else
                             <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">

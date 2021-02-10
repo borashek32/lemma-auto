@@ -34,7 +34,7 @@ class SiteController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        return view('site.contact');
     }
 
     protected function validator(array $data)

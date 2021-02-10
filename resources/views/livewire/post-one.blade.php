@@ -36,7 +36,7 @@
                 <p style="font-weight:600;font-size:14px">{{ Auth::user()->name }}</p>
                 <div class="row">
                     <div class="col-2">
-                        <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="rounded float-start" width="100px">
+                        <img src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" class="rounded float-start" width="100px">
                         <p style="font-size:10px">Зарегистрирован:<br>{{ Auth::user()->created_at->format('j F Y') }}</p>
                     </div>
                     <div class="col-10">
@@ -67,7 +67,7 @@
                     <p style="font-weight:600; font-size:14px">{{ $comment->user->name }}</p>
                     <div class="row">
                         <div class="col-2">
-                            <img src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" class="rounded float-start" width="100px">
+                            <img src="/storage/{{ $comment->user->profile_photo_path }}" alt="{{ $comment->user->name }}" class="rounded float-start" width="100px">
                             <p style="font-size:10px">Зарегистрирован:<br>{{ Date::parse($comment->user->created_at)->format('j F Y') }}</p>
                         </div>
                         <div class="col-10">

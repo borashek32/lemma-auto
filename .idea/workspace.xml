@@ -11,22 +11,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="661562f3-1c24-45a9-a996-df11823f6860" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/cats.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PostOne.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PostOne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ContactMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ContactMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/cats.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categories/cats.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/post.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cats.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cats.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/one-cat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/one-cat.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/posts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/reviews/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navigation-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/post-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/post-one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/reviews.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/reviews.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,25 +178,25 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/reviews" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/blog" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/comments" />
-      <recent name="$PROJECT_DIR$/resources/views/includes" />
-      <recent name="$PROJECT_DIR$/resources/views/layouts" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/users" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/reviews" />
       <recent name="$PROJECT_DIR$/resources/views/livewire" />
       <recent name="$PROJECT_DIR$/resources/views/admin/categories" />
       <recent name="$PROJECT_DIR$/resources/views/blog" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/reviews" />
+      <recent name="$PROJECT_DIR$/app/Http/Livewire" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/users" />
+      <recent name="$PROJECT_DIR$/resources/views/blog" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/comments" />
     </key>
   </component>
   <component name="RunManager">
@@ -242,7 +243,8 @@
       <workItem from="1612192463802" duration="377000" />
       <workItem from="1612193402497" duration="986000" />
       <workItem from="1612196751859" duration="914000" />
-      <workItem from="1612197740829" duration="18047000" />
+      <workItem from="1612197740829" duration="18915000" />
+      <workItem from="1612801646090" duration="5065000" />
     </task>
     <servers />
   </component>
@@ -270,10 +272,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1612451479104" />
-    <state x="481" y="190" key="NewPhpClassDialog" timestamp="1612196888242">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="481" y="183" key="NewPhpClassDialog" timestamp="1612804463016">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="481" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1612194244303" />
+    <state x="481" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1612804463016" />
     <state x="481" y="190" key="NewPhpClassDialog/0.23.1440.821@0.23.1440.821" timestamp="1612196888242" />
     <state x="539" y="380" key="NewPhpFileDialog" timestamp="1612282066158">
       <screen x="0" y="0" width="1440" height="900" />
