@@ -26,8 +26,8 @@ Route::get('/auto-parts', [AutopartsController::class, 'autoparts'])->name('auto
 Route::get('/partners', [AutopartsController::class, 'partners'])->name('partners');
 Route::get('/law', [AutopartsController::class, 'law'])->name('law');
 Route::get('/auto-magazine', [PostController::class, 'blog'])->name('blog');
-Route::get('/post/{id}', PostOne::class)->name('post');
-Route::post('/post/{id}', [PostController::class, 'addComment'])->name('comment');
+Route::get('/post/{id}/{slug}', PostOne::class)->name('post');
+Route::post('/post', [PostController::class, 'addComment'])->name('comment');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
 Route::get('/auto-magazine/category/{id}', OneCat::class)->name('category');

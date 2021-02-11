@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use Livewire\Component;
 use App\Models\Post;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 
@@ -19,6 +20,11 @@ class Posts extends Component
     public function mount()
     {
         $this->categories = Category::all();
+    }
+
+    public function updatedTitle($value)
+    {
+        $this->slug = SlugService::createSlug(Post::class, 'slug', $value);
     }
 
     public function render()
