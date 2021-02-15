@@ -13,7 +13,7 @@ class Post extends Model
 
     protected $fillable = [
         'title',
-        'quote',
+        'slug',
         'body',
         'img',
         'category_id'
@@ -41,5 +41,10 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class Categories extends Component
 {
@@ -14,6 +15,11 @@ class Categories extends Component
     {
         $categories  = Category::all();
         return view('admin.categories.cats', compact('categories'));
+    }
+
+    public function updatedTitle($value)
+    {
+        $this->slug = SlugService::createSlug(Category::class, 'slug', $value);
     }
 
     public function create()

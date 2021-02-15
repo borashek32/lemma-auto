@@ -9,15 +9,16 @@ class CreateCategoriesTable extends Migration
 
     public function up()
     {
-        Schema::create('cats.blade.php', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name', 20);
+            $table->string('slug', 26);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('cats.blade.php');
+        Schema::dropIfExists('categories');
     }
 }

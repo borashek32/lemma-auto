@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 
 class Posts extends Component
 {
-    public $title, $categories, $category, $category_id, $body, $post_id, $search, $img, $quote;
+    public $title, $categories, $category, $category_id, $body, $post_id, $search, $img;
     public $isOpen = 0;
 
     use WithFileUploads;
@@ -32,7 +32,6 @@ class Posts extends Component
         $search = '%' . $this->search . '%';
         $posts = Post::where('title', 'LIKE', $search)
             ->orWhere('body', 'LIKE', $search)
-            ->orWhere('quote', 'LIKE', $search)
             ->latest()
             ->paginate(12);
 
@@ -59,7 +58,6 @@ class Posts extends Component
     {
         $this->category_id      =      '';
         $this->title            =      '';
-        $this->quote            =      '';
         $this->body             =      '';
         $this->post_id          =      '';
     }
@@ -69,7 +67,6 @@ class Posts extends Component
         $this->validate([
             'category_id'    =>    'required',
             'title'          =>    'required',
-            'quote'          =>    'required',
             'body'           =>    'required',
             'img'            =>    'image|max:1024'
         ]);
@@ -78,7 +75,6 @@ class Posts extends Component
             ['id'             =>    $this->post_id],
             ['category_id'    =>    $this->category_id,
                 'title'          =>    $this->title,
-                'quote'          =>    $this->quote,
                 'body'           =>    $this->body,
                 'img'            =>    $this->img->hashName(),
             ]);
@@ -100,7 +96,6 @@ class Posts extends Component
         $this->category_id      =     $post->category_id;
         $this->post_id          =     $id;
         $this->title            =     $post->title;
-        $this->quote            =     $post->quote;
         $this->body             =     $post->body;
         $this->img              =     $post->img;
         $this->openModal();

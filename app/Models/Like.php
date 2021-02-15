@@ -9,8 +9,13 @@ class Like extends Model
 {
     use HasFactory;
 
-    public function category()
+    public function user()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(User::class)->withDefault();
+    }
+
+    public function likeable()
+    {
+        return $this->morphTo();
     }
 }

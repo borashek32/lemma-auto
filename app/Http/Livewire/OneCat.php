@@ -13,9 +13,9 @@ class OneCat extends Component
 
     public $search, $category;
 
-    public function mount($id)
+    public function mount($slug)
     {
-        $this->category = Category::find($id);
+        $this->category = Category::where('slug', $slug)->first();
     }
 
     public function render(Category $id)

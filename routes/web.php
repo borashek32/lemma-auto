@@ -26,11 +26,11 @@ Route::get('/auto-parts', [AutopartsController::class, 'autoparts'])->name('auto
 Route::get('/partners', [AutopartsController::class, 'partners'])->name('partners');
 Route::get('/law', [AutopartsController::class, 'law'])->name('law');
 Route::get('/auto-magazine', [PostController::class, 'blog'])->name('blog');
-Route::get('/post/{id}/{slug}', PostOne::class)->name('post');
-Route::post('/post', [PostController::class, 'addComment'])->name('comment');
+Route::get('/auto-magazine/{slug}', PostOne::class)->name('post');
+Route::post('/auto-magazine/{slug}', [PostController::class, 'addComment'])->name('comment');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
-Route::get('/auto-magazine/category/{id}', OneCat::class)->name('category');
+Route::get('/auto-magazine/{slug}', OneCat::class)->name('category');
 //Route::get('/post/{id}', [LikeController::class, 'getLike'])->name('like');
 
 //Users dashboard

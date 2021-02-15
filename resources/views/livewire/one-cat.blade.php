@@ -12,15 +12,14 @@
                         </li>
                         <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
                         <li class="list-group-item">
-                            <a href="{{ route('post', $post->id) }}" style="color: black">
+                            <a href="/auto-magazine/{{ $post->slug }}" style="color: black">
                                 <strong>
                                     {{ $post->title }}
                                 </strong>
                             </a>
                         </li>
-                        <li class="list-group-item" style="white-space: pre-wrap;"><strong>{{ $post->quote }}</strong></li>
-{{--                        <li class="list-group-item" style="white-space: pre-wrap;">{{ $post->body }}</li>--}}
-                        <li class="list-group-item"><a href="{{ route('post', $post->id) }}">Комментарии</a></li>
+                        <li class="list-group-item" style="white-space: pre-wrap;">{{ Str::limit($post->body, 50) }}</li>
+                        <li class="list-group-item"><a href="/auto-magazine/{{ $post->slug }}">Комментарии</a></li>
                     </ul>
                 </div>
             </div>

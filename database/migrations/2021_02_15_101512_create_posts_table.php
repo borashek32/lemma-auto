@@ -6,23 +6,33 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePostsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('slug', 100);
             $table->string('title', 100);
             $table->integer('category_id')
                 ->references('id')
-                ->on('cats.blade.php')
+                ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('some action');
             $table->string('img', 200);
-            $table->string('quote', 150);
             $table->string('body', 3000);
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('posts');

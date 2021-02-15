@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-10">
                             <p style="margin-bottom:10px;font-size:12px">{{ Date::parse($comment->created_at)->format('j F Y') }}</p>
-                            <p>{{ $comment->body }}</p>
+                            <pre>{{ $comment->body }}</pre>
                         </div>
                     </div>
                 </li>

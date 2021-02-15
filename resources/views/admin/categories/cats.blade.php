@@ -48,7 +48,7 @@
                 @foreach($categories as $category)
                     <tr>
                         <td class="border px-4 py-2">{{ $category->id }}</td>
-                        <td class="border px-4 py-2">{{ $category->created_at }}</td>
+                        <td class="border px-4 py-2">{{ Date::parse($category->created_at)->format('j F Y') }}</td>
                         <td class="border px-4 py-2">{{ $category->name }}</td>
                         <td class="border px-4 py-2">{{ $category->posts->count() }}</td>
                         <td class="border px-4 py-2">

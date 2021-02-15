@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
 use App\Models\Post;
 use Livewire\Component;
 
@@ -10,9 +9,9 @@ class PostOne extends Component
 {
     public $post;
 
-    public function mount($id)
+    public function mount($slug)
     {
-        $this->post = Post::find($id);
+        $this->post = Post::where('slug', $slug)->first();
     }
 
     public function render()
