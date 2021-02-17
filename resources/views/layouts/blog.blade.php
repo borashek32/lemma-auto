@@ -38,9 +38,9 @@
                         @include('includes.search')
                         @yield('content')
                     </div>
-{{--                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">--}}
-{{--                        Advs--}}
-{{--                    </div>--}}
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                        <livewire:advertisements />
+                    </div>
                 </div>
             </div>
         </div>

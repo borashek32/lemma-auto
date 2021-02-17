@@ -2,23 +2,41 @@
 @section('title-block')Автожурнал@endsection('title-block')
 @section('content')
 <div class="row">
-    @forelse(\App\Models\Post::all() as $post)
+    @forelse($posts as $post)
         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-            <div class="card mb-4 bg-dark">
+            <div class="card shadow mb-5 bg-body rounded">
                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="text-align:center;padding:0px;">
+                        <a href="{{ route('category', $post->category->slug) }}"
+                           style="font-size:12px;color:dimgrey;">
+                            {{ $post->category->name }}
+                        </a>
+                    </li>
                     <li class="list-group-item">
-                        <a href="/auto-magazine/post/{{ $post->slug }}" style="color: black">
+                        <a href="/auto-magazine/posts/{{ $post->slug }}" style="color: black">
                             <strong>
                                 {{ $post->title }}
                             </strong>
                         </a>
                     </li>
-                    <li class="list-group-item w-40" style="display: flex; justify-content: center;">
-                        <img src="{{ url('/storage/docs/' . $post->img) }}" style="width: 200px; height: 100px" alt="{{ $post->title }}" />
+                    <li class="list-group-item"
+                        style="display:flex;justify-content: center;align-items: center;padding: 10px;
+                        overflow: hidden; ">
+                        <a href="/auto-magazine/{{ $post->slug }}" style="color: black">
+                            <img src="{{ url('/storage/docs/' . $post->img) }}"
+                                 style="height: 100px; background-size: cover"
+                                 alt="{{ $post->title }}" />
+                        </a>
                     </li>
-                    <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
-                    <li class="list-group-item" style="white-space: pre-wrap;">{{ Str::limit($post->body, 50) }}</li>
-                    <li class="list-group-item"><a href="/auto-magazine/post/{{ $post->slug }}">Комментарии ({{ $post->comments->count() }})</a></li>
+                    <li class="list-group-item" style="font-size:12px;text-align:center;padding:3px;">
+                        {{ Date::parse($post->created_at)->format('j F Y') }}
+                        <a href="/auto-magazine/posts/{{ $post->slug }}">|
+                            Комментарии ({{ $post->comments->count() }})
+                        </a>
+                    </li>
+                    <li class="list-group-item" style="font-size: 14px;">
+                        {{ Str::limit($post->body, 50) }}
+                    </li>
                 </ul>
             </div>
         </div>

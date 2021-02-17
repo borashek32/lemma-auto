@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\LikeController;
+use App\Http\Livewire\Advs;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\Comments;
 use App\Http\Livewire\OneCat;
@@ -26,12 +26,14 @@ Route::get('/auto-parts', [AutopartsController::class, 'autoparts'])->name('auto
 Route::get('/partners', [AutopartsController::class, 'partners'])->name('partners');
 Route::get('/law', [AutopartsController::class, 'law'])->name('law');
 Route::get('/auto-magazine', [PostController::class, 'blog'])->name('blog');
-Route::get('/auto-magazine/{slug}', PostOne::class)->name('post');
-Route::post('/auto-magazine/{slug}', [PostController::class, 'addComment'])->name('comment');
+Route::get('/auto-magazine/posts/{slug}', PostOne::class)->name('post');
+Route::post('/auto-magazine/posts/{slug}', [PostController::class, 'addComment'])->name('comment');
+
+Route::post('/auto-magazine/posts', [PostController::class, 'reply'])->name('reply');
+
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
-Route::get('/auto-magazine/{slug}', OneCat::class)->name('category');
-//Route::get('/post/{id}', [LikeController::class, 'getLike'])->name('like');
+Route::get('/auto-magazine/category/{slug}', OneCat::class)->name('category');
 
 //Users dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -44,4 +46,5 @@ Route::get('/dashboard/categories', Categories::class)->name('cats');
 Route::get('/dashboard/comments', Comments::class)->name('comments-admin');
 Route::get('/dashboard/users', Users::class)->name('users');
 Route::get('/dashboard/reviews', Reviews::class)->name('reviews-admin');
+Route::get('/dashboard/advertisements-in-blog', Advs::class)->name('advs-blog');
 

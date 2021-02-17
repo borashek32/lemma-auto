@@ -34,7 +34,7 @@
                                 <x-slot name="content">
                                     <!-- Blog Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Users') }}
+                                        {{ __('Управление пользователями') }}
                                     </div>
                                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                         <x-jet-nav-link href="{{ route('users') }}">
@@ -67,7 +67,7 @@
                                 <x-slot name="content">
                                     <!-- Blog Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Blog') }}
+                                        {{ __('Управление блогом') }}
                                     </div>
                                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                         <x-jet-nav-link href="{{ route('posts') }}">
@@ -82,6 +82,11 @@
                                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                         <x-jet-nav-link href="{{ route('comments-admin') }}">
                                             {{ __('Комментарии') }}
+                                        </x-jet-nav-link>
+                                    </div>
+                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                        <x-jet-nav-link href="{{ route('advs-blog') }}">
+                                            {{ __('Реклама в блоге') }}
                                         </x-jet-nav-link>
                                     </div>
                                 </x-slot>

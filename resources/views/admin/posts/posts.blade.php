@@ -52,34 +52,34 @@
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-100">
-                    <th class="border px-4 py-2 w-2">No.</th>
-                    <th class="border px-4 py-2 w-16">Категория</th>
-                    <th class="border px-4 py-2 w-10">Дата</th>
-                    <th class="border px-4 py-2 w-20">Фото</th>
-                    <th class="border px-4 py-2 w-10">Название</th>
-                    <th class="border px-4 py-2 w-24">Текст</th>
-                    <th class="border px-4 py-2 w-16">Действие</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-2">No.</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Категория</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Дата</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Фото</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Название</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Текст</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
                     <tr>
-                        <td class="border px-4 py-2">{{ $post->id }}</td>
-                        <td class="border px-4 py-2">{{ $post->category->name }}</td>
-                        <td class="border px-4 py-2">{{ Date::parse($post->created_at)->format('j F Y') }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $post->id }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $post->category->name }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ Date::parse($post->created_at)->format('j F Y') }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <img src="{{ url('/storage/docs/' . $post->img) }}" class="w-20" alt="{{ $post->title }}" />
                         </td>
-                        <td class="border px-4 py-2">{{ $post->title }}</td>
-                        <td class="border px-4 py-2">{{ Str::limit($post->body, 100) }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $post->title }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ Str::limit($post->body, 50) }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <button wire:click="edit({{ $post->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать
                             </button>
                             <button wire:click="delete({{ $post->id }})" class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                 Удалить
                             </button><br>
-                            <a href="/auto-magazine/{{ $post->slug }}">
+                            <a href="/auto-magazine/posts/{{ $post->slug }}">
                                 <button class="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     Посмотреть
                                 </button>

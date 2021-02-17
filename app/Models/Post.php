@@ -5,11 +5,14 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableInterface;
+use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 
-class Post extends Model
+class Post extends Model implements ReactableInterface
 {
     use HasFactory;
     use Sluggable;
+    use Reactable;
 
     protected $fillable = [
         'title',
@@ -43,8 +46,4 @@ class Post extends Model
         ];
     }
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
 }

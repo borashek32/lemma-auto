@@ -34,24 +34,26 @@
 {{--                    </svg>--}}
 {{--                </div>--}}
             </div>
-            <table class="table-fixed w-full">
+            <table class="min-w-full">
                 <thead>
                 <tr class="bg-gray-100">
-                    <th class="border px-4 py-2 w-2">No.</th>
-                    <th class="border px-4 py-2 w-10">Дата</th>
-                    <th class="border px-4 py-2 w-10">Название</th>
-                    <th class="border px-4 py-2 w-10">Кол-во постов</th>
-                    <th class="border px-4 py-2 w-20">Действие</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">No.</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Дата</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Название</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Ссылка</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Кол-во постов</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($categories as $category)
                     <tr>
-                        <td class="border px-4 py-2">{{ $category->id }}</td>
-                        <td class="border px-4 py-2">{{ Date::parse($category->created_at)->format('j F Y') }}</td>
-                        <td class="border px-4 py-2">{{ $category->name }}</td>
-                        <td class="border px-4 py-2">{{ $category->posts->count() }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $category->id }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ Date::parse($category->created_at)->format('j F Y') }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $category->name }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $category->slug }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $category->posts->count() }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">
                             <button wire:click="edit({{ $category->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Редактировать</button>
                             <button wire:click="delete({{ $category->id }})" class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Удалить</button>
                         </td>

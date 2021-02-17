@@ -36,23 +36,33 @@
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-100">
-                    <th class="border px-4 py-2 w-2">No.</th>
-                    <th class="border px-4 py-2 w-10">Дата</th>
-                    <th class="border px-4 py-2 w-10">Имя пользователя</th>
-                    <th class="border px-4 py-2 w-24">Комментарий</th>
-                    <th class="border px-4 py-2 w-10">Действие</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-2">No.</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-10">Дата</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-20">Имя пользователя</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-40">Комментарий</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-20">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($comments as $comment)
                     <tr>
-                        <td class="border px-4 py-2">{{ $comment->id }}</td>
-                        <td class="border px-4 py-2">{{ $comment->created_at }}</td>
-                        <td class="border px-4 py-2">{{ $comment->user->name }}</td>
-                        <td class="border px-4 py-2">{{ $comment->body }}</td>
-                        <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $comment->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Редактировать</button>
-                            <button wire:click="delete({{ $comment->id }})" class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Удалить</button>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $comment->id }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ Date::parse($comment->created_at)->format('j F Y') }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $comment->user->name }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $comment->body }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
+                            <button wire:click="edit({{ $comment->id }})"
+                                    class="bg-blue-500 mb-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Редактировать
+                            </button>
+                            <a href="{{ route('post') }}"
+                                    class="mb-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                Ссылка на пост
+                            </a>
+                            <button wire:click="delete({{ $comment->id }})"
+                                    class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                Удалить
+                            </button>
                         </td>
                     </tr>
                 @endforeach

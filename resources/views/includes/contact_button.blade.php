@@ -1,5 +1,7 @@
 <div class="spacePromo">
-    <p><button type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#exampleModal">Отправить заявку</button></p>
+    <p><button type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#exampleModal">
+            Отправить заявку
+        </button></p>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

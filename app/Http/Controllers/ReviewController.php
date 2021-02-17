@@ -11,15 +11,17 @@ class ReviewController extends Controller
 
     public function reviewsPost()
     {
-        return view('site.reviews', ['reviews' => Review::all()]);
+        $reviews = Review::latest()->paginate();
+
+        return view('site.reviews', ['reviews' => $reviews]);
     }
 
 
     public function reviewsWrite(Request $req)
     {
         $review = new Review();
-        $review->name    = $req->input('name');
-        $review->review  = $req->input('review');
+        $review->user_id = auth()->user()->id;
+        $review->body  = $req->input('body');
         $review->save();
 
         return redirect('reviews')->with('success', 'Ваше сообщение опубликовано');

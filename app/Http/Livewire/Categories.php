@@ -8,18 +8,13 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class Categories extends Component
 {
-    public $category, $name, $category_id, $postCount;
+    public $category, $slug, $name, $category_id;
     public $isOpen = 0;
 
     public function render()
     {
         $categories  = Category::all();
         return view('admin.categories.cats', compact('categories'));
-    }
-
-    public function updatedTitle($value)
-    {
-        $this->slug = SlugService::createSlug(Category::class, 'slug', $value);
     }
 
     public function create()
@@ -40,16 +35,19 @@ class Categories extends Component
 
     private function resetInputFields(){
         $this->name = '';
+//        $this->slug = '';
     }
 
     public function store()
     {
         $this->validate([
-            'name'   => 'required|max:20',
+            'name'   => 'required|max:30',
+//            'slug'   => 'required|max:30'
         ]);
 
         Category::updateOrCreate(['id' => $this->category_id], [
             'name'    => $this->name,
+//            'slug'    => $this->slug,
         ]);
 
         session()->flash('message',
@@ -65,6 +63,11 @@ class Categories extends Component
         $this->category_id    =    $id;
         $this->name           =    $category->name;
         $this->openModal();
+    }
+
+    public function updatedTitle()
+    {
+        $this->slug = SlugService::createSlug(Category::class, 'slug', $this->name);
     }
 
     public function delete($id)
