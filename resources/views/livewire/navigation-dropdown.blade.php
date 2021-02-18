@@ -16,10 +16,43 @@
                     </x-jet-nav-link>
                 </div>
                     @if(Auth::user()->hasRole('super-admin'))
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                            <x-jet-nav-link href="#" :active="request()->routeIs('dashboard')">
-                                {{ __('Каталог а/з') }}
-                            </x-jet-nav-link>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                        <x-jet-nav-link href="{{ route('advs-blog') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Реклама') }}
+                        </x-jet-nav-link>
+                    </div>
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <x-jet-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                    <button class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                        <x-jet-nav-link href="#">
+                                            {{ __('Каталог') }}
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </x-jet-nav-link>
+                                    </button>
+                                </x-slot>
+                                <x-slot name="content">
+                                    <!-- Blog Management -->
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ __('Управление каталогом автозапчастей') }}
+                                    </div>
+                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                        <x-jet-nav-link href="{{ route('sections') }}">
+                                            {{ __('Категории каталога') }}
+                                        </x-jet-nav-link>
+                                    </div>
+                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                        <x-jet-nav-link href="{{ route('auto-parts-admin') }}">
+                                            {{ __('Автозапчасти') }}
+                                        </x-jet-nav-link>
+                                    </div>
+{{--                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">--}}
+{{--                                        <x-jet-nav-link href="#">--}}
+{{--                                            {{ __('Отзывы клиентов') }}--}}
+{{--                                        </x-jet-nav-link>--}}
+{{--                                    </div>--}}
+                                </x-slot>
+                            </x-jet-dropdown>
                         </div>
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <x-jet-dropdown align="right" width="48">
@@ -84,11 +117,6 @@
                                             {{ __('Комментарии') }}
                                         </x-jet-nav-link>
                                     </div>
-                                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                                        <x-jet-nav-link href="{{ route('advs-blog') }}">
-                                            {{ __('Реклама в блоге') }}
-                                        </x-jet-nav-link>
-                                    </div>
                                 </x-slot>
                             </x-jet-dropdown>
                         </div>
@@ -96,11 +124,6 @@
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                         <x-jet-nav-link href="{{ route('contacts') }}" :active="request()->routeIs('dashboard')">
                             {{ __('Контакты') }}
-                        </x-jet-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                        <x-jet-nav-link href="{{ route('main') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('На главную') }}
                         </x-jet-nav-link>
                     </div>
                 </div>

@@ -39,7 +39,7 @@
                         <p class="text">Мы предоставляем возможность найти и купить запасные части по
                             оптимальной цене. Мы сотрудничаем с надежными магазинами автозапчастей,
                             а так же постоянно работаем над наполнением базы поставщиков.</p>
-                        <p><a class="btn btn-outline-danger" href="{{ route('autoparts') }}">Подробнее &raquo;</a></p>
+                        <p><a class="btn btn-outline-danger" href="{{ route('auto-parts') }}">Подробнее &raquo;</a></p>
                     </div>
                 </div>
             </div>

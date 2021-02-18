@@ -14,7 +14,7 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/auto-magazine/{{ $post->slug }}" style="color: black">
+                            <a href="/auto-magazine/posts/{{ $post->slug }}" style="color: black">
                                 <strong>
                                     {{ $post->title }}
                                 </strong>

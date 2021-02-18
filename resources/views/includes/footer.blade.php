@@ -8,10 +8,10 @@
         <div class="col-6 col-md">
             <h6>Автозапчасти</h6>
             <ul class="list-unstyled text">
-                <li><a class="text-muted" href="{{ route('autoparts') }}">Магазин</a></li>
+                <li><a class="text-muted" href="{{ route('auto-parts') }}">Магазин</a></li>
                 <li><a class="text-muted" href="{{ route('partners') }}">Наши партнеры</a></li>
-                <li><a class="text-muted" href="{{ route('autoparts') }}">Доставка</a></li>
-                <li><a class="text-muted" href="{{ route('autoparts') }}">Оплата</a></li>
+                <li><a class="text-muted" href="{{ route('auto-parts') }}">Доставка</a></li>
+                <li><a class="text-muted" href="{{ route('auto-parts') }}">Оплата</a></li>
                 <li><a class="text-muted" href="#">Возврат</a></li>
             </ul>
         </div>

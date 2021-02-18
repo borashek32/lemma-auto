@@ -1,12 +1,12 @@
-@foreach($categories as $category)
+@foreach($sections as $section)
     <div class="list-group shadow mb-2">
-        <a href="{{ route('category', $category->slug) }}"
+        <a href="#"
            class="list-group-item list-group-item-action list-group-item-secondary">
             <p style="font-size:14px;color:black;margin:0px">
-                {{ $category->name }}
+                {{ $section->name }}
                 <span class="badge bg-light rounded-pill">
-                    {{ $category->posts->count() }}
-                </span>
+            {{ $section->autoparts->count() }}
+        </span>
             </p>
         </a>
     </div>

@@ -38,18 +38,26 @@
     <div class="row">
         @foreach($reviews as $review)
             <div class="col-6">
-                <div class="card shadow mb-5 bg-body rounded">
+                <div class="card shadow mb-4" style="margin-top:10px">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style="padding-top:10px;padding-left:20px; ">
-                            <strong>
-                                {{ $review->user->name }}
-                            </strong>
-                            <p style="font-size:12px;margin: 0px">
-                                {{ Date::parse($review->created_at)->format('j F Y') }}
-                            </p>
-                        </li>
-                        <li class="list-group-item" style="font-size: 14px;">
-                            {{ Str::limit($review->body, 100) }}
+                        <li class="list-group-item w-40">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
+                                    <p style="font-weight:600; font-size:14px">{{ $review->user->name }}</p>
+                                </div>
+                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-8 col-8">
+                                    <p style="margin-left:20px;font-size:12px">{{ Date::parse($review->created_at)->format('j F Y') }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
+                                    <img src="/storage/{{ $review->user->profile_photo_path }}" alt="{{ $review->user->name }}" class="rounded float-start" width="100px">
+                                    <p style="font-size:10px">Зарегистрирован:<br>{{ Date::parse($review->user->created_at)->format('j F Y') }}</p>
+                                </div>
+                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-8 col-8">
+                                    <pre style="margin-left:20px;mergin-top:0px; margin-bottom:0px;margin-right: 0px">{{ $review->body }}</pre>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>

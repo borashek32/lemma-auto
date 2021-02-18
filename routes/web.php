@@ -2,15 +2,17 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\Advs;
+use App\Http\Livewire\Autoparts;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\Comments;
 use App\Http\Livewire\OneCat;
 use App\Http\Livewire\PostOne;
 use App\Http\Livewire\Reviews;
+use App\Http\Livewire\Sections;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SiteController;
-use App\Http\Controllers\AutopartsController;
+use App\Http\Controllers\AutopartController;
 use App\Http\Controllers\PostController;
 use App\Http\Livewire\Posts;
 use App\Http\Livewire\Users;
@@ -22,15 +24,14 @@ Route::get('/services', [SiteController::class, 'services'])->name('services');
 Route::get('/before', [SiteController::class, 'before'])->name('before');
 Route::get('/possibilities', [SiteController::class, 'possibilities'])->name('possibilities');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
-Route::get('/auto-parts', [AutopartsController::class, 'autoparts'])->name('autoparts');
-Route::get('/partners', [AutopartsController::class, 'partners'])->name('partners');
-Route::get('/law', [AutopartsController::class, 'law'])->name('law');
+Route::get('/auto-parts', [AutopartController::class, 'autoparts'])->name('auto-parts');
+
+Route::get('/partners', [AutopartController::class, 'partners'])->name('partners');
+Route::get('/law', [AutopartController::class, 'law'])->name('law');
 Route::get('/auto-magazine', [PostController::class, 'blog'])->name('blog');
 Route::get('/auto-magazine/posts/{slug}', PostOne::class)->name('post');
 Route::post('/auto-magazine/posts/{slug}', [PostController::class, 'addComment'])->name('comment');
-
 Route::post('/auto-magazine/posts', [PostController::class, 'reply'])->name('reply');
-
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
 Route::get('/auto-magazine/category/{slug}', OneCat::class)->name('category');
@@ -47,4 +48,6 @@ Route::get('/dashboard/comments', Comments::class)->name('comments-admin');
 Route::get('/dashboard/users', Users::class)->name('users');
 Route::get('/dashboard/reviews', Reviews::class)->name('reviews-admin');
 Route::get('/dashboard/advertisements-in-blog', Advs::class)->name('advs-blog');
+Route::get('/dashboard/sections', Sections::class)->name('sections');
+Route::get('/dashboard/auto-parts', Autoparts::class)->name('auto-parts-admin');
 

@@ -3,15 +3,21 @@
 @section('content')
     <div class="card mb-4 shadow">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Категория: {{ $post->category->name }}</li>
+            <li class="list-group-item">
+                <p class="text-center m-0" style="font-weight:600">
+                    {{ $post->title }}
+                </p>
+            </li>
             <li class="list-group-item w-40" style="display: flex; justify-content: center;">
                 <img src="{{ url('/storage/docs/' . $post->img) }}" width="400px" alt="{{ $post->title }}" />
             </li>
-            <li class="list-group-item">{{ Date::parse($post->created_at)->format('j F Y') }}</li>
             <li class="list-group-item">
-                <strong>
-                    {{ $post->title }}
-                </strong>
+                <p style="font-size:14px;margin:0px;">
+                    Категория: {{ $post->category->name }}
+                </p>
+                <p style="font-size:12px;margin:0px;">
+                    {{ Date::parse($post->created_at)->format('j F Y') }}
+                </p>
             </li>
             <li class="list-group-item"><pre>{{ $post->body }}</pre></li>
 {{--            <li class="list-group-item">--}}

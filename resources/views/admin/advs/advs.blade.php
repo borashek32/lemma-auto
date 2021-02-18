@@ -37,29 +37,29 @@
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-100">
-                    <th class="border px-4 py-2 w-2">No.</th>
-                    <th class="border px-4 py-2 w-20">Дата</th>
-                    <th class="border px-4 py-2 w-10">Фото</th>
-                    <th class="border px-4 py-2 w-20">Название</th>
-                    <th class="border px-4 py-2 w-24">Ссылка</th>
-                    <th class="border px-4 py-2 w-16">Действие</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-2">No.</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-40">Дата</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-40">Фото</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-40">Название</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider w-80">Ссылка</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($advs as $adv)
                     <tr>
-                        <td class="border px-4 py-2">{{ $adv->id }}</td>
-                        <td class="border px-4 py-2">{{ Date::parse($adv->created_at)->format('j F Y') }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $adv->id }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ Date::parse($adv->created_at)->format('j F Y') }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">
                             <img src="{{ url('/storage/advs/' . $adv->img) }}" class="w-20" alt="{{ $adv->title }}" />
                         </td>
-                        <td class="border px-4 py-2">{{ $adv->title }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $adv->title }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <a href="{{ $adv->link }}">
-                                {{ Str::limit($adv->link, 40) }}
+                                {{ Str::limit($adv->link, 50) }}
                             </a>
                         </td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <button wire:click="edit({{ $adv->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать
                             </button>

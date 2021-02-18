@@ -36,7 +36,9 @@
                     </div>
                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                         @include('includes.search')
-                        @yield('content')
+                        <div class="card shadow bg-body rounded" style="padding: 15px;">
+                            @yield('content')
+                        </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
                         <livewire:advertisements />

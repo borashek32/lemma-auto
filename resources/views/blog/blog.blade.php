@@ -4,7 +4,7 @@
 <div class="row">
     @forelse($posts as $post)
         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-            <div class="card shadow mb-5 bg-body rounded">
+            <div class="card mb-4 bg-body rounded border border-secondary">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" style="text-align:center;padding:0px;">
                         <a href="{{ route('category', $post->category->slug) }}"
