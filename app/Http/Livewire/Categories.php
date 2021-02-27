@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class Categories extends Component
 {
-    public $slug, $name, $category, $category_id;
+    public $name, $category, $category_id;
     public $isOpen = 0;
 
     public function render()
@@ -46,12 +46,10 @@ class Categories extends Component
     {
         $this->validate([
             'name'   => 'required|max:30',
-            'slug'   => 'required|max:30',
         ]);
 
         Category::updateOrCreate(['id' => $this->category_id], [
             'name'    => $this->name,
-            'slug'    => $this->slug,
         ]);
 
         session()->flash('message',
@@ -65,7 +63,6 @@ class Categories extends Component
     {
         $category             =    Category::findOrFail($id);
         $this->category_id    =    $id;
-        $this->slug           =    $category->slug;
         $this->name           =    $category->name;
         $this->openModal();
     }

@@ -5,7 +5,7 @@
     <div class="row">
         @forelse($category->posts as $post)
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                <div class="card shadow mb-5 bg-body rounded">
+                <div class="card mb-4 bg-body rounded border border-secondary">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" style="text-align:center;padding:0px;">
                             <a href="{{ route('category', $post->category->slug) }}"
@@ -23,7 +23,7 @@
                         <li class="list-group-item"
                             style="display:flex;justify-content: center;align-items: center;padding: 10px;
                         overflow: hidden; ">
-                            <a href="/auto-magazine/{{ $post->slug }}" style="color: black">
+                            <a href="/auto-magazine/posts/{{ $post->slug }}" style="color: black">
                                 <img src="{{ url('/storage/docs/' . $post->img) }}"
                                      style="height: 100px; background-size: cover"
                                      alt="{{ $post->title }}" />
@@ -42,7 +42,7 @@
                 </div>
             </div>
         @empty
-            <p class="text-center">
+            <p class="text-center ml-3">
                 Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
             </p>
         @endforelse

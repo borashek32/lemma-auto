@@ -22,7 +22,7 @@
                     <li class="list-group-item"
                         style="display:flex;justify-content: center;align-items: center;padding: 10px;
                         overflow: hidden; ">
-                        <a href="/auto-magazine/{{ $post->slug }}" style="color: black">
+                        <a href="/auto-magazine/posts/{{ $post->slug }}" style="color: black">
                             <img src="{{ url('/storage/docs/' . $post->img) }}"
                                  style="height: 100px; background-size: cover"
                                  alt="{{ $post->title }}" />

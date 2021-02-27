@@ -11,7 +11,7 @@
                 <p style="font-weight:600;font-size:14px">{{ Auth::user()->name }}</p>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
-                        <img src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}"
+                        <img src="{{ url('/storage/' . Auth::user()->profile_photo_path) }}" alt="{{ Auth::user()->name }}"
                              class="rounded float-start" width="100px" style="margin-right:10px">
                         <p style="font-size:10px">Зарегистрирован:<br>{{ Auth::user()->created_at->format('j F Y') }}</p>
                     </div>

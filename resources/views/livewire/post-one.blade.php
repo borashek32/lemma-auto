@@ -1,7 +1,7 @@
 @extends('layouts.blog')
 @section('title-block')Автожурнал@endsection('title-block')
 @section('content')
-    <div class="card mb-4 shadow">
+    <div class="card mb-4 bg-body rounded border border-secondary">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <p class="text-center m-0" style="font-weight:600">
@@ -34,7 +34,7 @@
 {{--            </li>--}}
         </ul>
     </div>
-    <div class="card shadow mb-4" style="padding:20px">
+    <div class="card mb-4 bg-body rounded border border-secondary" style="padding:20px">
         <form method="POST" action="{{ route('comment', $post->id) }}">
             {{ csrf_field() }}
             <input type="hidden" name="post_id" value="{{ $post->id }}">
@@ -67,7 +67,7 @@
     </div>
     <h5 style="margin-top:40px">Комментарии ({{ $post->comments->count() }})</h5>
     @foreach($post->comments as $comment)
-        <div class="card shadow mb-4" style="margin-top:10px">
+        <div class="card mb-4 bg-body rounded border border-secondary" style="margin-top:10px">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item w-40">
                     <div class="row">
