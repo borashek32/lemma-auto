@@ -12,9 +12,14 @@ use Jenssegers\Date\Date;
 
 class SiteController extends Controller
 {
+    public function dashboard()
+    {
+        return view('profile.show');
+    }
+
     public function main()
     {
-        return view('main');
+        return view('site.main');
     }
 
     public function before()

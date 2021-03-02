@@ -11,26 +11,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="661562f3-1c24-45a9-a996-df11823f6860" name="Default Changelist" comment="post">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/contacts/contacts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/contacts/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/dynamic_email_get-replies.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/dynamic_email_template.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/cats.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/likes.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/one-cat.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/post-one.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/contacts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/shop/one-section.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/shop/sections.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutopartsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutopartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/advs/advs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advs/advs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Advertisements.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Advs.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Autoparts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Categories.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Cats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Comments.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Likes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/OneCat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/OneSection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PostOne.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Posts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Reviews.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Sections.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Sects.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Users.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ContactMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ContactMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Review.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profile/delete-user-form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profile/logout-other-browser-sessions-form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profile/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profile/two-factor-authentication-form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profile/update-password-form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profile/update-profile-information-form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/comments/comments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/comments/comments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/reviews/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/reviews/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/reviews/reviews.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/reviews/reviews.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dynamic_email_get-replies.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dynamic_email_template.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/advertisements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/advertisements.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cats.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cats.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/advertisements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user/advertisements/advertisements.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cats.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/likes.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/one-cat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/one-cat.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/post-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/post-one.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/autoparts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/autoparts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/one-cat.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/one-section.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/post-one.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sections-catalogue.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sections.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sects.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/contact.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/reviews.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/reviews.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +228,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/shop/autoparts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -250,6 +301,11 @@
       <workItem from="1612196751859" duration="914000" />
       <workItem from="1612197740829" duration="18915000" />
       <workItem from="1612801646090" duration="5371000" />
+      <workItem from="1614439117477" duration="9000" />
+      <workItem from="1614439761641" duration="72000" />
+      <workItem from="1614441389124" duration="1986000" />
+      <workItem from="1614525763094" duration="434000" />
+      <workItem from="1614722535949" duration="2617000" />
     </task>
     <servers />
   </component>

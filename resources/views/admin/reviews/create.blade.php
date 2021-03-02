@@ -12,22 +12,19 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <p style="margin-bottom: 10px">Отзыв</p>
-                        <div class="mb-4">
-                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
-                                Имя:
-                            </label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
-                                   placeholder="Введите имя" wire:model="name">
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
+                        {{--                        <div class="mb-4">--}}
+                        {{--                            <label  for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">--}}
+                        {{--                                Имя: {{ $review->user->name }}--}}
+                        {{--                            </label>--}}
+                        {{--                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror--}}
+                        {{--                        </div>--}}
                         <div class="mb-4">
                             <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">
                                 Текст:
                             </label>
                             <textarea wrap="hard" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
                             leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput3"
-                                      wire:model="review" placeholder="Введите текст"></textarea>
+                                      wire:model="body" placeholder="Введите текст"></textarea>
                             @error('review') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>

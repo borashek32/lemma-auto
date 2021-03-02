@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-        <livewire:sects />
+        <livewire:user.shop.sections />
     </div>
     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
         <h5 class="mb-2">Поиск автозапчастей</h5>
@@ -10,7 +10,6 @@
                    aria-label="Username" id="search" name="search" aria-describedby="basic-addon1">
             <button type="submit" class="btn btn-secondary" style="height: 40px">Поиск</button>
         </form>
-
             @if(!empty($search))
             <table class="table table-hover">
                 <thead>
@@ -25,7 +24,7 @@
                 @forelse($autoparts as $autopart)
                     <tbody>
                     <tr>
-                        <form>
+                        <form method="get" action="{{ route('cart', $autopart->slug) }}">
                             <td>{{ $autopart->number }}</td>
                             <td>{{ $autopart->title }}</td>
                             <td></td>
@@ -51,13 +50,12 @@
             @else
             Вы можете найти нужную автозапчасть по каталожному номеру или по названию.
             @endif
-
         <div style="display: flex;justify-content: center">
             {{ $autoparts->appends(['search' => request()->query('search')])->links() }}
         </div>
     </div>
     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-        <livewire:advertisements />
+        <livewire:user.advertisements.advertisements />
     </div>
     </div>
 </div>

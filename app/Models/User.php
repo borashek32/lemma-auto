@@ -47,11 +47,16 @@ class User extends Authenticatable implements ReacterableInterface
 
     public function comments()
     {
-        return $this->hasMany(Comments::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

@@ -1,6 +1,6 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Управление пользователями
+        Управление отзывами
     </h2>
 </x-slot>
 <div class="py-4">
@@ -25,7 +25,7 @@
                 <div class="w-full md:w-8/10 text-center">
                     <input wire:model="search" type="text" class="w-full shadow appearance-none border my-3 rounded py-2
                         px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1"
-                           placeholder="Поиск пользоватьелей" name="search">
+                           placeholder="Поиск отзывов" name="search">
                     @error('search')<span class="text-red-500">{{ $message }}</span>@enderror
                 </div>
                 <div class="w-full md:w-1/10">
@@ -48,9 +48,9 @@
                 @foreach($reviews as $review)
                     <tr>
                         <td class="border px-4 py-2">{{ $review->id }}</td>
-                        <td class="border px-4 py-2">{{ $review->name }}</td>
-                        <td class="border px-4 py-2">{{ $review->review }}</td>
-                        <td class="border px-4 py-2">{{ $review->created_at }}</td>
+                        <td class="border px-4 py-2">{{ $review->user->name }}</td>
+                        <td class="border px-4 py-2">{{ $review->body }}</td>
+                        <td class="border px-4 py-2">{{ Date::parse($review->created_at)->format('j F Y') }}</td>
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $review->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать

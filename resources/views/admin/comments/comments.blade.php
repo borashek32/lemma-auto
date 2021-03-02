@@ -55,7 +55,7 @@
                                     class="bg-blue-500 mb-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать
                             </button>
-                            <a href="{{ route('post') }}"
+                            <a href="{{ route('post', $comment->post->slug) }}"
                                     class="mb-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                 Ссылка на пост
                             </a>

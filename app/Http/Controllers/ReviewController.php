@@ -19,9 +19,9 @@ class ReviewController extends Controller
 
     public function reviewsWrite(Request $req)
     {
-        $review = new Review();
+        $review          = new Review();
         $review->user_id = auth()->user()->id;
-        $review->body  = $req->input('body');
+        $review->body    = $req->input('body');
         $review->save();
 
         return redirect('reviews')->with('success', 'Ваше сообщение опубликовано');

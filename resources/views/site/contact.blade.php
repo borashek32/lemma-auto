@@ -34,28 +34,7 @@
                 </form>
             </div>
             <div class="col-lg-6 col-xl-6 col-md-6">
-                <p style="font-size:18px">
-                    Наши офисы
-                </p>
-                <div class="row">
-                    <div class="col-lg-6 col-xl-6 col-md-6">
-                        <p class="text">108814, город Москва, поселение Сосенское,<br>
-                            поселок Коммунарка, Бачуринская улица,<br>
-                            дом 317Ю, офис 5а</p>
-                        <a href="tel:+79267013882" class="textAddress">+7 926 701 3882</a>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 col-md-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d72159.
-                            36227152712!2d37.290968757666185!3d55.584954912392895!2m3!1f0!2f0!3f0!3m2
-                            !1i1024!2i768!4f13.1!3m3!1m2!1s0x46b553bd00000001%3A0x2ebc8c7f52a1e330!2z0
-                            JjQvdGC0LXRgNGC0YDQsNC90YHRgdC10YDQstC40YEsINC-0YTQuNGG0LjQsNC70YzQvdGL0Lkg
-                            0LTQuNC70LXRgCBNQU4!5e0!3m2!1sen!2sru!4v1591813209576!5m2!1sen!2sru"
-                                width="300" height="200" frameborder="0" style="border:0;" allowfullscreen=""
-                                aria-hidden="false"
-                                tabindex="0">
-                        </iframe>
-                    </div>
-                </div>
+                <livewire:user.contacts />
             </div>
         </div>
     </div>
