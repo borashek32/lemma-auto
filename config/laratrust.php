@@ -95,7 +95,7 @@ return [
         /**
          * Will be used only if the teams functionality is enabled.
          */
-        'team' => \App\Models\Team::class,
+        'members' => \App\Models\Team::class,
     ],
 
     /*
@@ -151,7 +151,7 @@ return [
         /**
          * Role foreign key on Laratrust's role_user and permission_user tables.
          */
-        'team' => 'team_id',
+        'members' => 'team_id',
     ],
 
     /*
@@ -221,9 +221,9 @@ return [
         |--------------------------------------------------------------------------
         |
         | Determines if a strict check should be done when checking if a role or permission
-        | is attached inside a team.
-        | If it's false, when checking a role/permission without specifying the team,
-        | it will check only if the user has attached that role/permission ignoring the team.
+        | is attached inside a members.
+        | If it's false, when checking a role/permission without specifying the members,
+        | it will check only if the user has attached that role/permission ignoring the members.
         |
         */
         'strict_check' => false,

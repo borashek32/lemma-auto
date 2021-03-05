@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.3",
         "cviebrock/eloquent-sluggable": "^8.0",
-        "cybercog/laravel-love": "^8.7",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

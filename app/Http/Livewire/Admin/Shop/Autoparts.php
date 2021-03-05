@@ -3,27 +3,15 @@
 namespace App\Http\Livewire\Admin\Shop;
 
 use App\Models\Autopart;
-use App\Models\Section;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Autoparts extends Component
 {
-    public $title, $number, $sections, $section_id, $autopart_id, $search;
+    public $title, $number, $price, $delivery_time, $autopart_id, $search;
     public $isOpen = 0;
 
     use WithPagination;
-
-    public function mount()
-    {
-        $this->sections = Section::all();
-    }
-
-    public function updatedTitle()
-    {
-        $this->slug = SlugService::createSlug(Autopart::class, 'slug', $this->title);
-    }
 
     public function render()
     {
@@ -33,7 +21,7 @@ class Autoparts extends Component
             ->latest()
             ->paginate(12);
 
-        return view('admin.shop.autoparts.autoparts', ['autoparts' => $autoparts])->layout('layouts.app');
+        return view('admin.shop.autoparts', ['autoparts' => $autoparts])->layout('layouts.app');
     }
 
     public function create()
@@ -54,25 +42,28 @@ class Autoparts extends Component
 
     private function resetInputFields()
     {
-        $this->section_id      =      '';
         $this->title           =      '';
         $this->number          =      '';
+        $this->price           =      '';
+        $this->delivery_time   =      '';
         $this->autopart_id     =      '';
     }
 
     public function store()
     {
         $this->validate([
-            'section_id'     =>    'required',
             'title'          =>    'required',
             'number'         =>    'required',
+            'price'          =>    'required',
+            'delivery_time'  =>    'required',
         ]);
 
         Autopart::updateOrCreate(
-            ['id'             =>    $this->autopart_id],
-            ['section_id'     =>    $this->section_id,
-                'title'       =>    $this->title,
-                'number'      =>    $this->number,
+            ['id'                    =>    $this->autopart_id],
+            ['title'                 =>    $this->title,
+                'number'             =>    $this->number,
+                'price'              =>    $this->price,
+                'delivery_time'      =>    $this->delivery_time,
             ]);
 
         session()->flash('message',
@@ -85,10 +76,11 @@ class Autoparts extends Component
     public function edit($id)
     {
         $autopart                   =     Autopart::findOrFail($id);
-        $this->section_id       =     $autopart->section_id ;
         $this->autopart_id      =     $id;
         $this->title            =     $autopart->title;
         $this->number           =     $autopart->number;
+        $this->price            =     $autopart->price;
+        $this->delivery_time    =     $autopart->delivery_time;
         $this->openModal();
     }
 

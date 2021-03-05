@@ -8,7 +8,6 @@ use Jenssegers\Date\Date;
 
 class ReviewController extends Controller
 {
-
     public function reviewsPost()
     {
         $reviews = Review::latest()->paginate();
@@ -26,5 +25,4 @@ class ReviewController extends Controller
 
         return redirect('reviews')->with('success', 'Ваше сообщение опубликовано');
     }
-
 }

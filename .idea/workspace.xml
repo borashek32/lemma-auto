@@ -11,71 +11,145 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="661562f3-1c24-45a9-a996-df11823f6860" name="Default Changelist" comment="post">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/contacts/contacts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/contacts/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/dynamic_email_get-replies.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/dynamic_email_template.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/cats.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/likes.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/one-cat.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/blog/post-one.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/contacts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/shop/one-section.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user/shop/sections.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lemma-auto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lemma-auto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LikeController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Advertisements.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Advs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Autoparts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Categories.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Cats.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Comments.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Likes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/OneCat.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/OneSection.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PostOne.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Posts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Reviews.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Sections.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Sects.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Users.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ContactMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ContactMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Review.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Blog/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Blog/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Shop/Autoparts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Shop/Autoparts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Shop/Sections.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Blog/OneCat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Blog/PostOne.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Shop/Cart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Shop/OneSection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Shop/Sections.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Autopart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Autopart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Membership.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Section.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profile/delete-user-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profile/logout-other-browser-sessions-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profile/show.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profile/two-factor-authentication-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profile/update-password-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profile/update-profile-information-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/comments/comments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/comments/comments.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/reviews/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/reviews/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/reviews/reviews.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/reviews/reviews.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dynamic_email_get-replies.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dynamic_email_template.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/TeamPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/TeamPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/laratrust.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laratrust.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_15_114117_add_love_reacter_id_to_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_15_115343_add_love_reactant_id_to_posts_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_18_110918_create_sections_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_18_111108_create_autoparts_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/shop/autoparts/autoparts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/shop/autoparts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/shop/autoparts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/shop/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/shop/sections/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/shop/sections/sections.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/cats.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/advertisements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user/advertisements/advertisements.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cats.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/likes.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auto-parts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auto-parts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/one-cat.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/one-section.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/post-one.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sections-catalogue.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sections.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sects.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/reviews.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/reviews.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user/blog/one-cat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/one-cat.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user/blog/post-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/post-one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/autoparts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/autoparts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/shop.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/pagination/bootstrap-4.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/UPGRADING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/config/love.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Exceptions/LoveThrowable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactable/Exceptions/AlreadyRegisteredAsLoveReactant.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactable/Exceptions/ReactableInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactable/Models/Reactable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/Exceptions/NotAssignedToReactable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/Exceptions/ReactantInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/Facades/Reactant.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/Models/Reactant.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/ReactionCounter/Exceptions/ReactionCounterDuplicate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/ReactionCounter/Exceptions/ReactionCounterInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/ReactionCounter/Models/ReactionCounter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/ReactionTotal/Exceptions/ReactionTotalDuplicate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/ReactionTotal/Exceptions/ReactionTotalInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reactant/ReactionTotal/Models/ReactionTotal.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacter/Exceptions/NotAssignedToReacterable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacter/Exceptions/ReacterInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacter/Facades/Reacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacter/Models/Reacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacterable/Exceptions/AlreadyRegisteredAsLoveReacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacterable/Exceptions/ReacterableInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reacterable/Models/Reacterable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reaction/Exceptions/RateInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reaction/Exceptions/RateOutOfRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reaction/Exceptions/ReactionAlreadyExists.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reaction/Exceptions/ReactionNotExists.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/Reaction/Models/Reaction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/ReactionType/Exceptions/ReactionTypeInvalid.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/contracts/ReactionType/Models/ReactionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/database/migrations/2018_07_22_000100_create_love_reacters_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/database/migrations/2018_07_22_001000_create_love_reactants_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/database/migrations/2018_07_22_001500_create_love_reaction_types_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/database/migrations/2018_07_22_002000_create_love_reactions_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/database/migrations/2018_07_25_000000_create_love_reactant_reaction_counters_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/database/migrations/2018_07_25_001000_create_love_reactant_reaction_totals_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/ReactionTypeAdd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/Recount.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/RegisterReactants.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/RegisterReacters.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/SetupReactable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/SetupReacterable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/UpgradeV5ToV6.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Console/Commands/UpgradeV7ToV8.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/LoveEventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/LoveServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactable/Models/Traits/Reactable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactable/Observers/ReactableObserver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Facades/Reactant.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Jobs/DecrementReactionAggregatesJob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Jobs/IncrementReactionAggregatesJob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Jobs/RebuildReactionAggregatesJob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Listeners/DecrementAggregates.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Listeners/IncrementAggregates.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Models/NullReactant.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/Models/Reactant.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionCounter/Models/NullReactionCounter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionCounter/Models/ReactionCounter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionCounter/Observers/ReactionCounterObserver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionCounter/Services/ReactionCounterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionTotal/Models/NullReactionTotal.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionTotal/Models/ReactionTotal.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionTotal/Observers/ReactionTotalObserver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reactant/ReactionTotal/Services/ReactionTotalService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reacter/Facades/Reacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reacter/Models/NullReacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reacter/Models/Reacter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reacterable/Models/Traits/Reacterable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reacterable/Observers/ReacterableObserver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reaction/Events/ReactionHasBeenAdded.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reaction/Events/ReactionHasBeenRemoved.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reaction/Models/Reaction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Reaction/Observers/ReactionObserver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/ReactionType/Models/ReactionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Support/Database/AddForeignColumnStub.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Support/Database/Eloquent/Model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Support/Database/Migration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Support/Database/MigrationCreator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Support/Database/Stubs/AddForeignColumn.stub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/cybercog/laravel-love/src/Support/Database/Stubs/AddForeignNullableColumn.stub" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +290,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
-      <path value="$PROJECT_DIR$/vendor/cybercog/laravel-love" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/studio-42/elfinder" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-elfinder" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/elfinder-flysystem-driver" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-cached-adapter" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iE47Wfcjs1BjcEgNSquL1XkpW3" />
@@ -240,19 +319,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/livewire" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/shop/sections" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/shop" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/advs" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/users" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/members" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/team" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/resources/views/shop" />
       <recent name="$PROJECT_DIR$/resources/views/admin/shop/autoparts" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/shop/sections" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/app/Http/Livewire" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/shop" />
+      <recent name="$PROJECT_DIR$/resources/views/blog" />
+      <recent name="$PROJECT_DIR$/resources/views/livewire" />
     </key>
   </component>
   <component name="RunManager">
@@ -306,6 +385,8 @@
       <workItem from="1614441389124" duration="1986000" />
       <workItem from="1614525763094" duration="434000" />
       <workItem from="1614722535949" duration="2617000" />
+      <workItem from="1614964010448" duration="11314000" />
+      <workItem from="1614978317536" duration="2900000" />
     </task>
     <servers />
   </component>
@@ -323,32 +404,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="525" y="85" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1613648594199">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="525" y="85" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1613648594199" />
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613561259521">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1613561259521" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1613658881103">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1613658881103" />
-    <state x="481" y="183" key="NewPhpClassDialog" timestamp="1612804463016">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="481" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1612804463016" />
-    <state x="481" y="190" key="NewPhpClassDialog/0.23.1440.821@0.23.1440.821" timestamp="1612196888242" />
-    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1613661215624">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1613661215624" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1611254216171">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1611254216171" />
   </component>
 </project>

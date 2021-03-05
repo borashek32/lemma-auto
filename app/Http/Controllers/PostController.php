@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Reply;
@@ -24,6 +25,30 @@ class PostController extends Controller
         }
 
         return view('blog.blog', compact( 'posts'));
+    }
+
+    public function onePost($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        return view('blog.post-one', compact('post'));
+    }
+
+    public function category($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $search = request()->query('search');
+        if ($search) {
+            $posts = Post::where('body', 'LIKE', "%{$search}%")
+                ->orWhere('title', 'LIKE', "%{$search}%")
+                ->latest()
+                ->paginate(6);
+        } else {
+            $posts = Post::latest()->paginate(6);
+            $posts->withPath('/auto-magazine');
+        }
+
+        return view('blog.one-cat', compact('posts', 'category'));
     }
 
     public function addComment(Request $request)
@@ -53,36 +78,5 @@ class PostController extends Controller
         });
 
         return back()->with('success', 'Ваш ответ опубликован');
-    }
-
-
-
-    //like actions
-    public function like(Post $post)
-    {
-        $post->likeBy();
-
-        return back();
-    }
-
-    public function unlike(Post $post)
-    {
-        $post->unlikeBy();
-
-        return back();
-    }
-
-    public function dislike(Post $post)
-    {
-        $post->dislikeBy();
-
-        return back();
-    }
-
-    public function undislike(Post $post)
-    {
-        $post->undislikeBy();
-
-        return back();
     }
 }

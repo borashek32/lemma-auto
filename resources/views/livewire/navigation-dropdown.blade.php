@@ -10,7 +10,12 @@
                     </a>
                 </div>
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                <div class="text-center hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                    <x-jet-nav-link href="{{ route('members.index') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Команда') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="text-center hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                     <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Добро пожаловать') }}
                     </x-jet-nav-link>
@@ -38,7 +43,7 @@
                             <x-slot name="trigger">
                                 <button class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                     <x-jet-nav-link href="#">
-                                        {{ __('Каталог') }}
+                                        {{ __('Каталог автозапчастей') }}
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </x-jet-nav-link>
                                 </button>
@@ -47,11 +52,6 @@
                                 <!-- Blog Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Управление каталогом автозапчастей') }}
-                                </div>
-                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                                    <x-jet-nav-link href="{{ route('sections') }}">
-                                        {{ __('Категории каталога') }}
-                                    </x-jet-nav-link>
                                 </div>
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                     <x-jet-nav-link href="{{ route('auto-parts-admin') }}">
@@ -166,7 +166,7 @@
                             {{ __('Manage Account') }}
                         </div>
 
-                        <x-jet-dropdown-link href="#">
+                        <x-jet-dropdown-link href="{{ route('profile') }}">
                             {{ __('Профиль') }}
                         </x-jet-dropdown-link>
                         @if(Auth::user()->hasRole('super-admin'))

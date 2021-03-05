@@ -1,30 +1,62 @@
 @extends('layouts.auto-parts')
 @section('title-block')Магазин автозапчастей@endsection('title-block')
 @section('content')
-@include('shop.shop')
-<div class="row">
-    <div class="col-lg-4">
-        <h2>Доставка и оплата</h2>
-        <p class="text">Мы доставляем запасные части на ваши автомибили любым удобным вам способом:</p>
-        <ul>
-            <li>курьерская служба,</li>
-            <li>транспортная компания,</li>
-            <li>самовывоз.</li>
-        </ul>
-        <p class="text">Мы принимаем оплату наличным и безналичным рачетом.</p>
-    </div>
-    <div class="col-lg-4">
-        <h2>Наши партнеры</h2>
-        <p class="text">Мы предоставляем возможность найти и купить запасные части по
-            оптимальной цене. Мы сотрудничаем с надежными магазинами автозапчастей,
-            а так же постоянно работаем над наполнением базы поставщиков.</p>
-        <p><a class="btn btn-outline-danger" href="{{ route('partners') }}">Подробнее &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-        <h2>Гарантии</h2>
-        <p class="text">Мы даем гарантию на запасные части сроком на один календарный год, согласно гарантийным обязательствам
-            завода-изготовителя и закону о защите прав потребителя.</p>
-        <p><a class="btn btn-outline-danger" href="{{ route('law') }}">Подробнее &raquo;</a></p>
+<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+    <h5 class="mb-2">Поиск автозапчастей</h5>
+    <form method="get" action="{{ route('auto-parts') }}" class="input-group mb-4">
+        <input type="text" class="form-control shadow p-3 bg-body rounded"
+               style="margin-bottom:0px;margin-right: 10px" placeholder="Введите каталожный номер или название"
+               aria-label="Username" id="search" name="search" aria-describedby="basic-addon1">
+        <button type="submit" class="btn btn-secondary" style="height: 40px">Поиск</button>
+    </form>
+    @if(!empty($search))
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Номер</th>
+                <th scope="col">Название</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Заказать</th>
+            </tr>
+            </thead>
+            @forelse($autoparts as $autopart)
+                <tbody>
+                <tr>
+                    <form method="get" action="#">
+                        <td>{{ $autopart->number }}</td>
+                        <td>{{ $autopart->title }}</td>
+                        <td></td>
+                        <td>
+                            <input type="text" class="form-control p-3 bg-body rounded"
+                                   style="margin-bottom:0px;margin-right:10px" width="10px" placeholder="Кол-во"
+                                   aria-label="qnt" id="qnt" name="qnt" aria-describedby="basic-addon1">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-secondary" style="height: 35px;padding-bottom: 3px">
+                                <p>В корзину</p>
+                            </button>
+                        </td>
+                    </form>
+                </tr>
+                </tbody>
+            @empty
+                <p class="text-center">
+                    Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
+                </p>
+            @endforelse
+        </table>
+    @else
+        <div class="mt-20">
+            Вы можете найти нужную автозапчасть по каталожному номеру или по названию.
+            <br>
+            Или свяжитесь с нашим менеджером для помощи в подборе запасной части
+            <br>
+            <a href="tel:+79999999999" style="margin-top: -10px">+7 999 9999999</a> - Вадим
+        </div>
+    @endif
+    <div style="display: flex;justify-content: center">
+        {{ $autoparts->appends(['search' => request()->query('search')])->links() }}
     </div>
 </div>
 @endsection('content')
