@@ -28,9 +28,9 @@
         <div class="col-6 col-md">
             <h6>О нас</h6>
             <ul class="list-unstyled text">
-                <li><a class="text-muted" href="#">Команда</a></li>
+                <li><a class="text-muted" href="#">О нас</a></li>
                 <li><a class="text-muted" href="contact">Контакты</a></li>
-                <li><a class="text-muted" href="#">Скидки</a></li>
+                <li><a class="text-muted" href="#">Программа скидок</a></li>
                 <li><a class="text-muted" href="#">Сотрудничество</a></li>
             </ul>
         </div>

@@ -50,16 +50,18 @@
                             {{ Str::limit($member->description, 50) }}
                         </td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
-                            <a href="{{ route('members.edit', $member) }}">
+                            <a href="{{ route('members.edit', $member->id) }}">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                     Редактировать
                                 </button>
                             </a>
-                            <form method="DELETE" action="{{ route('members.destroy', $member->id) }}">
+                            <form method="POST" action="{{ route('members.destroy', $member->id) }}">
                                 @csrf
-                                <button class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Удалить
-                                </button>
+                                @method('DELETE')
+                                <input type="button" value="Удалить" class="inline-flex justify-center
+                                      rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium
+                                      text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700
+                                      focus:shadow-outline-red w-20 transition m-2 ease-in-out duration-150 sm:text-sm sm:leading-5">
                             </form>
                         </td>
                     </tr>

@@ -55,14 +55,15 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::get('/advertisements-in-blog', Advs::class)->name('advs-blog');
         Route::get('/auto-parts', Autoparts::class)->name('auto-parts-admin');
         Route::get('/offices', Contacts::class)->name('offices');
-//        Route::resource('/members', \App\Http\Controllers\Admin\MemberController::class);
 
-        Route::get('/members', [MemberController::class, 'index'])->name('members.index');
-        Route::get('/members/create', [MemberController::class, 'create'])->name('members.create');
-        Route::post('/members', [MemberController::class, 'store'])->name('members.store');
-        Route::delete('/members', [MemberController::class, 'destroy'])->name('members.destroy');
-        Route::get('/members/edit/{id}', [MemberController::class, 'edit'])->name('members.edit');
-        Route::put('/members', [MemberController::class, 'update'])->name('members.update');
+        Route::resource('/members', MemberController::class);
+
+//        Route::get('/members', [MemberController::class, 'index'])->name('members.index');
+//        Route::get('/members/create', [MemberController::class, 'create'])->name('members.create');
+//        Route::post('/members', [MemberController::class, 'store'])->name('members.store');
+//        Route::get('/members/{id}/edit', [MemberController::class, 'edit'])->name('members.edit');
+        Route::put('/members/{id}', [MemberController::class, 'update'])->name('members.update');
+//        Route::delete('/members', [MemberController::class, 'destroy'])->name('members.destroy');
     });
 });
 

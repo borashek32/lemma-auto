@@ -5,7 +5,7 @@
         </div>
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
-        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl
+        <div class="max-w-7xl md:max-w-7xl inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl
         transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true"
              aria-labelledby="modal-headline">
             <form>
@@ -30,8 +30,12 @@
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
                                 Фото:
                             </label>
+                            @if($img)
+                                <img src="{{ $img }}" width="200px">
+                            @endif
                             <input type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" wire:model="img">
+                            leading-tight focus:outline-none focus:shadow-outline" id="img"
+                                   wire:change="$emit('imgAdded')">
                             @error('img') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
@@ -43,14 +47,24 @@
                                    placeholder="Введите название" wire:model="title">
                             @error('title') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-4">
-                            <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">
-                                Текст:
-                            </label>
-                            <textarea wrap="hard" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput3"
-                                      wire:model="body" placeholder="Введите текст"></textarea>
-                            @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
+                        <div>
+
+                            <div wire:ignore
+                                 x-data
+                                 @trix-blur = "$dispatch('input', $event.target.value)"
+                                 @trix-attachment-add
+                                 class="mb-4"
+                            >
+                                <input id="body" type="hidden" name="body" value="{{ $body }}">
+                                <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">
+                                    Текст:
+                                </label>
+                                <trix-editor
+                                    input="body" class="trix-content shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline"
+                                             wire:model="body" id="exampleFormControlInput3"></trix-editor>
+                                @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,3 +90,15 @@
         </div>
     </div>
 </div>
+<script>
+    // console.log(window);
+    window.Livewire.on('imgAdded', () => {
+        let inputField = document.getElementById('img')
+        let file = inputField.files[0]
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            window.livewire.emit('fileUpload', reader.result)
+        }
+        reader.readAsDataURL(file);
+    });
+</script>

@@ -19,7 +19,9 @@
                     {{ Date::parse($post->created_at)->format('j F Y') }}
                 </p>
             </li>
-            <li class="list-group-item"><pre>{{ $post->body }}</pre></li>
+            <li class="list-group-item trix-content">
+                <div class="trix-content">{!! $post->body !!}</div>
+            </li>
 {{--            <li class="list-group-item">--}}
 {{--                <div class="row">--}}
 {{--                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">--}}
@@ -43,7 +45,7 @@
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
                         <img src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" class="rounded float-start" width="100px">
-                        <p style="font-size:10px">Зарегистрирован:<br>{{ Auth::user()->created_at->format('j F Y') }}</p>
+                        <p style="font-size:10px">Дата<br>регистрации:<br>{{ Auth::user()->created_at->format('j F Y') }}</p>
                     </div>
                     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9">
                         <textarea name="body" rows="4" id="body" class="form-control"
@@ -81,7 +83,7 @@
                     <div class="row">
                         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
                             <img src="/storage/{{ $comment->user->profile_photo_path }}" alt="{{ $comment->user->name }}" class="rounded float-start" width="100px">
-                            <p style="font-size:10px">Зарегистрирован:<br>{{ Date::parse($comment->user->created_at)->format('j F Y') }}</p>
+                            <p style="font-size:10px">Дата<br>регистрации:<br>{{ Date::parse($comment->user->created_at)->format('j F Y') }}</p>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9">
                             <pre style="margin: 0px">{{ $comment->body }}</pre>
@@ -99,7 +101,7 @@
                             <div class="row" style="margin-left:60px;">
                                 <div class="col-2">
                                     <img src="/storage/{{ $comment->user->profile_photo_path }}" alt="{{ Auth::user()->name }}" class="rounded float-start" width="60px">
-                                    <p style="font-size:8px">Зарегистрирован:<br>{{ Auth::user()->created_at->format('j F Y') }}</p>
+                                    <p style="font-size:8px">Дата<br>регистрации:<br>{{ Auth::user()->created_at->format('j F Y') }}</p>
                                 </div>
                                 <div class="col-10">
                                     <textarea name="body" rows="2" id="body" class="form-control" style="width:100%;margin-left:-30px;"

@@ -63,7 +63,7 @@
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
-                    <tr>
+                    <tr class="trix-content">
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $post->id }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $post->category->name }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ Date::parse($post->created_at)->format('j F Y') }}</td>
@@ -71,7 +71,9 @@
                             <img src="{{ url('/storage/docs/' . $post->img) }}" class="w-20" alt="{{ $post->title }}" />
                         </td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $post->title }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ Str::limit($post->body, 50) }}</td>
+                        <td class="trix-content trix-content px-6 py-4 border-b border-gray-300 text-sm leading-5">
+                            {!! Str::limit($post->body, 50) !!}
+                        </td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <button wire:click="edit({{ $post->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать

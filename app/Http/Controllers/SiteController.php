@@ -45,7 +45,7 @@ class SiteController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'subject' => ['required', 'string', 'max:50'],
             'message' => ['required', 'string', 'max:500'],

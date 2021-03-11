@@ -127,15 +127,35 @@
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                        <x-jet-nav-link href="{{ route('offices') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('Офисы') }}
-                        </x-jet-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                        <x-jet-nav-link href="{{ route('advs-blog') }}" :active="request()->routeIs('dashboard')">
-                            {{ __('Реклама') }}
-                        </x-jet-nav-link>
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-jet-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="#">
+                                        {{ __('Разное') }}
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </x-jet-nav-link>
+                                </button>
+                            </x-slot>
+                            <x-slot name="content">
+                                <!-- Management of different pages -->
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('offices') }}">
+                                        {{ __('Офисы') }}
+                                    </x-jet-nav-link>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('members.index') }}">
+                                        {{ __('О нас') }}
+                                    </x-jet-nav-link>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('advs-blog') }}">
+                                        {{ __('Реклама') }}
+                                    </x-jet-nav-link>
+                                </div>
+                            </x-slot>
+                        </x-jet-dropdown>
                     </div>
                 @endif
             </div>

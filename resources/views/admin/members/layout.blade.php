@@ -17,6 +17,7 @@
         <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
         <!--Replace with your tailwind.css once created-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+        <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
 
         @livewireStyles
 

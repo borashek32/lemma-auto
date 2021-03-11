@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Blog;
 
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use App\Models\Post;
@@ -13,10 +14,18 @@ use Livewire\WithFileUploads;
 class Posts extends Component
 {
     public $title, $categories, $category, $category_id, $body, $post_id, $search, $img;
+    public $newFiles = [];
     public $isOpen = 0;
 
     use WithFileUploads;
     use WithPagination;
+
+    protected $listeners = ['fileUpload' => 'handleFileUpload'];
+
+    public function handleFileUpload($imgData)
+    {
+        $this->img = $imgData;
+    }
 
     public function mount()
     {
@@ -57,11 +66,11 @@ class Posts extends Component
 
     private function resetInputFields()
     {
-        $this->category_id      =      '';
-        $this->img              =      '';
-        $this->title            =      '';
-        $this->body             =      '';
-        $this->post_id          =      '';
+        $this->category_id = '';
+        $this->img = '';
+        $this->title = '';
+        $this->body = '';
+        $this->post_id = '';
     }
 
     public function updatedPhoto()
@@ -74,21 +83,21 @@ class Posts extends Component
     public function store()
     {
         $this->validate([
-            'category_id'    =>    'required',
-            'title'          =>    'required',
-            'body'           =>    'required',
-            'img'            =>    'required|image|max:1024'
+            'category_id' => 'required',
+            'title' => 'required',
+            'body' => 'required',
+            'img' => 'required|image|max:1024'
         ]);
 
         Post::updateOrCreate(
-            ['id'             =>    $this->post_id],
-            ['category_id'    =>    $this->category_id,
-             'title'          =>    $this->title,
-             'body'           =>    $this->body,
-             'img'            =>    $this->img->hashName(),
+            ['id' => $this->post_id],
+            ['category_id' => $this->category_id,
+                'title' => $this->title,
+                'body' => $this->body,
+                'img' => $this->img,
             ]);
 
-        if(!empty($this->img)) {
+        if (!empty($this->img)) {
             $this->img->store('public/docs');
         }
 
@@ -101,12 +110,12 @@ class Posts extends Component
 
     public function edit($id)
     {
-        $post                   =     Post::findOrFail($id);
-        $this->category_id      =     $post->category_id;
-        $this->post_id          =     $id;
-        $this->title            =     $post->title;
-        $this->body             =     $post->body;
-        $this->img              =     $post->img;
+        $post = Post::findOrFail($id);
+        $this->category_id = $post->category_id;
+        $this->post_id = $id;
+        $this->title = $post->title;
+        $this->body = $post->body;
+        $this->img = $post->img;
         $this->openModal();
     }
 
