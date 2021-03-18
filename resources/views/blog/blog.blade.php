@@ -4,7 +4,7 @@
     <div class="row">
         @forelse($posts as $post)
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                <div class="card mb-4 bg-body rounded border border-secondary">
+                <div class="card mb-4 shadow-lg bg-body rounded border-secondary">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" style="text-align:center;padding:0px;">
                             <a href="{{ route('category', $post->category->slug) }}"
@@ -34,9 +34,9 @@
                                 Комментарии ({{ $post->comments->count() }})
                             </a>
                         </li>
-                        <li class="list-group-item" style="font-size: 14px;">
-                            {{ Str::limit($post->body, 50) }}
-                        </li>
+{{--                        <li class="list-group-item" style="font-size: 14px;">--}}
+{{--                            {!! Str::limit($post->page_text) !!}--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             </div>

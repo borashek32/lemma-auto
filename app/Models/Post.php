@@ -14,8 +14,7 @@ class Post extends Model
 
     protected $fillable = [
         'title',
-        'slug',
-        'body',
+        'page_text',
         'img',
         'category_id'
     ];
@@ -28,11 +27,6 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
     }
 
     public function sluggable(): array

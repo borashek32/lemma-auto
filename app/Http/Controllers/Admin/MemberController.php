@@ -55,9 +55,9 @@ class MemberController extends Controller
             ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
     }
 
-    public function destroy(Request $request)
+    public function destroy(Member $member)
     {
-        Member::delete($request->all());
+        Member::delete($member);
 
         return redirect()->route('members.index')->with('success', 'Информация о сотруднике была успешно удалена!');
     }

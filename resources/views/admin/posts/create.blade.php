@@ -11,7 +11,6 @@
             <form>
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
-                        <p style="margin-bottom: 10px">Новый пост</p>
                         <div class="mb-4">
                             <select wire:model="category_id" class="form-select" aria-label="Default select example">
                                 <option selected>Выберите категорию</option>
@@ -26,16 +25,36 @@
                                 @error('category_id') <span class="text-red-500">{{ $message }}</span>@enderror
                             </select>
                         </div>
-                        <div class="mb-4">
-                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
+                        <div class="mb-4" wire:ignore>
+                            <label for="img" class="block text-gray-700 text-sm font-bold mb-2">
                                 Фото:
                             </label>
-                            @if($img)
-                                <img src="{{ $img }}" width="200px">
-                            @endif
-                            <input type="file" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="img"
-                                   wire:change="$emit('imgAdded')">
+                            <div
+                                x-data
+                                wire:model="img"
+                                x-init="
+                                    FilePond.registerPlugin(FilePondPluginImagePreview);
+                                    FilePond.setOptions({
+                                        server: {
+                                            process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
+                                                @this.upload('{{ $img }}', file, load, error, progress)
+                                            },
+                                            revert: (filename, load) => {
+                                                @this.removeUpload('{{ $img }}', filename, load)
+                                            },
+                                        },
+                                        files: [{
+                                            source: 'public/docs/{{ $img }}',
+                                            options:{
+                                                type: 'local'
+                                            }
+                                        }]
+                                    });
+                                    FilePond.create($refs.input);
+                                "
+                            >
+                                <input type="file" class="filepond" x-ref="input" required>
+                            </div>
                             @error('img') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
@@ -43,28 +62,27 @@
                                 Название:
                             </label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
-                                   placeholder="Введите название" wire:model="title">
+                                leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
+                                   wire:model="title" rows="10">
                             @error('title') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        <div>
-
-                            <div wire:ignore
-                                 x-data
-                                 @trix-blur = "$dispatch('input', $event.target.value)"
-                                 @trix-attachment-add
-                                 class="mb-4"
-                            >
-                                <input id="body" type="hidden" name="body" value="{{ $body }}">
-                                <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">
-                                    Текст:
-                                </label>
-                                <trix-editor
-                                    input="body" class="trix-content shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                                leading-tight focus:outline-none focus:shadow-outline"
-                                             wire:model="body" id="exampleFormControlInput3"></trix-editor>
-                                @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
+                        <div class="mb-4">
+                            <p class="block text-gray-700 text-sm font-bold mb-2">
+                                Текст:
+                            </p>
+                            <div class="mb-2" wire:ignore id="page_text">
+                                <div
+                                    wire:key="uniqueKey"
+                                    wire:model.debounce.365ms="page_text"
+                                    x-data
+                                    @trix-blur="$dispatch('input', $event.target.value)"
+                                >
+                                    <input id="x" type="hidden" value="{!! $page_text !!}">
+                                    <trix-editor input="x" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                        leading-tight focus:outline-none focus:shadow-outline"></trix-editor>
+                                </div>
                             </div>
+                            @error('page_text') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
                 </div>
@@ -90,15 +108,19 @@
         </div>
     </div>
 </div>
-<script>
-    // console.log(window);
-    window.Livewire.on('imgAdded', () => {
-        let inputField = document.getElementById('img')
-        let file = inputField.files[0]
-        let reader = new FileReader();
-        reader.onloadend = () => {
-            window.livewire.emit('fileUpload', reader.result)
-        }
-        reader.readAsDataURL(file);
-    });
-</script>
+{{--<script>--}}
+{{--    function uploadTrixImage(attachment) {--}}
+{{--        @this.upload(--}}
+{{--            'files',--}}
+{{--            attachment.file,--}}
+{{--            function(uploadedUrl) {--}}
+{{--                console.log(uploadedUrl)--}}
+{{--            },--}}
+{{--            function() {},--}}
+{{--            function(event) {--}}
+{{--                attachment.setUploadProgress(event.detail.progress);--}}
+{{--            }--}}
+{{--        )--}}
+{{--    }--}}
+{{--</script>--}}
+

@@ -11,21 +11,16 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 
+
 class Posts extends Component
 {
-    public $title, $categories, $category, $category_id, $body, $post_id, $search, $img;
-    public $newFiles = [];
+    public $title, $categories, $category, $category_id, $page_text, $post_id, $search, $img;
+    public $files = [];
     public $isOpen = 0;
+    public $isUpdate = 0;
 
     use WithFileUploads;
     use WithPagination;
-
-    protected $listeners = ['fileUpload' => 'handleFileUpload'];
-
-    public function handleFileUpload($imgData)
-    {
-        $this->img = $imgData;
-    }
 
     public function mount()
     {
@@ -41,7 +36,7 @@ class Posts extends Component
     {
         $search = '%' . $this->search . '%';
         $posts = Post::where('title', 'LIKE', $search)
-            ->orWhere('body', 'LIKE', $search)
+            ->orWhere('page_text', 'LIKE', $search)
             ->latest()
             ->paginate(12);
 
@@ -66,40 +61,31 @@ class Posts extends Component
 
     private function resetInputFields()
     {
-        $this->category_id = '';
-        $this->img = '';
-        $this->title = '';
-        $this->body = '';
-        $this->post_id = '';
-    }
-
-    public function updatedPhoto()
-    {
-        $this->validate([
-            'img' => 'image|max:1024',
-        ]);
+        $this->category_id      =     '';
+        $this->img              =     '';
+        $this->title            =     '';
+        $this->page_text        =     '';
+        $this->post_id          =     '';
     }
 
     public function store()
     {
         $this->validate([
-            'category_id' => 'required',
-            'title' => 'required',
-            'body' => 'required',
-            'img' => 'required|image|max:1024'
+            'category_id'      =>     'required',
+            'title'            =>     'required',
+            'page_text'        =>     'required',
+            'img'              =>     'required'
         ]);
 
-        Post::updateOrCreate(
-            ['id' => $this->post_id],
-            ['category_id' => $this->category_id,
-                'title' => $this->title,
-                'body' => $this->body,
-                'img' => $this->img,
-            ]);
+        $this->img->store('/', $this->img);
 
-        if (!empty($this->img)) {
-            $this->img->store('public/docs');
-        }
+        Post::updateOrCreate(
+            ['id'              =>     $this->post_id],
+            ['category_id'     =>     $this->category_id,
+                'title'        =>     $this->title,
+                'page_text'    =>     $this->page_text,
+                'img'          =>     $this->img,
+            ]);
 
         session()->flash('message',
             $this->post_id ? 'Пост успешно обновлен.' : 'Пост успешно создан.');
@@ -110,12 +96,12 @@ class Posts extends Component
 
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
-        $this->category_id = $post->category_id;
-        $this->post_id = $id;
-        $this->title = $post->title;
-        $this->body = $post->body;
-        $this->img = $post->img;
+        $post                    =       Post::findOrFail($id);
+        $this->category_id       =       $post->category_id;
+        $this->post_id           =       $id;
+        $this->title             =       $post->title;
+        $this->page_text         =       $post->page_text;
+        $this->img               =       $post->img;
         $this->openModal();
     }
 
@@ -125,3 +111,4 @@ class Posts extends Component
         session()->flash('message', 'Пост успешно удален.');
     }
 }
+//Storage::disk('public')->get('public/docs/' .

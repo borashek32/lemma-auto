@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '727a9a0552772444c5ab29813d53cd402985d6e3',
+    'reference' => '1aa58a0462290290dc094ee7855d200037ff5f3b',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -28,6 +28,24 @@
       array (
       ),
       'reference' => '3e9d791b67d0a2912922b7b7c7312f4b37af41e4',
+    ),
+    'barryvdh/elfinder-flysystem-driver' => 
+    array (
+      'pretty_version' => 'v0.3.0',
+      'version' => '0.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5a6c893dfb97e9848d7b1e5e990e943af7bc3550',
+    ),
+    'barryvdh/laravel-elfinder' => 
+    array (
+      'pretty_version' => 'v0.4.7',
+      'version' => '0.4.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f2a5f7d2b69b7c2f5419b0b02874b91b6d480c6c',
     ),
     'brick/math' => 
     array (
@@ -458,6 +476,15 @@
         0 => 'v8.24.0',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.5.1',
+      'version' => '2.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'abbf18d5ab8367f96b3205ca3c89fb2fa598c69e',
+    ),
     'jaybizzle/crawler-detect' => 
     array (
       'pretty_version' => 'v1.2.103',
@@ -535,7 +562,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '727a9a0552772444c5ab29813d53cd402985d6e3',
+      'reference' => '1aa58a0462290290dc094ee7855d200037ff5f3b',
     ),
     'laravel/sanctum' => 
     array (
@@ -572,6 +599,15 @@
       array (
       ),
       'reference' => '9be3b16c877d477357c015cec057548cf9b2a14a',
+    ),
+    'league/flysystem-cached-adapter' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd1925efb2207ac4be3ad0c40b8277175f99ffaff',
     ),
     'league/mime-type-detection' => 
     array (
@@ -808,6 +844,15 @@
       array (
       ),
       'reference' => '26c4c5cf30a2844ba121760fd7301f8ad240100b',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd11b50ad223250cf17b86e38383413f5a6764bf8',
     ),
     'psr/container' => 
     array (
@@ -1103,6 +1148,15 @@
       array (
       ),
       'reference' => '1c51a5fa12131565fe3860705163e53d7a26258a',
+    ),
+    'studio-42/elfinder' => 
+    array (
+      'pretty_version' => '2.1.57',
+      'version' => '2.1.57.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '087524b1d7a4d76cfd848dee2093cd8daf987f78',
     ),
     'swiftmailer/swiftmailer' => 
     array (

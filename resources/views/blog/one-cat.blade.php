@@ -36,7 +36,7 @@
                             </a>
                         </li>
                         <li class="list-group-item" style="font-size: 14px;">
-                            {{ Str::limit($post->body, 50) }}
+                            {{ Str::limit($post->page_text, 50) }}
                         </li>
                     </ul>
                 </div>

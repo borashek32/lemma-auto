@@ -20,7 +20,7 @@
                 </p>
             </li>
             <li class="list-group-item trix-content">
-                <div class="trix-content">{!! $post->body !!}</div>
+                <div class="trix-content">{!! $post->page_text !!}</div>
             </li>
 {{--            <li class="list-group-item">--}}
 {{--                <div class="row">--}}
