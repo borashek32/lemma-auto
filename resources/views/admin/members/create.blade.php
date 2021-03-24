@@ -13,8 +13,19 @@
                 <form action="{{ route('members.store') }}" method="POST">
                     @csrf
                     <div class="mb-4">
+                        <label for="photo" class="block text-gray-700 text-sm font-bold mb-2">
+                            Фото
+                        </label>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline" id="feature_image"
+                               name="photo" value="" readonly>
+                        <a href="" class="popup_selector" data-inputid="feature_image">Выбрать фото</a>
+                        <img src="" alt="" class="img-uploaded">
+                        @error('photo') <span class="text-red-500">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="mb-4">
                         <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
-                            Имя:
+                            ФИО:
                         </label>
                         <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
                         leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
@@ -35,7 +46,7 @@
                             Должность:
                         </label>
                         <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                        leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
+                        leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1"
                                name="position" required>
                         @error('position') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
@@ -43,21 +54,10 @@
                         <label for="editor" class="block text-gray-700 text-sm font-bold mb-2">
                             Описание:
                         </label>
-                        <textarea rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                        leading-tight focus:outline-none focus:shadow-outline" id="editor"
-                                  name="description"></textarea>
+                        <textarea rows="6" name="description" class="editor shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline"></textarea>
                         @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
-                    <script>
-                        ClassicEditor
-                            .create( document.querySelector( '#editor' ) )
-                            .then( editor => {
-                                console.log( editor );
-                            } )
-                            .catch( error => {
-                                console.error( error );
-                            } );
-                    </script>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                               <input type="submit" value="Сохранить" class="inline-flex justify-center w-full

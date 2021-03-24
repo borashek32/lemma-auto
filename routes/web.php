@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Livewire\Admin\Advertisements\Advs;
-use App\Http\Livewire\Admin\Blog\PostCreate;
 use App\Http\Livewire\Admin\Blog\PostEdit;
 use App\Http\Livewire\Admin\Contacts\Contacts;
 use App\Http\Livewire\Admin\Shop\Autoparts;
@@ -59,6 +58,8 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::get('/auto-parts', Autoparts::class)->name('auto-parts-admin');
         Route::get('/offices', Contacts::class)->name('offices');
 
+
+        Route::get('/posts/{id}/edit', PostEdit::class)->name('post-edit');
 
 
 //        Route::get('/members', [MemberController::class, 'index'])->name('members.index');

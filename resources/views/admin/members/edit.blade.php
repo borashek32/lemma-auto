@@ -3,18 +3,30 @@
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Добавление нового сотрудника
+                Редактировать информацию о сотруднике
             </h2>
         </div>
     </header>
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
-                <form action="{{ route('members.store', $member->id) }}" method="PATCH">
+                <form action="{{ route('members.update', $member->id) }}" method="POST">
+                    @method('PUT')
                     @csrf
                     <div class="mb-4">
+                        <label for="photo" class="block text-gray-700 text-sm font-bold mb-2">
+                            Фото
+                        </label>
+                        <img src="{{ $member->photo }}" alt="{{ $member->name }}">
+                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline" id="feature_image"
+                               name="photo" value="{{ $member->photo }}" readonly>
+                        <a href="" class="popup_selector" data-inputid="feature_image">Выбрать фото</a>
+                        @error('photo') <span class="text-red-500">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="mb-4">
                         <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">
-                            Имя:
+                            ФИО:
                         </label>
                         <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
                         leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
@@ -43,20 +55,9 @@
                         <label for="editor" class="block text-gray-700 text-sm font-bold mb-2">
                             Описание:
                         </label>
-                        <textarea rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                        leading-tight focus:outline-none focus:shadow-outline" id="editor"
-                                  name="description" id="editor">{{ $member->description }}</textarea>
+                        <textarea rows="6" name="description" class="editor shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline">{!! $member->description !!}}</textarea>
                         @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
-                        <script>
-                            ClassicEditor
-                                .create( document.querySelector( '#editor' ) )
-                                .then( editor => {
-                                    console.log( editor );
-                                } )
-                                .catch( error => {
-                                    console.error( error );
-                                } );
-                        </script>
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">

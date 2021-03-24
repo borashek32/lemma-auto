@@ -19,9 +19,6 @@
                                         {{ $category->name }}
                                     </option>
                                 @endforeach
-                                @if($category_id)
-                                    {{ $category_id }}
-                                @endif
                                 @error('category_id') <span class="text-red-500">{{ $message }}</span>@enderror
                             </select>
                         </div>
@@ -29,31 +26,8 @@
                             <label for="img" class="block text-gray-700 text-sm font-bold mb-2">
                                 Фото:
                             </label>
-                            <div
-                                x-data
-                                wire:model="img"
-                                x-init="
-                                    FilePond.registerPlugin(FilePondPluginImagePreview);
-                                    FilePond.setOptions({
-                                        server: {
-                                            process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-                                                @this.upload('{{ $img }}', file, load, error, progress)
-                                            },
-                                            revert: (filename, load) => {
-                                                @this.removeUpload('{{ $img }}', filename, load)
-                                            },
-                                        },
-                                        files: [{
-                                            source: 'public/docs/{{ $img }}',
-                                            options:{
-                                                type: 'local'
-                                            }
-                                        }]
-                                    });
-                                    FilePond.create($refs.input);
-                                "
-                            >
-                                <input type="file" class="filepond" x-ref="input" required>
+                            <div>
+                                <input type="file" wire:model="img" class="filepond"  x-ref="input" required>
                             </div>
                             @error('img') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
@@ -63,7 +37,7 @@
                             </label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
                                 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
-                                   wire:model="title" rows="10">
+                                   wire:model="title">
                             @error('title') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
@@ -75,10 +49,11 @@
                                     wire:key="uniqueKey"
                                     wire:model.debounce.365ms="page_text"
                                     x-data
-                                    @trix-blur="$dispatch('input', $event.target.value)"
+                                    @trix-blur="$dispatch('input', $event.target.value)
+                                    "
                                 >
-                                    <input id="x" type="hidden" value="{!! $page_text !!}">
-                                    <trix-editor input="x" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                    <input id="x" type="hidden" value="">
+                                    <trix-editor value="{!! $page_text !!}" input="x" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
                                         leading-tight focus:outline-none focus:shadow-outline"></trix-editor>
                                 </div>
                             </div>
@@ -87,14 +62,25 @@
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                    @if($post_id)
+                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                           <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full
                           rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium
                           text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700
                           focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                            Сохранить
+                            Обновить
                           </button>
-                    </span>
+                        </span>
+                    @else
+                        <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                              <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full
+                              rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium
+                              text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700
+                              focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                Сохранить
+                              </button>
+                        </span>
+                    @endif
                     <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
                           <button wire:click="closeModal()" type="button" class="inline-flex justify-center w-full
                           rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium
@@ -108,19 +94,38 @@
         </div>
     </div>
 </div>
-{{--<script>--}}
-{{--    function uploadTrixImage(attachment) {--}}
-{{--        @this.upload(--}}
-{{--            'files',--}}
-{{--            attachment.file,--}}
-{{--            function(uploadedUrl) {--}}
-{{--                console.log(uploadedUrl)--}}
-{{--            },--}}
-{{--            function() {},--}}
-{{--            function(event) {--}}
-{{--                attachment.setUploadProgress(event.detail.progress);--}}
-{{--            }--}}
-{{--        )--}}
-{{--    }--}}
-{{--</script>--}}
 
+{{--<div--}}
+{{--    x-data--}}
+{{--    x-init="--}}
+{{--                                    FilePond.registerPlugin(FilePondPluginImagePreview);--}}
+{{--                                    FilePond.setOptions({--}}
+{{--                                        server: {--}}
+{{--                                            process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {--}}
+{{--                                                @this.upload('{{ 'img' }}', file, load, error, progress)--}}
+{{--                                            },--}}
+{{--                                            revert: (filename, load) => {--}}
+{{--                                                @this.removeUpload('{{ 'img' }}', filename, load)--}}
+{{--                                            },--}}
+{{--                                            load: (source, load, error, progress, abort, headers) => {--}}
+{{--                                                var request = new Request(source);--}}
+{{--                                                fetch(request).then(function(response) {--}}
+{{--                                                  response.blob().then(function(myBlob) {--}}
+{{--                                                    load(myBlob)--}}
+{{--                                                  });--}}
+{{--                                                });--}}
+{{--                                            },--}}
+{{--                                        },--}}
+{{--                                    });--}}
+{{--                                        var Pond = FilePond.create($refs.input, {--}}
+{{--                                            files: [--}}
+{{--                                                {--}}
+{{--                                                    source: 'public/docs/{{ $img }}',--}}
+{{--                                                    options: {--}}
+{{--                                                        type: 'local',--}}
+{{--                                                    },--}}
+{{--                                                },--}}
+{{--                                            ],--}}
+{{--                                        });--}}
+{{--                                    "--}}
+{{-->--}}

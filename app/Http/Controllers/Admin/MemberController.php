@@ -38,27 +38,30 @@ class MemberController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Member $member)
     {
-        $member = Member::find($id);
-
-        return view('admin.members.edit',
-            ['member' => $member]
-        );
+        return view('admin.members.edit', [
+            'member' => $member,
+        ]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Member $member)
     {
-        Member::save($request->all());
+        $member->name = $request->name;
+        $member->photo =  $request->photo;
+        $member->phone =  $request->phone;
+        $member->position = $request->position;
+        $member->description = $request->description;
+        $member->save();
 
-        return redirect('/dashboard/members')
+        return redirect('dashboard/members')
             ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
     }
 
     public function destroy(Member $member)
     {
-        Member::delete($member);
+       $member->delete();
 
-        return redirect()->route('members.index')->with('success', 'Информация о сотруднике была успешно удалена!');
+        return redirect('dashboard/members')->with('success', 'Информация о сотруднике была успешно удалена!');
     }
 }

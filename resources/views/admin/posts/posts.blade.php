@@ -84,7 +84,7 @@
                             <button wire:click="delete({{ $post->id }})" class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                 Удалить
                             </button><br>
-                            <a href="/auto-magazine/posts/{{ $post->slug }}">
+                            <a href="{{ route('post-edit', $post->id) }}">
                                 <button class="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     Посмотреть
                                 </button>

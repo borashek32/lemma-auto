@@ -74,17 +74,17 @@ class Posts extends Component
             'category_id'      =>     'required',
             'title'            =>     'required',
             'page_text'        =>     'required',
-            'img'              =>     'required'
+            'img'              =>     'required|max:100000'
         ]);
 
-        $this->img->store('/', $this->img);
+        $this->img->store('public/docs/');
 
         Post::updateOrCreate(
-            ['id'              =>     $this->post_id],
-            ['category_id'     =>     $this->category_id,
+            ['id'              =>     $this->post_id,
+            'category_id'      =>     $this->category_id,
                 'title'        =>     $this->title,
                 'page_text'    =>     $this->page_text,
-                'img'          =>     $this->img,
+                'img'          =>     $this->img->hashName(),
             ]);
 
         session()->flash('message',
@@ -102,6 +102,7 @@ class Posts extends Component
         $this->title             =       $post->title;
         $this->page_text         =       $post->page_text;
         $this->img               =       $post->img;
+
         $this->openModal();
     }
 
@@ -111,4 +112,3 @@ class Posts extends Component
         session()->flash('message', 'Пост успешно удален.');
     }
 }
-//Storage::disk('public')->get('public/docs/' .

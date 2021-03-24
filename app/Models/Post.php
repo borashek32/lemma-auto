@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 
 class Post extends Model
@@ -38,4 +39,11 @@ class Post extends Model
         ];
     }
 
+    public function imgUrl()
+    {
+        return $this->img
+            ? Storage::disk('docs')->url($this->img)
+            : 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->title)));
+
+    }
 }
