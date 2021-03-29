@@ -41,9 +41,6 @@ class Post extends Model
 
     public function imgUrl()
     {
-        return $this->img
-            ? Storage::disk('docs')->url($this->img)
-            : 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->title)));
-
+        return $this->image ? Storage::url('public/docs/' . $this->img) : '';
     }
 }

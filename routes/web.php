@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Livewire\Admin\Advertisements\Advs;
-use App\Http\Livewire\Admin\Blog\PostEdit;
 use App\Http\Livewire\Admin\Contacts\Contacts;
 use App\Http\Livewire\Admin\Shop\Autoparts;
 use App\Http\Livewire\Admin\Blog\Categories;
@@ -12,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AutopartController;
-use App\Http\Controllers\PostController;
-use App\Http\Livewire\Admin\Blog\Posts;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Livewire\Admin\Users\Users;
 
 //Common routes
@@ -26,13 +25,13 @@ Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 Route::get('/auto-parts', [AutopartController::class, 'autoparts'])->name('auto-parts');
 Route::get('/partners', [AutopartController::class, 'partners'])->name('partners');
 Route::get('/law', [AutopartController::class, 'law'])->name('law');
-Route::get('/auto-magazine', [PostController::class, 'blog'])->name('blog');
-Route::get('/auto-magazine/posts/{slug}', [PostController::class, 'onePost'])->name('post');
-Route::post('/auto-magazine/posts/{slug}', [PostController::class, 'addComment'])->name('comment');
-Route::post('/auto-magazine/posts', [PostController::class, 'reply'])->name('reply');
+Route::get('/auto-magazine', [BlogController::class, 'blog'])->name('blog');
+Route::get('/auto-magazine/posts/{slug}', [BlogController::class, 'onePost'])->name('post');
+Route::post('/auto-magazine/posts/{slug}', [BlogController::class, 'addComment'])->name('comment');
+Route::post('/auto-magazine/posts', [BlogController::class, 'reply'])->name('reply');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form');
-Route::get('/auto-magazine/category/{slug}', [PostController::class, 'category'])->name('category');
+Route::get('/auto-magazine/category/{slug}', [BlogController::class, 'category'])->name('category');
 
 //Users dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -49,7 +48,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/contacts', func
 Route::group(['middleware' => ['role:super-admin']], function () {
     Route::prefix('dashboard')->group(function () {
         Route::resource('/members', MemberController::class);
-        Route::get('/posts', Posts::class)->name('posts');
+        Route::resource('/posts', PostController::class);
         Route::get('/categories', Categories::class)->name('cats');
         Route::get('/comments', Comments::class)->name('comments-admin');
         Route::get('/users', Users::class)->name('users');
@@ -57,17 +56,6 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::get('/advertisements-in-blog', Advs::class)->name('advs-blog');
         Route::get('/auto-parts', Autoparts::class)->name('auto-parts-admin');
         Route::get('/offices', Contacts::class)->name('offices');
-
-
-        Route::get('/posts/{id}/edit', PostEdit::class)->name('post-edit');
-
-
-//        Route::get('/members', [MemberController::class, 'index'])->name('members.index');
-//        Route::get('/members/create', [MemberController::class, 'create'])->name('members.create');
-//        Route::post('/members', [MemberController::class, 'store'])->name('members.store');
-//        Route::get('/members/{id}/edit', [MemberController::class, 'edit'])->name('members.edit');
-//        Route::put('/members/{id}', [MemberController::class, 'update'])->name('members.update');
-//        Route::delete('/members', [MemberController::class, 'destroy'])->name('members.destroy');
     });
 });
 

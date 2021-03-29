@@ -16,6 +16,6 @@ class Advertisements extends Component
 
     public function render()
     {
-        return view('livewire.user.advertisements.advertisements');
+        return view('includes.advertisements');
     }
 }

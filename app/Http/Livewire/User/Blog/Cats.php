@@ -16,6 +16,6 @@ class Cats extends Component
 
     public function render()
     {
-        return view('livewire.user.blog.cats');
+        return view('includes.cats');
     }
 }

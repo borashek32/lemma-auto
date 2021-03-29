@@ -1,4 +1,4 @@
-@extends('admin.members.layout')
+@extends('layouts.layoutControllers')
 @section('content')
 <header class="bg-white shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -8,7 +8,7 @@
     </div>
 </header>
 <div class="py-4">
-    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         @if (session()->has('message'))
             <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
                 <div class="flex">
@@ -31,31 +31,29 @@
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-100">
-{{--                    <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-2">No.</th>--}}
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">ФИО</th>
-{{--                    <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider">Фото</th>--}}
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Фото</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Должность</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Телефон</th>
-{{--                    <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider">Описание</th>--}}
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-20">Действие</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($members as $member)
                     <tr>
-{{--                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $member->id }}</td>--}}
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $member->name }}</td>
-{{--                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $member->photo }}</td>--}}
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $member->position }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $member->phone }}</td>
-{{--                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{!! Str::limit($member->description, 50) !!}</td>--}}
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
-                            <div class="flex justify-between h-8">
+                            <img src="{{ $member->photo }}" alt="{{ $member->name }}" />
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $member->position }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $member->phone }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
+                            <div class="">
                                 <a href="{{ route('members.edit', $member->id) }}">
-                                    <button class="bg-blue-500 mr-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    <button class="mb-2 bg-blue-500 mr-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                         Редактировать
                                     </button>
-                                </a>
+                                </a><br>
                                 <form action="{{ route('members.destroy', $member['id']) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

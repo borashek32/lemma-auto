@@ -8,6 +8,6 @@ class NavigationDropdown extends Component
 {
     public function render()
     {
-        return view('livewire.navigation-dropdown');
+        return view('includes.navigation-dropdown');
     }
 }

@@ -16,6 +16,6 @@ class Contacts extends Component
 
     public function render()
     {
-        return view('livewire.user.contacts');
+        return view('includes.contacts');
     }
 }

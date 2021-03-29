@@ -1,4 +1,4 @@
-@extends('admin.members.layout')
+@extends('layouts.layoutControllers')
 @section('content')
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -16,11 +16,16 @@
                         <label for="photo" class="block text-gray-700 text-sm font-bold mb-2">
                             Фото
                         </label>
-                        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                                leading-tight focus:outline-none focus:shadow-outline" id="feature_image"
-                               name="photo" value="" readonly>
-                        <a href="" class="popup_selector" data-inputid="feature_image">Выбрать фото</a>
-                        <img src="" alt="" class="img-uploaded">
+                        <div class="grid gap-x-8 gap-y-4 grid-cols-2">
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline mb-4" id="feature_image"
+                                   name="photo" readonly>
+                            <a href="" class="popup_selector shadow appearance-none border rounded w-40 h-10 text-center py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline" data-inputid="feature_image">
+                                Выбрать фото
+                            </a>
+                            <img src="" alt="" class="img-uploaded" width="200">
+                        </div>
                         @error('photo') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="mb-4">
@@ -54,8 +59,15 @@
                         <label for="editor" class="block text-gray-700 text-sm font-bold mb-2">
                             Описание:
                         </label>
-                        <textarea rows="6" name="description" class="editor shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        <textarea
+{{--                            x-data="{ resize () => { $el.style.height = '80px'; $el.style.height = $el.style.height = 'px' }}"--}}
+{{--                            x-init="resize"--}}
+{{--                            x-on:input="resize"--}}
+                            rows="6"
+                            name="description"
+                            class="editor shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                            leading-tight focus:outline-none focus:shadow-outline"
+                        ></textarea>
                         @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

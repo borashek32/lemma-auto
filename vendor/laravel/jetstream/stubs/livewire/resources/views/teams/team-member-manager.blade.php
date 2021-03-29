@@ -23,7 +23,7 @@
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
                         <x-jet-label for="email" value="{{ __('Email') }}" />
-                        <x-jet-input id="email" type="text" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
+                        <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
                         <x-jet-input-error for="email" class="mt-2" />
                     </div>
 
@@ -203,7 +203,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="stopManagingRole" wire:loading.attr="disabled">
-                {{ __('Nevermind') }}
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-button class="ml-2" wire:click="updateRole" wire:loading.attr="disabled">
@@ -224,7 +224,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingLeavingTeam')" wire:loading.attr="disabled">
-                {{ __('Nevermind') }}
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ml-2" wire:click="leaveTeam" wire:loading.attr="disabled">
@@ -245,7 +245,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingTeamMemberRemoval')" wire:loading.attr="disabled">
-                {{ __('Nevermind') }}
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ml-2" wire:click="removeTeamMember" wire:loading.attr="disabled">

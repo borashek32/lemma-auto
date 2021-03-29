@@ -14,7 +14,6 @@
         @livewireScripts
         @livewireStyles
         <link type="text/css" href="https://www.unpkg.com/trix@1.2.2/dist/trix.css" rel="stylesheet">
-        <link href="{{ asset('css/filepond.css') }}" rel="stylesheet">
         <style>
             .nunito {
                 font-family: 'nunito', font-sans, serif;
@@ -141,10 +140,10 @@
                         </a>
                     </li>
                     <li class="my-2 md:my-0 ">
-                        <a href="{{ route('posts') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                        <a href="{{ route('posts.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
                             <i class="fas fa-book-open mr-3"></i>
                             <span class="w-full inline-block pb-1 md:pb-0 text-sm">
-                                Посты
+                                Посты<br>в блоге
                             </span>
                         </a>
                     </li>
@@ -182,7 +181,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.min.js" defer></script>
     <script src="https://www.unpkg.com/trix@1.2.2/dist/trix.js"></script>
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     </body>
 </html>
