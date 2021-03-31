@@ -9,7 +9,7 @@
                 </p>
             </li>
             <li class="list-group-item w-40" style="display: flex; justify-content: center;">
-                <img src="{{ url('/storage/docs/' . $post->img) }}" width="400px" alt="{{ $post->title }}" />
+                <img src="{{ url($post->img) }}" width="400px" alt="{{ $post->title }}" />
             </li>
             <li class="list-group-item">
                 <p style="font-size:14px;margin:0px;">

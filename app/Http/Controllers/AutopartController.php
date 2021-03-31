@@ -13,7 +13,7 @@ class AutopartController extends Controller
         $search = request()->query('search');
         if ($search) {
             $autoparts = Autopart::where('title', 'LIKE', "%{$search}%")
-                ->orWhere('number', 'LIKE', "%{$search}%")
+                ->orWhere('code', 'LIKE', "%{$search}%")
                 ->latest()
                 ->paginate(6);
         } else {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdvsTable extends Migration
+class CreateAutopartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAdvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('advs', function (Blueprint $table) {
+        Schema::create('autoparts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->string('link', 500);
-            $table->string('img', 500);
+            $table->string('code', 20);
+            $table->string('title', 40);
+            $table->integer('quantity');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateAdvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advs');
+        Schema::dropIfExists('autoparts');
     }
 }

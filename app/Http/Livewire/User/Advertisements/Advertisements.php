@@ -3,15 +3,15 @@
 namespace App\Http\Livewire\User\Advertisements;
 
 use Livewire\Component;
-use App\Models\Adv;
+use App\Models\Advertisement;
 
 class Advertisements extends Component
 {
-    public $advs;
+    public $advertisements;
 
     public function mount()
     {
-        $this->advs = Adv::all();
+        $this->advertisements = Advertisement::all();
     }
 
     public function render()

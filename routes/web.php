@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdvertisementController;
 use App\Http\Controllers\Admin\MemberController;
-use App\Http\Livewire\Admin\Advertisements\Advs;
 use App\Http\Livewire\Admin\Contacts\Contacts;
 use App\Http\Livewire\Admin\Shop\Autoparts;
 use App\Http\Livewire\Admin\Blog\Categories;
@@ -44,16 +44,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/contacts', func
     return view('profile.contacts');
 })->name('contacts');
 
-//CRUD routes for an admin
+//CRUD routes for admin
 Route::group(['middleware' => ['role:super-admin']], function () {
     Route::prefix('dashboard')->group(function () {
         Route::resource('/members', MemberController::class);
         Route::resource('/posts', PostController::class);
+        Route::resource('/advertisements', AdvertisementController::class);
         Route::get('/categories', Categories::class)->name('cats');
         Route::get('/comments', Comments::class)->name('comments-admin');
         Route::get('/users', Users::class)->name('users');
         Route::get('/reviews', Reviews::class)->name('reviews-admin');
-        Route::get('/advertisements-in-blog', Advs::class)->name('advs-blog');
         Route::get('/auto-parts', Autoparts::class)->name('auto-parts-admin');
         Route::get('/offices', Contacts::class)->name('offices');
     });
