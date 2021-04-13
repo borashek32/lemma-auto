@@ -15,7 +15,7 @@ class BlogController extends Controller
     {
         $search = request()->query('search');
         if ($search) {
-            $posts = Post::where('body', 'LIKE', "%{$search}%")
+            $posts = Post::where('page_text', 'LIKE', "%{$search}%")
                 ->orWhere('title', 'LIKE', "%{$search}%")
                 ->latest()
                 ->paginate(6);
@@ -74,7 +74,7 @@ class BlogController extends Controller
 
         Mail::send(['text' => 'emails.dynamic_email_get-replies'], ['reply' => $reply], function ($message) use ($reply) {
             $message->to($reply->comment_author_email)->subject('Получен новый ответ на ваш комментарий на сайте Лемма-авто');
-            $message->from('borashek29@gmail.com', 'Лемма-авто');
+            $message->from('lemmaauto@gmail.com', 'Лемма-авто');
         });
 
         return back()->with('success', 'Ваш ответ опубликован');

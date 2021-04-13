@@ -36,7 +36,7 @@
                     <livewire:user.blog.cats />
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-                    @include('includes.search')
+                    @include('includes.blog.search')
                     <div class="card shadow bg-body rounded" style="padding: 15px;">
                         @yield('content')
                     </div>

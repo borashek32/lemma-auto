@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidatePostForm;
 use App\Models\Category;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -41,12 +42,17 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(ValidatePostForm $request)
     {
-        Post::create($request->all());
+        Post::create([
+            'img' => $request->img,
+            'category_id' => $request->category_id,
+            'title' => $request->title,
+            'page_text' => $request->page_text
+        ]);
 
         return redirect('/dashboard/posts')
-            ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
+            ->with('success', 'Новый пост был успешно добавлен.');
     }
 
     public function show(Post $post)
@@ -64,7 +70,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function update(Request $request, Post $post)
+    public function update(ValidatePostForm $request, Post $post)
     {
         $post->category_id = $request->category_id;
         $post->img =  $request->img;
@@ -73,13 +79,14 @@ class PostController extends Controller
         $post->save();
 
         return redirect('dashboard/posts')
-            ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
+            ->with('success', 'Новый пост был успешно обновлен.');
     }
 
     public function destroy(Post $post)
     {
        $post->delete();
 
-        return redirect('dashboard/posts')->with('success', 'Информация о сотруднике была успешно удалена!');
+        return redirect('dashboard/posts')
+            ->with('success', 'Пост был успешно успешно удален.');
     }
 }

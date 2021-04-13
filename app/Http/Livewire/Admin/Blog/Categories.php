@@ -45,7 +45,7 @@ class Categories extends Component
     public function store()
     {
         $this->validate([
-            'name'   => 'required|max:30',
+            'name'   => 'required|max:30|min:3',
         ]);
 
         Category::updateOrCreate(['id' => $this->category_id], [

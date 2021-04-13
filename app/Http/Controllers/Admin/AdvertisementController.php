@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidateAdvertisementForm;
 use App\Models\Advertisement;
 use Illuminate\Http\Request;
 
@@ -28,12 +29,12 @@ class AdvertisementController extends Controller
         return view('admin.advertisements.create');
     }
 
-    public function store(Request $request)
+    public function store(ValidateAdvertisementForm $request)
     {
         Advertisement::create($request->all());
 
         return redirect('/dashboard/advertisements')
-            ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
+            ->with('success', 'Новое объявление было успешно добавлено');
     }
 
     public function show(Advertisement $advertisement)
@@ -48,20 +49,21 @@ class AdvertisementController extends Controller
             ]);
     }
 
-    public function update(Request $request, Advertisement $advertisement)
+    public function update(ValidateAdvertisementForm $request, Advertisement $advertisement)
     {
         $advertisement->link = $request->link;
         $advertisement->banner =  $request->banner;
         $advertisement->save();
 
         return redirect('dashboard/advertisements')
-            ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
+            ->with('success', 'Объявление было успешно обновлено.');
     }
 
     public function destroy(Advertisement $advertisement)
     {
         $advertisement->delete();
 
-        return redirect('dashboard/advertisements')->with('success', 'Информация о сотруднике была успешно удалена!');
+        return redirect('dashboard/advertisements')
+            ->with('success', 'Объявление было успешно удалено');
     }
 }

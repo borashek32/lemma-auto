@@ -39,8 +39,13 @@ class Post extends Model
         ];
     }
 
-    public function imgUrl()
+    public function likes()
     {
-        return $this->image ? Storage::url('public/docs/' . $this->img) : '';
+        return $this->hasMany(Like::class);
+    }
+
+    public function likedBy(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
     }
 }

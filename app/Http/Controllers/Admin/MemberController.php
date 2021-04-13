@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidateMemberForm;
 use App\Models\Member;
 use Illuminate\Http\Request;
 
@@ -22,12 +23,12 @@ class MemberController extends Controller
         return view('admin.members.create');
     }
 
-    public function store(Request $request)
+    public function store(ValidateMemberForm $request)
     {
         Member::create($request->all());
 
         return redirect('/dashboard/members')
-            ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
+            ->with('success', 'Информация о новом сотруднике была успешно добавлена');
     }
 
     public function show(Member $member)
@@ -42,7 +43,7 @@ class MemberController extends Controller
         ]);
     }
 
-    public function update(Request $request, Member $member)
+    public function update(ValidateMemberForm $request, Member $member)
     {
         $member->name = $request->name;
         $member->photo =  $request->photo;
@@ -52,13 +53,13 @@ class MemberController extends Controller
         $member->save();
 
         return redirect('dashboard/members')
-            ->with('success', 'Информация о новом сотруднике была успешно добавлена!');
+            ->with('success', 'Информация о новом сотруднике была успешно добавлена');
     }
 
     public function destroy(Member $member)
     {
        $member->delete();
 
-        return redirect('dashboard/members')->with('success', 'Информация о сотруднике была успешно удалена!');
+        return redirect('dashboard/members')->with('success', 'Информация о сотруднике была успешно удалена');
     }
 }

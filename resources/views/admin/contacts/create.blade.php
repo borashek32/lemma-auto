@@ -16,8 +16,9 @@
                                 Карта проезда:
                             </label>
                             <textarea wrap="hard" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1"
-                                      placeholder="Введите адрес ссылки на Google Maps" wire:model="map"></textarea>
+                                leading-tight focus:outline-none focus:shadow-outline @error('map') border-red-500 @enderror"
+                                id="exampleFormControlInput1" placeholder="Введите адрес ссылки на Google Maps"
+                                      wire:model="map"></textarea>
                             @error('map') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
@@ -25,7 +26,7 @@
                                 Адрес:
                             </label>
                             <textarea wrap="hard" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2"
+                            leading-tight focus:outline-none focus:shadow-outline @error('address') border-red-500 @enderror" id="exampleFormControlInput2"
                                    placeholder="Введите адрес" wire:model="address"></textarea>
                             @error('address') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
@@ -34,7 +35,7 @@
                                 Телефон:
                             </label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput3"
+                            leading-tight focus:outline-none focus:shadow-outline @error('phone') border-red-500 @enderror" id="exampleFormControlInput3"
                                       wire:model="phone" placeholder="Введите телефон">
                             @error('phone') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
@@ -43,7 +44,7 @@
                                 Время работы:
                             </label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput4"
+                            leading-tight focus:outline-none focus:shadow-outline @error('time') border-red-500 @enderror" id="exampleFormControlInput4"
                                       wire:model="time" placeholder="Введите время работы">
                             @error('time') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
@@ -56,7 +57,7 @@
                                 x-init="resize"
                                 x-on:input="resize"
                                 wrap="hard" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-                            leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput5"
+                            leading-tight focus:outline-none focus:shadow-outline @error('desc') border-red-500 @enderror" id="exampleFormControlInput5"
                                       wire:model="desc" placeholder="Описание"></textarea>
                             @error('desc') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>

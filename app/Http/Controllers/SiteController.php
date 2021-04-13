@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Mail\ContactMail;
+use App\Models\Member;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -40,6 +41,13 @@ class SiteController extends Controller
     public function contact()
     {
         return view('site.contact');
+    }
+
+    public function aboutUs()
+    {
+        $members = Member::get();
+
+        return view('site.about-us', compact('members'));
     }
 
     protected function validator(array $data)

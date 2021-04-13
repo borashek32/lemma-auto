@@ -16,6 +16,6 @@ class Cats extends Component
 
     public function render()
     {
-        return view('includes.cats');
+        return view('includes.blog.cats');
     }
 }

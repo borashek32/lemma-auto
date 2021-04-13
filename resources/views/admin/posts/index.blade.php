@@ -9,20 +9,20 @@
     </header>
 <div class="py-4">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        @if (session()->has('message'))
+        @if (session()->has('success'))
             <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
                 <div class="flex">
                     <div>
-                        <p class="text-sm">{{ session('message') }}</p>
+                        <p class="text-sm">{{ session('success') }}</p>
                     </div>
                 </div>
             </div>
         @endif
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="flex justify-between">
                 <div class="text-left">
                     <a href="{{ route('posts.create') }}">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Новый пост
                         </button>
                     </a>
@@ -30,9 +30,9 @@
                 <div class="text-center">
                     @include('includes.admin.search-posts')
                 </div>
-                <div class="text-center">
+{{--                <div class="text-center">--}}
 {{--                    @include('includes.admin.categories-posts')--}}
-                </div>
+{{--                </div>--}}
             </div>
             <table class="table-fixed w-full">
                 <thead>

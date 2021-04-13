@@ -12,64 +12,39 @@
   <component name="ChangeListManager">
     <list default="true" id="661562f3-1c24-45a9-a996-df11823f6860" name="Default Changelist" comment="post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvertisementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvertisementController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Blog/Posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Blog/Posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Admin/Blog/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Admin/Blog/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Blog/Cats.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/User/Blog/Cats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/User/Blog/Likes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Like.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curve/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curve/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curve/edwards.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curve/edwards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curve/short.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curve/short.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curves.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/curves.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/ec/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/ec/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/ec/key.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/ec/key.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/eddsa/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/eddsa/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/eddsa/signature.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/eddsa/signature.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/lib/elliptic/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/lib/bn.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/lib/bn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/util/genCombMulTo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/node_modules/bn.js/util/genCombMulTo10.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/elliptic/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/elliptic/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/colorbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/colorbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/8pwkM1sFdJ0iZweITaOSrwoT9pMIj0yb42lsPDu6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/C0IJxlcEDjCMBi3ojoVxyJEPamng3TgelFqtAQKE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/DFhOWY4SF6zRn84kXnlX900K7qhGvSZy4KcL6pVz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/DN47ZyGdIwEqtVUvhJ8VP5qFKePnoUqM91bYePrR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/I02a4EQZ6r8q5p2UEsybSbfEtPWVv6D6gVnWvNze.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/J2YLk7lYs6Dje0BVp2VKLD2HmSDKX62XzwfyxxS4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/TtVob3HDmkKmSgJT0yvWZaAhuvQzJ7tnRRMN39e0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/ZeEl7PJhgyfjhIipuQqu7PeBavGTyeutFSGTB6eK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/ayMAeFpoWNT65YcnOIv0y0T0jWMB0C0zVtAedfGH.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/eHdkbTpTyjo2kMuWGPtReEQKWSCzX6BdpcscFp77.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/kYxaRY2NwVlmPo6IxiJTQQy2W0WwhNmHCURdUQZJ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/mhjge0pdf3EXKB7Qa9KyZRRu9k7bAAZoVG2NenzC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/vTMsD53ArCbzMqqKprRpwbiLP0IuJfYlSLhTDGb0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_05_172325_create_members_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_05_172325_create_members_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/advertisements/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/advertisements/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/contacts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contacts/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/members/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/members/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/members/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/members/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/members/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/members/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/posts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/blog/one-cat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/one-cat.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/blog/post-one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/post-one.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/dynamic_email_get-replies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/dynamic_email_get-replies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin/search-posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin/search-posts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/cats.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/blog/cats.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/likes.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/blog/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/studio-42/elfinder/js/elfinder.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/studio-42/elfinder/js/elfinder.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/studio-42/elfinder/js/elfinder.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/studio-42/elfinder/js/elfinder.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,8 +209,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/packages/barryvdh/elfinder/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -248,18 +224,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img" />
+      <recent name="$PROJECT_DIR$/resources/views/emails" />
+      <recent name="$PROJECT_DIR$/app/Mail" />
       <recent name="$PROJECT_DIR$/public/packages/barryvdh/elfinder/js" />
       <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/posts" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/members" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/includes/blog" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views/admin/shop" />
       <recent name="$PROJECT_DIR$/resources/views/blog" />
-      <recent name="$PROJECT_DIR$/resources/views/livewire" />
     </key>
   </component>
   <component name="RunManager">
@@ -318,6 +294,9 @@
       <workItem from="1615385704945" duration="169000" />
       <workItem from="1615386252662" duration="11794000" />
       <workItem from="1615815310294" duration="1280000" />
+      <workItem from="1617629523386" duration="369000" />
+      <workItem from="1617638903425" duration="243000" />
+      <workItem from="1618306489920" duration="24491000" />
     </task>
     <servers />
   </component>
