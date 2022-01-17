@@ -1,0 +1,250 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.backgroundBody {
+    background-color: yellow;
+}
+
+.phone {
+    font-size: 18px;
+    color: white;
+}
+
+.link {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 15px;
+}
+
+.navMenu {
+    color: #242222;
+}
+
+.jumbotron p {
+    color: white;
+    font-size: 14px;
+}
+
+.jumbotron h1 {
+    color: white;
+    font-size: 60px;
+}
+
+.jumbotron h2 {
+    color: white;
+}
+
+.jumbotron lead {
+    color: white;
+}
+
+.promo {
+    background-image: url("/img/truck.jpg");
+    background-size: cover;
+}
+
+.blog {
+    background-image: url("/img/blog.jpg");
+    background-size: cover;
+}
+
+.spacePromo {
+    /*font-size: 10px;*/
+}
+
+.text {
+    font-size: 12px;
+}
+
+.autoParts {
+    background-image: url("/img/autoParts.jpg");
+    background-size: cover;
+}
+
+.searchAutopartsField {
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 33px;
+    width: 400px;
+    font-size: 16px;
+}
+
+.quantityOrder {
+    width: 35px;
+    height: 34px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.quantity {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.list {
+    list-style: none;
+}
+
+.listItem {
+    color: white;
+    font-size: 20px;
+}
+
+.law {
+    background-image: url("/img/law.jpg");
+    background-size: cover;
+}
+
+.ourPartners {
+    background-image: url("/img/beforeAfter.jpg");
+    background-size: cover;
+}
+
+.wrapCard {
+    margin-bottom: 20px;
+}
+
+.ourServices {
+    background-image: url("/img/beforeAfter.jpg");
+    background-size: cover;
+}
+
+.beforeAfter {
+    background-image: url("/img/beforeAfter.jpg");
+    background-size: cover;
+}
+
+.ourPossibilities {
+    background-image: url("/img/beforeAfter.jpg");
+    background-size: cover;
+}
+
+pre {
+    font-family: sans-serif, monospace;
+    font-size: 16px;
+    display: block;
+    margin: 10px;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.menu-small {
+    display: none;
+}
+
+.autoparts-small {
+    display: none;
+}
+
+.header-small {
+    display: none;
+}
+
+/*Flash*/
+.flash {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    margin-left: 735px;
+    margin-top: 6px;
+    border-radius: 50%;
+    -webkit-animation: shadow 1s infinite alternate;
+    -moz-animation: shadow 1s infinite alternate;
+    animation: shadow 1s infinite alternate
+}
+
+.flash1 {
+    display: none;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    margin-left: 80px;
+    margin-top: 130px;
+    border-radius: 50%;
+    -webkit-animation: shadow 1s infinite alternate;
+    -moz-animation: shadow 1s infinite alternate;
+    animation: shadow 1s infinite alternate
+}
+
+@-webkit-keyframes shadow {
+    from {
+        box-shadow: 0 0 0px 5px white
+    }
+    to {
+        box-shadow: 0 0 100px 100px white
+    }
+}
+
+@keyframes shadow {
+    from {
+        box-shadow: 0 0 0px 5px white
+    }
+    to {
+        box-shadow: 0 0 100px 100px white
+    }
+}
+
+@media (max-width: 1200px) {
+    .flash {
+        display: none;
+    }
+    .flash1 {
+        display: block;
+    }
+    .header-big {
+        display: none;
+    }
+    .header-small {
+        display: block;
+    }
+}
+
+@media (max-width: 1000px) {
+    .autoparts-big {
+        display: none;
+    }
+    .autoparts-small {
+        display: block;
+    }
+    .flash1 {
+        display: none;
+    }
+    .header-advs {
+        display: none;
+    }
+    .advertisements {
+        display: none;
+    }
+}
+
+@media (max-width: 816px) {
+    .menu-big {
+        display: none;
+    }
+    .menu-small {
+        display: block;
+    }
+}
+
+@media (max-width: 800px) {
+    .advertisements {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .lastPosts {
+        display: none;
+    }
+}

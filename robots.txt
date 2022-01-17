@@ -1,0 +1,9 @@
+user-agent: *
+Allow: /$
+Disallow: *register=
+Disallow: *login=
+Disallow: *logout=
+Disallow: *forgot-password=
+Disallow: *reset-password=
+Host: https://lemma-auto.ru/
+Sitemap: https://lemma-auto.ru/sitemap.xml
