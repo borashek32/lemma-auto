@@ -19,11 +19,19 @@ class MailingController extends Controller
 
     public function store(Request $request)
     {
-        Mailing::create([
-            'user_id'   => Auth::user()->id,
-            'email'     => $request->email
-        ]);
-
+        $user = Auth::user();
+        $new_email = $request->email;
+        if ($user->mailings) {
+            foreach ($user->mailings as $mailing) {
+                if ($mailing->email == $new_email) {
+                    return back()->with('error', 'Такой электронный адрес уже есть в списке рассылки');
+                }
+            }
+            Mailing::create([
+                'user_id'   => Auth::user()->id,
+                'email'     => $request->email
+            ]);
+        }
         return back()->with('success', 'Ваш адрес успешно добавлен в список рассылки');
     }
 

@@ -14,23 +14,23 @@
                             Меню
                         </button>
                         <div class="dropdown-menu" style="width:300px">
-                            <a class="p-2 text-dark" href="{{ route('auto-parts') }}">Поиск по каталожному номеру</a>
+                            <a class="dropdown-item" href="{{ route('auto-parts') }}">Поиск по каталожному номеру</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="#">Каталог расходных материалов</a>
+                            <a class="dropdown-item" href="#">Каталог расходных материалов</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('reviews') }}">Отзывы</a>
+                            <a class="dropdown-item" href="{{ route('reviews') }}">Отзывы</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('law') }}">Гарантии</a>
+                            <a class="dropdown-item" href="{{ route('law') }}">Гарантии</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('delivery') }}">Доставка</a>
+                            <a class="dropdown-item" href="{{ route('delivery') }}">Доставка</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('partners') }}">Наши партнеры</a>
+                            <a class="dropdown-item" href="{{ route('partners') }}">Наши партнеры</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('requisites') }}">Реквизиты</a>
+                            <a class="dropdown-item" href="{{ route('requisites') }}">Реквизиты</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('blog') }}">Блог</a>
+                            <a class="dropdown-item" href="{{ route('blog') }}">Блог</a>
                             <div class="dropdown-divider"></div>
-                            <a class="p-2 text-dark" href="{{ route('contact') }}">Контакты</a>
+                            <a class="dropdown-item" href="{{ route('contact') }}">Контакты</a>
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,6 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-
         $order = new Order();
         $order->order_number      = uniqid('LA-');
         $order->status            = 'в работе';

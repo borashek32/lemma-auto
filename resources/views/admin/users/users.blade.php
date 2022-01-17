@@ -51,7 +51,7 @@
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $user->id }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $user->name }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $user->email }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $user->created_at }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ date("d.m.y", strtotime($user->created_at)) }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <button wire:click="edit({{ $user->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать

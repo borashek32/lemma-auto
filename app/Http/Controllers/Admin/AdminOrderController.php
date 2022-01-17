@@ -31,7 +31,7 @@ class AdminOrderController extends Controller
     {
         if ($request->mode == 'true') {
             DB::table('orders')->where('id', $request->id)
-                ->update(['status' => 'completed']);
+                ->update(['status' => 'выполнен']);
 
             $order = Order::where('id', $request->id)->first();
             $user  = User::where('id', $order->user_id)->first();
@@ -44,16 +44,17 @@ class AdminOrderController extends Controller
         }
         else {
             DB::table('orders')->where('id', $request->id)
-                ->update(['status' => 'processing']);
+                ->update(['status' => 'в работе']);
         }
         return response()->json([
             'message' => 'не укомплектован',
             'status' => false
         ]);
     }
-    
-    public function destroy(Order $order)
+
+    public function destroy($id)
     {
+        $order = Order::find($id)->first();
         $order->delete();
 
         return redirect('dashboard/admin-orders')

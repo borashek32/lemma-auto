@@ -244,7 +244,7 @@
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('welcome') }}">
-                            {{ __('Добро пожаловать') }}<br>
+                            {{ __('Добро пожаловать') }}
                         </x-jet-dropdown-link>
 
                         <x-jet-dropdown-link href="{{ route('profile') }}">

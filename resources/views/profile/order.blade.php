@@ -47,7 +47,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5" style="white-space: normal">
                                 @foreach($order->products as $product)
-                                    <p>№ {{ $product->code }} - {{ $product->title }} - {{ $product->pivot->required_product_quantity }} шт. * {{ number_format($product->price, 2) }} руб.</p>
+                                    <p>№ {{ $product->code }} - {{ $product->title }} - {{ $product->pivot->required_product_quantity }} шт. - {{ number_format($product->price, 2) }} руб. - Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</p>
                                     <br>
                                 @endforeach
                             </td>
