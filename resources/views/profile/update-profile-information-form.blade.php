@@ -72,6 +72,21 @@
             <x-jet-input id="phone" type="text" class="border p-2 block mt-1 w-full" wire:model.defer="state.phone" />
             <x-jet-input-error for="phone" class="mt-2" />
         </div>
+
+        <!-- Status -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="status" value="{{ __('Ваш статус') }}" />
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" name="status" value="1"
+                       class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status == 1) checked @endif>
+                <span class="ml-2 text-gray-700">физическое лицо</span>
+            </label>
+            <br>
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" name="status" value="2" class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status == 2) checked @endif>
+                <span class="ml-2 text-gray-700">юридическое лицо</span>
+            </label>
+        </div>
     </x-slot>
 
     <x-slot name="actions">

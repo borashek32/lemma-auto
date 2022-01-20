@@ -46,7 +46,7 @@
                                     Поиск
                                 </button>
 
-                                <a href="{{ route('posts.index') }}">
+                                <a href="{{ route('orders.index') }}">
                                     <button type="submit" class="ml-4 shadow appearance-none border rounded w-20 h-9 text-center py-2 px-3 text-gray-700
                                 leading-tight focus:outline-none focus:shadow-outline bg-red-200">
                                         Сброс
