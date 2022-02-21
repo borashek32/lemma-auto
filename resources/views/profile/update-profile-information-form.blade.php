@@ -74,19 +74,29 @@
         </div>
 
         <!-- Status -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="status" value="{{ __('Ваш статус') }}" />
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" name="status" value="1"
-                       class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status == 1) checked @endif>
-                <span class="ml-2 text-gray-700">физическое лицо</span>
-            </label>
-            <br>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" name="status" value="2" class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status == 2) checked @endif>
-                <span class="ml-2 text-gray-700">юридическое лицо</span>
-            </label>
-        </div>
+{{--        <div class="col-span-6 sm:col-span-4">--}}
+{{--            <x-jet-label for="status" value="{{ __('Ваш статус') }}" />--}}
+{{--            @foreach(\App\Models\Status::all() as $status)--}}
+{{--                <label class="inline-flex items-center mt-3">--}}
+{{--                    <input type="checkbox" id="status_id" value="{{ $status->id }}" name="status" wire:model.defer="state.status.{{ $status->id }}"--}}
+{{--                           class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status_id == $status->id) checked @endif>--}}
+{{--                    <span class="ml-2 text-gray-700">{{ $status->title }}</span>--}}
+{{--                </label>--}}
+{{--            @endforeach--}}
+
+
+{{--            <label class="inline-flex items-center mt-3">--}}
+{{--                <input type="checkbox" id="status" value="1" wire:model="state.status.1"--}}
+{{--                       class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status == 1) checked @endif>--}}
+{{--                <span class="ml-2 text-gray-700">физическое лицо</span>--}}
+{{--            </label>--}}
+{{--            <br>--}}
+{{--            <label class="inline-flex items-center mt-3">--}}
+{{--                <input type="checkbox" id="status" value="2" wire:model="state.status.2"--}}
+{{--                       class="form-checkbox h-5 w-5 text-gray-600" @if (Auth::user()->status == 2) checked @endif>--}}
+{{--                <span class="ml-2 text-gray-700">юридическое лицо</span>--}}
+{{--            </label>--}}
+{{--        </div>--}}
     </x-slot>
 
     <x-slot name="actions">

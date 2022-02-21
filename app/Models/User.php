@@ -30,7 +30,8 @@ class User extends Authenticatable
         'phone',
         'provider_id',
         'avatar',
-        'status'
+        'status_id',
+        'margin'
     ];
 
     protected $hidden = [
@@ -47,6 +48,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function requisites()
+    {
+        return $this->hasOne(UserRequisites::class);
+    }
 
     public function reviews()
     {
@@ -86,5 +92,10 @@ class User extends Authenticatable
     protected function address()
     {
         return $this->hasOne(Address::class);
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
     }
 }

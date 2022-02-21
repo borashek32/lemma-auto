@@ -17,10 +17,11 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('goodsID');
             $table->string('brand');
-            $table->string('code');
-            $table->string('title');
+            $table->string('number');
+            $table->string('name');
             $table->float('price', 10, 2);
-            $table->integer('stock_quantity');
+            $table->integer('count');
+            $table->integer('shipmentDate');
             $table->timestamps();
         });
     }

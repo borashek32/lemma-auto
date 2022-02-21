@@ -15,6 +15,9 @@ class OrderProduct extends Model
         'order_id',
         'product_id',
         'required_product_quantity',
-        'shipment_date'
+        'shipment_date',
+        'number',
+        'brand',
+        'name'
     ];
 }

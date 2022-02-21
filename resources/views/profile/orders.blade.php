@@ -7,7 +7,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
                 @if(Auth::user()->orders->count() > 0)
@@ -35,7 +35,7 @@
                                 <tr>
                                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5 iteration">{{ $loop->iteration }}</td>
                                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $order->order_number }}</td>
-                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $order->total }} руб.</td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $order->total, 2 }} руб.</td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $order->status }}</td>
                                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                                         <div class="">

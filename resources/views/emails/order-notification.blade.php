@@ -25,7 +25,7 @@
 | Каталожный номер  | Название          | Количество |
 | ----------------- |:-----------------:| ----------:|
 @foreach($order->products as $product)
-| {{ $product->code }} | {{ $product->title }} | {{ $product->pivot->required_product_quantity }} |
+| {{ $product->pivot->number }} | {{ $product->pivot->name }} | {{ $product->pivot->required_product_quantity }} |
 @endforeach
 @endcomponent
 

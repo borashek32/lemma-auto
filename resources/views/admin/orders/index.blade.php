@@ -78,7 +78,10 @@
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $order->order_number }}</td>
                                 <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                                     @foreach($order->products as $product)
-                                        <wbr>{{ $product->title }}</wbr><br>
+                                        <wbr>{{ $product->pivot->number }}</wbr><br>
+                                        <wbr>{{ $product->pivot->name }}</wbr><br>
+                                        <wbr>Количество: {{ $product->pivot->required_product_quantity }}</wbr><br> 
+                                        <wbr>Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</wbr><br><br>
                                     @endforeach
                                 </td>
                                 <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $order->user->name }}</td>
@@ -116,6 +119,9 @@
                 @else
                     <p>На вашем сайте пока нет заказов</p>
                 @endif
+                <div class="mt-4">
+                    {{ $orders->links('vendor.pagination.simple-tailwind') }}
+                </div>
             </div>
         </div>
     </div>

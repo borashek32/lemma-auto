@@ -20,13 +20,15 @@ class UserSeeder extends Seeder
                 'name'      => 'Nataly Zueva',
                 'email'     => 'borashek@inbox.ru',
                 'password'  => Hash::make('11111111'),
-                'phone'     => '11111111111'
+                'phone'     => '11111111111',
+                'status_id' => '1'
             ],
             [
                 'name'      => 'Vadim Zuev',
                 'email'     => 'borashek88@gmail.com',
                 'password'  => Hash::make('22222222'),
-                'phone'     => '22222222222'
+                'phone'     => '22222222222',
+                'status_id' => '1'
             ],
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
             'name'     => $input['name'],
             'email'    => $input['email'],
             'phone'    => $input['phone'],
-            'status'   => $input['status'],
+            'status_id'   => $input['status'],
             'password' => Hash::make($input['password']),
             ]);
         $user->assignRole('user');

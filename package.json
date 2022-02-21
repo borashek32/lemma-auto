@@ -28,8 +28,9 @@
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^26.0.0",
         "@ckeditor/ckeditor5-upload": "^26.0.0",
-        "filepond": "^4.25.3",
+        "filepond": "^4.30.3",
         "jquery": "^3.6.0",
+        "jquery-filepond": "^1.0.0",
         "medium-editor": "^5.23.3"
     }
 }

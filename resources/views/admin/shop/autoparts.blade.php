@@ -1,6 +1,6 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Управление автозвпчастями
+        Управление автозапчастями
     </h2>
 </x-slot>
 <div class="py-4">
@@ -52,6 +52,7 @@
                     <th class="px-6 py-3 text-center border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Каталожный<br>номер</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Название</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Цена</th>
+                    <th class="px-6 py-3 text-center border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Срок<br>доставки</th>
                     <th class="px-6 py-3 text-center border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Количество<br>на складе</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Действие</th>
                 </tr>
@@ -60,10 +61,11 @@
                 @foreach($products as $product)
                     <tr>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ Date::parse($product->created_at)->format('j F Y') }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->code}}</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->title }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->number}}</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->name }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->price }} руб.</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->stock_quantity }} шт.</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->shipmentDate }} дн.</td>
+                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $product->count }} шт.</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <button wire:click="edit({{ $product->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 Редактировать

@@ -14,7 +14,9 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/android-chrome-512x512.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/android-chrome-192x192.png">
         <link rel="icon" type="image/png" sizes="120x120" href="/120-120.png">
-        
+
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -59,8 +61,18 @@
                         </span>
                     </a>
                 </li>
+                @if(Auth::user()->status_id == 2)
+                    <li class="my-2 md:my-0 ">
+                        <a href="{{ route('requisites.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                            <i class="far fa-sticky-note mr-3"></i>
+                            <span class="w-full inline-block pb-1 md:pb-0 text-sm">
+                                Реквизиты
+                            </span>
+                        </a>
+                    </li>
+                @endif
                 @if(Auth::user()->hasRole('user'))
-                    <li class="my-2 md:my-0" id="sidebar">
+                    <li class="my-2 md:my-0 ">
                         <a href="{{ route('cart.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
                             <i class="fas fa-cart-arrow-down mr-3"></i>
                             <span class="w-full inline-block pb-1 md:pb-0 text-sm">
@@ -108,7 +120,7 @@
                         </a>
                     </li>
                     <li class="my-2 md:my-0 ">
-                        <a href="{{ route('users') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                        <a href="{{ route('users.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
                             <i class="fas fa-user-friends mr-3"></i>
                             <span class="w-full inline-block pb-1 md:pb-0 text-sm">
                                 Все<br>пользователи
@@ -192,7 +204,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.min.js" defer></script>
     <script src="https://www.unpkg.com/trix@1.2.2/dist/trix.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-    
+
     <style>
             .nunito {
                 font-family: 'nunito', font-sans, serif;

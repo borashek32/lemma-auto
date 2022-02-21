@@ -18,7 +18,6 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AutopartController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Admin\PostController;
-use App\Http\Livewire\Admin\Users\Users;
 
 Route::get('/sitemap.xml', [SiteController::class, 'sitemap']);
 
@@ -34,6 +33,7 @@ Route::get('/clear', function () {
 // SITE
 // COMMON ROUTES
 Route::get('/', [AutopartController::class, 'autoparts'])->name('auto-parts');
+Route::get('/search', [AutopartController::class, 'search'])->name('search');
 Route::post('/', [SiteController::class, 'submit'])->name('contact-form');
 Route::post('/promo-catalogue', [SiteController::class, 'orderCall'])->name('order-call');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
@@ -79,12 +79,14 @@ Route::post('comments/{comment}', [\App\Http\Controllers\Comments\CommentControl
 //})->name('welcome');
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'welcome'])
     ->name('welcome')->middleware('auth');
-Route::resource('/mailings', \App\Http\Controllers\MailingController::class)
+Route::resource('/dashboard/mailings', \App\Http\Controllers\MailingController::class)
     ->middleware('auth');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/profile', function () {
     return view('profile.show');
 })->name('profile');
-Route::resource('/addresses', \App\Http\Controllers\User\AddressController::class);
+Route::resource('/dashboard/addresses', \App\Http\Controllers\User\AddressController::class);
+Route::resource('/dashboard/company-requisites', \App\Http\Controllers\User\RequisitesController::class)
+     ->names('requisites');
 
 // CART ROUTES
 Route::get('/dashboard/cart', [\App\Http\Controllers\Order\CartController::class, 'index'])
@@ -125,6 +127,7 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::resource('/members', MemberController::class);
         Route::resource('/posts', PostController::class);
         Route::resource('/advertisements', AdvertisementController::class);
+        Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
 
         Route::resource('/admin-orders', AdminOrderController::class);
         Route::post('order_status', [\App\Http\Controllers\Admin\AdminOrderController::class, 'orderStatus'])
@@ -132,7 +135,6 @@ Route::group(['middleware' => ['role:super-admin']], function () {
 
         Route::get('/categories', Categories::class)->name('cats');
         Route::get('/comments', Comments::class)->name('comments-admin');
-        Route::get('/users', Users::class)->name('users');
         Route::get('/reviews', Reviews::class)->name('reviews-admin');
         Route::get('/offices', Contacts::class)->name('offices');
         Route::get('/tags', Tags::class)->name('tags');

@@ -33,9 +33,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name'   => $input['name'],
             'email'  => $input['email'],
             'phone'  => $input['phone'],
-            'status' => $input['status']
-        ]);
-        dd($user->status);
-//        ->save();
+            'status_id' => $input['status']
+        ])
+//        dd($user->status);
+        ->save();
     }
 }

@@ -47,8 +47,10 @@
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5" style="white-space: normal">
                                 @foreach($order->products as $product)
-                                    <p>№ {{ $product->code }} - {{ $product->title }} - {{ $product->pivot->required_product_quantity }} шт. - {{ number_format($product->price, 2) }} руб. - Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</p>
-                                    <br>
+                                    <wbr>№ {{ $product->pivot->number }}</wbr><br>
+                                    <wbr>{{ $product->pivot->name }}</wbr><br>
+                                    <wbr>Количество: {{ $product->pivot->required_product_quantity }}</wbr><br> 
+                                    <wbr>Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</wbr><br><br>
                                 @endforeach
                             </td>
                         </tr>
@@ -93,9 +95,11 @@
                                     {{ $order->contact->address }}
                                 @else
                                     @foreach($order->products as $product)
-                                    <p>№ {{ $product->code }} - {{ $product->title }} - {{ $product->pivot->required_product_quantity }} шт. * {{ number_format($product->price, 2) }} руб.</p>
-                                    <br>
-                                @endforeach
+                                        <wbr>{{ $product->pivot->number }}</wbr><br>
+                                        <wbr>{{ $product->pivot->name }}</wbr><br>
+                                        <wbr>Количество: {{ $product->pivot->required_product_quantity }}</wbr><br> 
+                                        <wbr>Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</wbr><br><br>
+                                    @endforeach
                                 @endif  
                             </p>
                         </div>

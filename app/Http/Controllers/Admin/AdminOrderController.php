@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Mail\OrderCompleted;
@@ -33,8 +34,10 @@ class AdminOrderController extends Controller
             DB::table('orders')->where('id', $request->id)
                 ->update(['status' => 'выполнен']);
 
-            $order = Order::where('id', $request->id)->first();
-            $user  = User::where('id', $order->user_id)->first();
+            $order    = Order::where('id', $request->id)->first();
+            $order_id = $order->id;
+            $user     = User::where('id', $order->user_id)->first();
+            // $products = Product::where('');
             Mail::to($user)->send(new OrderCompleted($order));
 
             return response()->json([

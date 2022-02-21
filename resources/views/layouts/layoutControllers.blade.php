@@ -12,6 +12,8 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 
@@ -40,7 +42,7 @@
                     <a href="{{ route('welcome') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
                         <i class="fas fa-layer-group mr-3"></i>
                         <span class="w-full inline-block pb-1 md:pb-0 text-sm">
-                            Добро пожаловать
+                            Добро<br>пожаловать
                         </span>
                     </a>
                 </li>
@@ -52,6 +54,16 @@
                         </span>
                     </a>
                 </li>
+                @if(Auth::user()->status_id == 2)
+                    <li class="my-2 md:my-0 ">
+                        <a href="{{ route('cart.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                            <i class="far fa-sticky-note mr-3"></i>
+                            <span class="w-full inline-block pb-1 md:pb-0 text-sm">
+                                Реквизиты
+                            </span>
+                        </a>
+                    </li>
+                @endif
                 @if(Auth::user()->hasRole('user'))
                     <li class="my-2 md:my-0 ">
                         <a href="{{ route('cart.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
@@ -105,7 +117,7 @@
                         </a>
                     </li>
                     <li class="my-2 md:my-0 ">
-                        <a href="{{ route('users') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+                        <a href="{{ route('users.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
                             <i class="fas fa-user-friends mr-3"></i>
                             <span class="w-full inline-block pb-1 md:pb-0 text-sm">
                                 Все<br>пользователи
@@ -258,6 +270,8 @@
 
     <script src="/js/editor.js"></script>
     <script src="{{ asset('js/tagsinput.js') }}"></script>
+    {{--    filepond--}}
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
     @yield('scripts')
     </body>
 </html>

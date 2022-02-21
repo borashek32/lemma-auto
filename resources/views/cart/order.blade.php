@@ -18,8 +18,41 @@
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-{{--            @include('includes.messages')--}}
-
+            @include('includes.messages')
+            @if(Auth::user()->status_id == 2)
+                @if(Auth::user()->requisites)
+                    <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                        <div class="flex">
+                            <div>
+                                <p>
+                                    Вы можете покупать автозапчасти, как юридическое лицо, так кка профиль вышей организации подтвержден.
+                                    Реквизиты вашей организации успешно загружены.
+                                    В любое время вы можете их удалить и добавить новые на странице реквизитов.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="bg-red-200 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                        <div class="flex">
+                            <p>
+                                Вы не можете покупать автозапчасти, как юридическое лицо,
+                                так как профиль вашей организации не подтвержден, так как вы не загрузили реквизиты.
+                                Добавить реквизиты можно на странице реквизитов, добавление реквизитов подробно расписано в Правилах использования сайта.
+                                Если у вас возникли проблемы при добавлении ревизитов, обратитесь к технического специалисту:
+                                <a href="tel:+79169174630">
+                                    +7 (916) 917-46-30
+                                </a>
+                            </p>
+                        </div>
+                        <a href="{{ route('requisites.index') }}">
+                            <x-jet-button class="ml-4 mt-4">
+                                {{ __('Добавить реквизиты') }}
+                            </x-jet-button>
+                        </a>
+                    </div>
+                @endif
+            @endif
             <form id="form" action="{{ route('orders.store') }}" method="POST" class="w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mt-4">
                 @csrf
                 <h1 class="block text-gray-700 font-bold mb-2 text-xl text-center">

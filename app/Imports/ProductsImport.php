@@ -13,22 +13,44 @@ class ProductsImport implements ToCollection
     {
         foreach ($collection as $row) {
             if ($row !== null) {
-                if ($product = Product::where('code', $row[0])->first())
+                if ($product = Product::where('number', $row[0])->first())
                 {
                     $product->update([
-                            'stock_quantity' => $row[2],
+                            'count'          => $row[2],
                             'price'          => $row[3],
                         ]);
                 } else {
                     DB::table('products')
                         ->insert([
-                            'code'           => $row[0],
-                            'title'          => $row[1],
-                            'stock_quantity' => $row[2],
+                            'number'         => $row[0],
+                            'name'           => $row[1],
+                            'count'          => $row[2],
                             'price'          => $row[3],
+                            'goodsId'        => uniqid(),
+                            'shipmentDate'   => $row[4],
+                            'brand'          => $row[5]
                         ]);
                 }
             }
         }
     }
+
+    // public function collection(Collection $collection)
+    // {
+    //     foreach ($collection as $row) {
+    //         if ($row !== null) {
+    //             DB::table('products')
+    //                 ->insert([
+    //                     'goodsId'        => uniqid(),
+    //                     'brand'          => $row[1],
+    //                     'code'           => $row[2],
+    //                     'title'          => $row[3],
+    //                     'price'          => $row[4],
+    //                     'stock_quantity' => $row[5],
+    //                     'shipment_date'  => $row[6]
+    //                 ]);
+    //             }
+    //         }
+    //     }
+    // }
 }

@@ -75,7 +75,7 @@
                 <p>В блоге пока нет постов.</p>
             @endif
             <div class="mt-4">
-                {{ $posts->links() }}
+                {{ $posts->links('vendor.pagination.simple-tailwind') }}
             </div>
         </div>
     </div>

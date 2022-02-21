@@ -12,10 +12,11 @@ class Product extends Model
     protected $fillable = [
         'goodsID',
         'brand',
-        'code',
-        'title',
+        'number',
+        'name',
         'price',
-        'stock_quantity'
+        'count',
+        'shipmentDate'
     ];
 
     public function orders()

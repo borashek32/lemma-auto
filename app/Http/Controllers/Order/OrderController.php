@@ -9,6 +9,8 @@ use App\Mail\OrderPlaced;
 use App\Models\Contact;
 use App\Models\OrderProduct;
 use App\Models\Payment;
+use App\Models\Product;
+use App\Models\UserRequisites;
 use Cart;
 use Illuminate\Http\Request;
 use App\Models\Order;
@@ -19,7 +21,6 @@ class OrderController extends Controller
 {
     public function shipment()
     {
-//        dd(Cart::content());
         $contacts  = Contact::all();
         $payments  = Payment::all();
         $user      = Auth::user();
@@ -29,31 +30,81 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $order = new Order();
-        $order->order_number      = uniqid('LA-');
-        $order->status            = 'в работе';
-        $order->total             = Cart::total();
-        $order->product_count     = Cart::count();
-        $order->contact_id        = $request->contact_id;
-        $order->payment_id        = $request->payment_id;
-        $order->user_id           = auth()->id();
-        $order->save();
+        $status_id = Auth::user()->status_id;
 
-        $cartProducts = Cart::content();
-        foreach ($cartProducts as $item)
-            OrderProduct::create([
-                'order_id' => $order->id,
-                'product_id' => $item->id,
-                'required_product_quantity' => $item->qty,
-                'shipment_date' => $item->options->shipment_date
-            ]);
-//            $order->products()->attach($item->id);
+        if ($request->contact_id) {
+            if ($status_id == 2) {
+                $user_requisites = UserRequisites::where('user_id', Auth::user()->id);
+                if ($user_requisites->exists()) {
+                    $order = new Order();
+                    $order->order_number      = uniqid('LA-');
+                    $order->status            = 'в работе';
+                    $order->total             = Cart::total();
+                    $order->product_count     = Cart::count();
+                    $order->contact_id        = $request->contact_id;
+                    $order->payment_id        = $request->payment_id;
+                    $order->user_id           = auth()->id();
+                    $order->save();
 
-        Cart::destroy();
+                    $cartProducts = Cart::content();
+                    foreach ($cartProducts as $item)
+                        OrderProduct::create([
+                            'order_id'                  => $order->id,
+                            'product_id'                => $item->id,
+                            'number'                    => $item->options->number,
+                            'brand'                     => $item->options->brand,
+                            'name'                      => $item->name,
+                            'required_product_quantity' => $item->qty,
+                            'shipment_date'             => $item->options->shipment_date
+                        ]);
+                        // $product = Product::where('id', $item->id);
+                        // $product->delete();
 
-        Mail::to($request->user())->send(new OrderPlaced($order));
-        Mail::to("borashek@inbox.ru")->send(new OrderNotification($order));
+                    Cart::destroy();
 
-        return redirect()->route('auto-parts')->with('success', 'Ваш заказ был успешно размещен');
+                    Mail::to($request->user())->send(new OrderPlaced($order));
+                    Mail::to("borashek@inbox.ru")->send(new OrderNotification($order));
+
+                    return redirect()->route('auto-parts')->with('success', 'Ваш заказ был успешно размещен');
+                } else {
+                    return back()->with('error', 'Добавте реквизиты организации для покупки автозапчастей, как юридическое лицо');
+                }
+
+            } else {
+                $order = new Order();
+                $order->order_number = uniqid('LA-');
+                $order->status = 'в работе';
+                $order->total = Cart::total();
+                $order->product_count = Cart::count();
+                $order->contact_id = $request->contact_id;
+                $order->payment_id = $request->payment_id;
+                $order->user_id = auth()->id();
+                $order->save();
+                
+                $cartProducts = Cart::content();
+                foreach ($cartProducts as $item)
+                    OrderProduct::create([
+                        'order_id'                  => $order->id,
+                        'product_id'                => $item->id,
+                        'number'                    => $item->options->number,
+                        'brand'                     => $item->options->brand,
+                        'name'                      => $item->name,
+                        'required_product_quantity' => $item->qty,
+                        'shipment_date'             => $item->options->shipment_date
+                    ]);
+                    // $product = Product::where('id', $item->id);
+                    // $product->delete();
+                    
+                Cart::destroy();
+
+                Mail::to($request->user())->send(new OrderPlaced($order));
+                Mail::to("borashek@inbox.ru")->send(new OrderNotification($order));
+
+                return redirect()->route('auto-parts')->with('success', 'Ваш заказ был успешно размещен');
+            }
+        } else {
+
+            return back()->with('error', 'Вы не выбрали адрес офиса для самовывоза.');
+        }
     }
 }

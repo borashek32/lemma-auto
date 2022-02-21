@@ -1,7 +1,7 @@
 <div id="bigSearch">
     <div class="row">
     <div class="col-xl-10 cpl-lg-10 col-md-10 col-sm-10 col-10">
-        <form method="get" action="{{ route('auto-parts') }}" class="input-group mb-4">
+        <form method="get" action="{{ route('search') }}" class="input-group mb-4">
             <input type="text" class="form-control shadow p-3 bg-body rounded"
                    style="margin-bottom:0px;margin-right: 10px" placeholder="Введите каталожный номер или название"
                    aria-label="Username" id="search" name="search" aria-describedby="basic-addon1">
@@ -22,7 +22,7 @@
 
 
 <div id="smallSearch">
-    <form method="get" action="{{ route('auto-parts') }}" class="input-group mb-4">
+    <form method="get" action="{{ route('search') }}" class="input-group mb-4">
         <div class="col-xl-12 cpl-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom:10px">
             <input type="text" class="form-control shadow p-3 bg-body rounded"
                    style="margin-bottom:0px;margin-right: 10px" placeholder="Введите каталожный номер или название"

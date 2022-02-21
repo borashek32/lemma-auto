@@ -12,17 +12,58 @@
 
     @if(Auth::user()->hasRole('user'))
         <div class="py-4">
-            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                @if (session()->has('success'))
-                    <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-                        <div class="flex">
-                            <div>
-                                <p class="text-sm">{{ session('success') }}</p>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                @if(Auth::user()->status_id == 2)
+                    @if(Auth::user()->requisites)
+                        <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                            <div class="flex">
+                                <div>
+                                    <p>
+                                        Профиль вышей организации подтвержден.
+                                        Реквизиты вашей организации успешно загружены.
+                                        В любое время вы можете их удалить и добавить новые на странице реквизитов.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="bg-red-200 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                            <div class="flex">
+                                <p>
+                                    Профиль вашей организации не подтвержден, так как вы не загрузили реквизиты.
+                                    Добавить реквизиты можно на странице реквизитов, добавление реквизитов подробно расписано в Правилах использования сайта.
+                                    Если у вас возникли проблемы при добавлении ревизитов, обратитесь к технического специалисту:
+                                    <a href="tel:+79169174630">
+                                        +7 (916) 917-46-30
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    @endif
                 @endif
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
+                    @if(Auth::user()->status_id == 1)
+                        <p>
+                            Вы зарегистрированны, как физическое лицо. Для покупки запчастей, как юридическое лицо,
+                            создайте новый аккаунт с другим электронным адресом.
+                            <br>
+                            Или обратитесь к администратору сайта для смены статуса аккаунта:
+                            <a href="tel:+79169174630">
+                                +7 (916) 917-46-30
+                            </a>
+                        </p>
+                    @endif
+
+                    @if(Auth::user()->status_id == 2)
+                        <p>Вы зарегистрированны, как юридическое лицо. Для покупки запчастей, как физическое лицо,
+                            создайте новый аккаунт с другим электронным адресом.
+                            <br>
+                            Или обратитесь к администратору сайта для смены статуса аккаунта:
+                            <a href="tel:+79169174630">
+                                +7 (916) 917-46-30
+                            </a>
+                        </p>
+                    @endif
                     <div class="flex flex-wrap">
                         <div class="w-full md:w-1/2 xl:w-1/3 p-6">
                             <!--Metric Card-->
@@ -111,7 +152,7 @@
                         </div>
                         <div class="w-full md:w-1/2 xl:w-1/3 p-6">
                             <!--Metric Card-->
-                            <a href="{{ route('users') }}">
+                            <a href="{{ route('users.index') }}">
                                 <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
                                     <div class="flex flex-row items-center">
                                         <div class="flex-shrink pr-4">
@@ -128,7 +169,7 @@
                         </div>
                         <div class="w-full md:w-1/2 xl:w-1/3 p-6">
                             <!--Metric Card-->
-                            <a href="{{ route('users') }}">
+                            <a href="{{ route('users.index') }}">
                                 <div class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-xl p-5">
                                     <div class="flex flex-row items-center">
                                         <div class="flex-shrink pr-4">

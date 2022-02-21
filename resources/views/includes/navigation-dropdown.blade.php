@@ -28,6 +28,13 @@
                         {{ __('Профиль') }}
                     </x-jet-nav-link>
                 </div>
+                @if(Auth::user()->status_id == 2)
+                    <div id="line" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                        <x-jet-nav-link href="{{ route('requisites.index') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Реквизиты') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
                 @if(Auth::user()->hasRole('user'))
                     <div id="line" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                         <x-jet-nav-link href="{{ route('cart.index') }}" :active="request()->routeIs('dashboard')">
@@ -103,7 +110,7 @@
                                     {{ __('Управление пользователями') }}
                                 </div>
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
-                                    <x-jet-nav-link href="{{ route('users') }}">
+                                    <x-jet-nav-link href="{{ route('users.index') }}">
                                         {{ __('Все пользователи') }}
                                     </x-jet-nav-link>
                                 </div>
@@ -251,6 +258,11 @@
                             {{ __('Профиль') }}
                         </x-jet-dropdown-link>
 
+                        @if(Auth::user()->status_id == 2)
+                            <x-jet-dropdown-link href="#">
+                                {{ __('Реквизиты') }}
+                            </x-jet-dropdown-link>
+                        @endif
                         @if(Auth::user()->hasRole('user'))
                             <x-jet-dropdown-link href="{{ route('cart.index') }}">
                                 {{ __('Корзина') }}
@@ -372,6 +384,11 @@
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Профиль') }}
                 </x-jet-responsive-nav-link>
+                @if(Auth::user()->status_id == 2)
+                    <x-jet-responsive-nav-link href="{{ route('requisites.index') }}" :active="request()->routeIs('profile.show')">
+                        {{ __('Реквизиты') }}
+                    </x-jet-responsive-nav-link>
+                @endif
                 @if(Auth::user()->hasRole('user'))
                     <x-jet-responsive-nav-link href="{{ route('cart.index') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Корзина') }}
@@ -392,7 +409,7 @@
                     <x-jet-responsive-nav-link href="{{ route('auto-parts-admin') }}" :active="request()->routeIs('profile.show')">
                             {{ __('Автозапчасти') }}
                     </x-jet-responsive-nav-link>
-                    <x-jet-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('profile.show')">
+                    <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Все пользователи') }}
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link href="#" :active="request()->routeIs('profile.show')">

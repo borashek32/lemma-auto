@@ -41,15 +41,13 @@
 
             <div class="mt-4">
                 <x-jet-label for="status" value="{{ __('Ваш статус') }}" />
-                <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" name="status" value="1" class="form-checkbox h-5 w-5 text-gray-600">
-                    <span class="ml-2 text-gray-700">физическое лицо</span>
-                </label>
-                <br>
-                <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" name="status" value="2" class="form-checkbox h-5 w-5 text-gray-600">
-                    <span class="ml-2 text-gray-700">юридическое лицо</span>
-                </label>
+                @foreach(\App\Models\Status::all() as $status)
+                    <label class="inline-flex items-center mt-3">
+                        <input type="radio" name="status" value="{{ $status->id }}"
+                               class="form-checkbox h-5 w-5 text-gray-600">
+                        <span class="ml-2 text-gray-700">{{ $status->title }}</span>
+                    </label>
+                @endforeach
             </div>
 
             <div class="flex items-center justify-end mt-4">

@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 
 class Products extends Component
 {
-    public $title, $code, $price, $stock_quantity, $product_id, $search;
+    public $name, $number, $price, $count, $product_id, $search;
     public $isOpen = 0;
 
     use WithPagination;
@@ -16,8 +16,8 @@ class Products extends Component
     public function render()
     {
         $search = '%' . $this->search . '%';
-        $products = Product::where('title', 'LIKE', $search)
-            ->orWhere('code', 'LIKE', $search)
+        $products = Product::where('name', 'LIKE', $search)
+            ->orWhere('number', 'LIKE', $search)
             ->latest()
             ->paginate(10);
 
@@ -39,38 +39,38 @@ class Products extends Component
     {
         $this->isOpen = false;
     }
-
+  
     private function resetInputFields()
     {
-        $this->title           =      '';
-        $this->code            =      '';
+        $this->name            =      '';
+        $this->number          =      '';
         $this->price           =      '';
-        $this->stock_quantity  =      '';
+        $this->count           =      '';
         $this->product_id      =      '';
     }
 
     protected $messages = [
-        'title.required'           => 'Поле "Название" не может быть пустым',
-        'code.required'            => 'Поле "Каталожный номер" не может быть пустым',
-        'price.required'           => 'Поле "Цена" не может быть пустым',
-        'stock_quantity.required'  => 'Поле "Количесво на складе" не может быть пустым',
+        'name.required'      => 'Поле "Название" не может быть пустым',
+        'number.required'    => 'Поле "Каталожный номер" не может быть пустым',
+        'price.required'     => 'Поле "Цена" не может быть пустым',
+        'count.required'     => 'Поле "Количесво на складе" не может быть пустым',
     ];
 
     public function store()
     {
         $this->validate([
-            'title'          =>    'required',
-            'code'         =>    'required',
+            'name'           =>    'required',
+            'cnumber'        =>    'required',
             'price'          =>    'required',
-            'stock_quantity'  =>    'required',
+            'count'          =>    'required',
         ]);
 
         Product::updateOrCreate(
             ['id'                    =>    $this->product_id],
-            ['title'                 =>    $this->title,
-                'code'               =>    $this->code,
+            ['name'                  =>    $this->title,
+                'number'             =>    $this->code,
                 'price'              =>    $this->price,
-                'stock_quantity'      =>    $this->stock_quantity,
+                'count'              =>    $this->stock_quantity,
             ]);
 
         session()->flash('message',
@@ -82,18 +82,18 @@ class Products extends Component
 
     public function edit($id)
     {
-        $autopart                   =     Product::findOrFail($id);
-        $this->product_id       =     $id;
-        $this->title            =     $autopart->title;
-        $this->code             =     $autopart->code  ;
-        $this->price            =     $autopart->price;
-        $this->stock_quantity   =     $autopart->stock_quantity;
+        $autopart              =     Product::findOrFail($id);
+        $this->product_id      =     $id;
+        $this->name            =     $autopart->name;
+        $this->number          =     $autopart->number  ;
+        $this->price           =     $autopart->price;
+        $this->count           =     $autopart->count;
         $this->openModal();
     }
 
-    public function delete($id)
+    public function delete()
     {
-        Product::find($id)->delete();
-        session()->flash('message', 'Товар успешно удален.');
+        Product::findAll()->delete();
+        session()->flash('message', 'Товары успешно удалены.');
     }
 }

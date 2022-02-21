@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactSeeder::class);
         $this->call(PaymentSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(StatusSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(MemberSeeder::class);
         $this->call(TagSeeder::class);

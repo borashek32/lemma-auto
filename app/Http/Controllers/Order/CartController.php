@@ -17,6 +17,7 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $duplicates = Cart::search(function($cartItem, $rowId) use ($request) {
             return $cartItem->id === $request->product_id;
         });
@@ -26,15 +27,19 @@ class CartController extends Controller
                 ->with('error', 'Товар уже есть в вашей корзинею Для того, чтобы изменить количество, перейдите в корзину');
         }
 
-        $product = new Product();
-        $product->goodsID        = $request->goodsID;
-        $product->code           = $request->code;
-        $product->brand          = $request->brand;
-        $product->price          = $request->price;
-        $product->title          = $request->title;
-        $product->stock_quantity = $request->stock_quantity;
-        $product->save();
-
+        $product    = Product::where('number', $request->code)->first();
+        $product_id = $product->id;
+        if (!$product_id) {
+            $product = new Product();
+            $product->goodsID        = $request->goodsID;
+            $product->number         = $request->code;
+            $product->brand          = $request->brand;
+            $product->price          = $request->price;
+            $product->name           = $request->title;
+            $product->count          = $request->stock_quantity;
+            $product->save();
+        }
+        
         Cart::add(
             $product->id,
             $request->title,
@@ -42,13 +47,14 @@ class CartController extends Controller
             $request->price,
             [
                 'stock_quantity' => $request->stock_quantity,
-                'code' => $request->code,
-                'brand' => $request->brand,
-                'goodsID' => $product->goodsID,
-                'shipment_date' => $request->shipment_date
+                'number'         => $request->code,
+                'brand'          => $request->brand,
+                'name'           => $request->title,
+                'goodsID'        => $product->goodsID,
+                'shipment_date'  => $request->shipment_date
             ]
         )->associate('App\Models\Product');
-
+// dd(Cart::content());
         return redirect()
             ->route('cart.index')
             ->with('success', 'Товар успешно добавлен в вашу корзину');

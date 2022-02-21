@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('order_number');
             $table->enum('status', ['в работе','выполнен'])->default('в работе');
-            $table->float('total', 20, 2);
+            $table->string('total', 20);
             $table->integer('product_count');
             $table->boolean('is_paid')->default(false);
             $table->foreignId('payment_id')->unsigned();

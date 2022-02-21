@@ -26,7 +26,7 @@
                 <tr>
                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5 iteration">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5" style="white-space: pre-line">
-                        {{ $item->options->has('code') ? $item->options->code : '' }}
+                        {{ $item->options->has('number') ? $item->options->number : '' }}
                     </td>
                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                         {{ $item->options->brand }}, {{ $item->name }}
@@ -41,7 +41,9 @@
                             name="required_quantity" data-id="{{ $item->rowId }}" id="qty-input-{{ $item->rowId }}"
                             step="1" min="1" max="{{ $item->options->stock_quantity }}" value="{{ $item->qty }}">
                     </td>
-                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ number_format($item->subtotal, 2) }} руб.</td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">
+                        {{ number_format($item->subtotal, 2) }} руб.
+                    </td>
 
                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                         <div class="">
@@ -63,7 +65,7 @@
                 <div class="bg-white shadow-xl rounded-lg overflow-hidden border-gray-200 m-4">
                     <div class="p-4">
                         <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
-                            Каталожный номер • {{ $item->options->has('code') ? $item->options->code : '' }}
+                            Каталожный номер • {{ $item->options->has('number') ? $item->options->number : '' }}
                         </p>
                         <p class="text-lg text-gray-900">
                             Название • {{ $item->options->brand }}, {{ $item->name }}
