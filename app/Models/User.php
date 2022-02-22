@@ -98,4 +98,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function faqs()
+    {
+        return $this->hasMany(Faq::class);
+    }
 }

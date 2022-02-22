@@ -202,6 +202,11 @@
                                         {{ __('Реклама') }}
                                     </x-jet-nav-link>
                                 </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('faqs.index') }}">
+                                        {{ __('FAQ') }}
+                                    </x-jet-nav-link>
+                                </div>
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
@@ -441,6 +446,9 @@
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link href="{{ route('advertisements.index') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Реклама') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('faqs.index') }}" :active="request()->routeIs('profile.show')">
+                        {{ __('FAQ') }}
                     </x-jet-responsive-nav-link>
                 @endif
 

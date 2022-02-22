@@ -8,6 +8,7 @@ use App\Models\Member;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Faq;
 use App\Models\Requisite;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -97,5 +98,22 @@ class SiteController extends Controller
         Mail::to("borashek@inbox.ru")->send(new CallMail($request));
 
         return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
+    }
+
+    public function faq()
+    {
+        $faqs = Faq::all();
+        return view('site.faq', compact('faqs'));
+    }
+
+    public function faqWrite(Request $req)
+    {
+        // dd($req->all());
+        $faq              = new Faq();
+        $faq->user_id     = auth()->user()->id;
+        $faq->question    = $req->input('question');
+        $faq->save();
+
+        return redirect('faq')->with('success', 'Ваш вопрос отправлен техническому специалисту');
     }
 }

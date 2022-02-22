@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdvertisementController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\Order\SaveForLaterController;
 use App\Http\Livewire\Admin\Blog\Tags;
@@ -41,11 +42,12 @@ Route::get('/partners', [AutopartController::class, 'partners'])->name('partners
 Route::get('/law', [AutopartController::class, 'law'])->name('law');
 Route::get('/about-us', [SiteController::class, 'aboutUs'])->name('about-us');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
-Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])
-    ->name('reviews-form')->middleware('auth');
+Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form')->middleware('auth');
 Route::get('/requisites', [SiteController::class, 'requisites'])->name('requisites');
 Route::get('/delivery', [SiteController::class, 'delivery'])->name('delivery');
 Route::get('/payment', [SiteController::class, 'payment'])->name('payment');
+Route::get('/faq', [SiteController::class, 'faq'])->name('faq');
+Route::post('/faq', [SiteController::class, 'faqWrite'])->name('faq-form')->middleware('auth');
 
 
 // BLOG ROUTES
@@ -128,7 +130,7 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::resource('/posts', PostController::class);
         Route::resource('/advertisements', AdvertisementController::class);
         Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
-
+        Route::resource('/faqs', FaqController::class);
         Route::resource('/admin-orders', AdminOrderController::class);
         Route::post('order_status', [\App\Http\Controllers\Admin\AdminOrderController::class, 'orderStatus'])
             ->name('admin-orders.status');

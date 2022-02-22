@@ -1,12 +1,12 @@
 <div style="margin-top: 20px">
     <div class="border-bottom border-success">
         <h6 class="font-weight-bold" style="margin-top:8px">
-            <a href="#" style="color:black">Каталог (в разработке)</a>
+            <a href="/" style="color:black">Поиск по каталожному номеру</a>
         </h6>
     </div>
     <div class="border-bottom border-success">
         <h6 class="font-weight-bold" style="margin-top:8px">
-            <a href="/" style="color:black">Поиск по каталожному номеру</a>
+            <a href="{{ route('faq') }}" style="color:black">Ответы на частые вопросы FAQ</a>
         </h6>
     </div>
     <div class="border-bottom border-success">

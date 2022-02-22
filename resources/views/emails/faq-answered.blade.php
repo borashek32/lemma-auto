@@ -1,12 +1,9 @@
-@component('mail::message')<h3 class="text-center">
-        {{ $post->title }}
-        <br>
-        Категория: {{ $post->category->name }}
+@component('mail::message')
+    <h3 class="text-center">
+        {{ $faq->question }}
     </h3>
     <br>
-    <img src="{{ $post->img }}" alt="{{ $post->title }}">
-
-    {!! $post->page_text !!}
+    {!! $faq->answer !!}
 
     Для того, чтобы отписаться от рассылки, перейдите в личный кабинет на сайте
 @component('mail::button', ['url' => 'http://lemma-auto.ru/login'])

@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div style="margin-bottom:10px">
-                    <a href="tel:+79169174630" style="margin-top: -10px;color:black">
+                    <a href="tel:+79169174630" style="margin-top: -10px;color:blue">
                         +7 (916) 917-46-30
                     </a>
                     <a href="mailto:lemmaauto@gmail.com" style="color: black;">
@@ -80,6 +80,8 @@
                     <li><a class="text-muted" href="#">Программа скидок</a></li>
 
                     <li><a class="text-muted" href="#">Сотрудничество</a></li>
+
+                    <li><a class="text-muted" href="{{ route('faq') }}">Ответы на частые вопросы FAQ</a></li>
                 </ul>
             </div>
 
