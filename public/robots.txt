@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /auto-magazine/
 Host: https://lemma-auto.ru/
 Sitemap: https://lemma-auto.ru/sitemap.xml

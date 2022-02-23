@@ -13,7 +13,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center mt-5">
                     <a href="{{ route('auto-parts') }}">
-                        <img src="{{ asset('img/icon.png') }}" width="100" alt="Lemma-auto">
+                        <img src="{{ asset('img/icon.png') }}" width="70" alt="Lemma-auto">
                     </a>
                 </div>
                 <!-- Navigation Links -->

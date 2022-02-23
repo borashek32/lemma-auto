@@ -46,8 +46,9 @@ Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('review
 Route::get('/requisites', [SiteController::class, 'requisites'])->name('requisites');
 Route::get('/delivery', [SiteController::class, 'delivery'])->name('delivery');
 Route::get('/payment', [SiteController::class, 'payment'])->name('payment');
-Route::get('/faq', [SiteController::class, 'faq'])->name('faq');
-Route::post('/faq', [SiteController::class, 'faqWrite'])->name('faq-form')->middleware('auth');
+Route::get('/faq', [App\Http\Controllers\FaqController::class, 'faq'])->name('faq');
+Route::post('/faq', [App\Http\Controllers\FaqController::class, 'faqWrite'])->name('faq-form')->middleware('auth');
+Route::get('/faq/{slug}', [App\Http\Controllers\FaqController::class, 'question'])->name('faq-one');
 
 
 // BLOG ROUTES

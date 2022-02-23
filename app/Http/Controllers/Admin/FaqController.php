@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidateFaqForm;
 use Illuminate\Support\Facades\Mail;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Mail\FaqAnswered;
 use Illuminate\Http\Request;
 use App\Models\Faq;
@@ -12,6 +13,11 @@ use App\Models\User;
 
 class FaqController extends Controller
 {
+    public function updatedTitle($value)
+    {
+        $this->slug = SlugService::createSlug(Post::class, 'slug', $value);
+    }
+
     public function index()
     {
         $faqs = Faq::all();
@@ -42,7 +48,7 @@ class FaqController extends Controller
             'user_id'        => 1
         ]);
 
-        return redirect('/dashboard/posts')
+        return redirect('/dashboard/faqs')
             ->with('success', 'Новый вопрос был успешно добавлен');
     }
 
@@ -73,11 +79,11 @@ class FaqController extends Controller
             ->with('success', 'Вопрос пользователя был успешно обновлен. Ответ направлен не его почту.');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Faq $faq)
     {
-       $post->delete();
+       $faq->delete();
 
-        return redirect('dashboard/posts')
+        return redirect('dashboard/faqs')
             ->with('success', 'Вопрос был успешно успешно удален.');
     }
 }

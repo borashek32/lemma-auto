@@ -99,21 +99,4 @@ class SiteController extends Controller
 
         return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
     }
-
-    public function faq()
-    {
-        $faqs = Faq::all();
-        return view('site.faq', compact('faqs'));
-    }
-
-    public function faqWrite(Request $req)
-    {
-        // dd($req->all());
-        $faq              = new Faq();
-        $faq->user_id     = auth()->user()->id;
-        $faq->question    = $req->input('question');
-        $faq->save();
-
-        return redirect('faq')->with('success', 'Ваш вопрос отправлен техническому специалисту');
-    }
 }

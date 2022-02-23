@@ -5,11 +5,18 @@
 @endphp
 
 
-<div id="comment-{{ $comment->getKey() }}" class="media">
-    <img class="mr-3" src="/storage/{{ $comment->profile_photo_path }}" width="80px"
-         alt="{{ $comment->commenter->name ?? $comment->guest_name}}">
+<div id="comment-{{ $comment->getKey() }}" class="media" style="margin-bottom:20px">
+    @if($comment->profile_photo_path)
+        <img class="mr-3" src="/storage/{{ $comment->profile_photo_path }}" width="100px"
+            alt="{{ $comment->commenter->name ?? $comment->guest_name}}">
+    @else
+        <img class="mr-3" src="/files/avatar.png" width="100px"
+        alt="{{ $comment->commenter->name ?? $comment->guest_name}}">
+    @endif
     <div class="media-body">
-        <h5 class="mt-0 mb-1">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
+        <h5 class="mt-0 mb-1">{{ $comment->commenter->name ?? $comment->guest_name }} 
+            <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small>
+        </h5>
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
 
         <div>

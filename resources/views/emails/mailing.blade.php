@@ -1,15 +1,10 @@
-@component('mail::message')<h3 class="text-center">
-        {{ $post->title }}
-        <br>
-        Категория: {{ $post->category->name }}
-    </h3>
-    <br>
-    <img src="{{ $post->img }}" alt="{{ $post->title }}">
+@component('mail::message')
+В категории {{ $post->category->name }} на сайте <a href="lemma-auto.ru">Lemma-auto.ru</a> опубликован новый пост:
 
-    {!! $post->page_text !!}
+<a href="lemma-auto.ru/blog/{{ $post->slug }}">{{ $post->title }}</a>
 
-    Для того, чтобы отписаться от рассылки, перейдите в личный кабинет на сайте
+Для того, чтобы отписаться от рассылки, перейдите в личный кабинет на сайте
 @component('mail::button', ['url' => 'http://lemma-auto.ru/login'])
-    Перейти на сайт
+Перейти на сайт
 @endcomponent
 @endcomponent

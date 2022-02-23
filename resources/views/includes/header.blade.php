@@ -31,6 +31,8 @@
                             <a class="dropdown-item" href="{{ route('blog') }}">Блог</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('contact') }}">Контакты</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('faq') }}">Ответы на частые вопросы FAQ</a>
                         </div>
                     </div>
                 </div>

@@ -62,29 +62,22 @@
             <div class="row">
                 @foreach($faqs as $faq)
                     <div class="col-12">
-                        <div class="card shadow mb-4" style="margin-top:10px">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item w-40">
-                                    <div class="row">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <pre style="margin-left:20px;mergin-top:0px; margin-bottom:0px;margin-right: 0px">{!! $faq->question !!}</pre>
-
-                                            @if ($faq->answer)
-                                                <pre style="margin-left:20px;mergin-top:0px; margin-bottom:0px;margin-right: 0px">{!! $faq->answer !!}</pre>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <a href="{{ route('faq-one', $faq->slug) }}">
+                                    <p style="margin-left:20px;margin-top:10px; margin-bottom:0px;margin-right: 0px;text-align:left">
+                                        {!! $faq->question !!}
+                                    </p>
+                                </a>
+                            </div>
+                        </div>  
                     </div>
                 @endforeach
             </div>
         </div>
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-                <div class="advertisements">
-                    <livewire:user.advertisements.advertisements />
-                </div>
+            <div class="advertisements">
+                <livewire:user.advertisements.advertisements />
             </div>
         </div>
     </div>
@@ -92,7 +85,7 @@
 
 <div class="autoparts-small p-8">
     <h1>Введите ваш вопрос</h1>
-    <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;">
+    <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px; text-align: left">
         <form method="POST" action="{{ route('faq-form') }}">
             {{ csrf_field() }}
             @if(auth()->user())
@@ -134,20 +127,14 @@
     <div class="row">
         @foreach($faqs as $faq)
             <div class="col-md-12 col-sm-12 col-12">
-                <div class="card shadow mb-4" style="margin-top:10px">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item w-40">
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <pre style="margin-left:20px;mergin-top:0px; margin-bottom:0px;margin-right: 0px">{!! $faq->question !!}</pre>
-
-                                    @if ($faq->answer)
-                                        <pre style="margin-left:20px;mergin-top:0px; margin-bottom:0px;margin-right: 0px">{!! $faq->answer !!}</pre>
-                                    @endif    
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a href="{{ route('faq-one', $faq->slug) }}">
+                            <p style="margin-left:0px;margin-top:10px; margin-bottom:0px;margin-right: 0px;text-align:left">
+                                {!! $faq->question !!}
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
         @endforeach
@@ -157,4 +144,3 @@
     </div>
 </div>
 @endsection('content')
-

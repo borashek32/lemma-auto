@@ -28,8 +28,8 @@ class CartController extends Controller
         }
 
         $product    = Product::where('number', $request->code)->first();
-        $product_id = $product->id;
-        if (!$product_id) {
+        // $product_id = $product->id;
+        if (!$product) {
             $product = new Product();
             $product->goodsID        = $request->goodsID;
             $product->number         = $request->code;

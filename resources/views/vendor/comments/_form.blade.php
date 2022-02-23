@@ -54,7 +54,11 @@
                         <div class="form-group">
                             <p style="font-weight:600;font-size:14px" class="font-name">{{ auth()->user()->name }}</p>
                             @if(Auth::user()->profile_photo_path)
-                                <img src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" class="rounded float-start profile-photo" width="100px">
+                                <img src="/storage/{{ Auth::user()->profile_photo_path }}" 
+                                alt="{{ Auth::user()->name }}" class="rounded float-start profile-photo" width="100px">
+                            @else
+                                <img class="mr-3" src="/files/avatar.png" 
+                                alt="avatar" width="100">
                             @endif
                             @if(Auth::user()->avatar)
                                 <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="rounded float-start profile-photo" width="100px">

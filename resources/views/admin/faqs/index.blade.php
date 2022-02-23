@@ -36,20 +36,18 @@
             </div>
             @if(\App\Models\Faq::all()->count() > 0)
                 <table class="table-fixed w-full">
-                <thead>
-                <tr class="bg-gray-100">
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Дата</th>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Вопрос</th>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Ответ</th>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Действие</th>
-                </tr>
-                </thead>
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Дата</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Вопрос</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Действие</th>
+                        </tr>
+                    </thead>
                 <tbody>
                 @foreach($faqs as $faq)
                     <tr class="trix-content">
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ Date::parse($faq->created_at)->format('j F Y') }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $faq->question }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $faq->answer }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
                             <button class="mb-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 <a href="{{ route('faqs.edit', $faq->id) }}">

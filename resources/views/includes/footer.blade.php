@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div style="margin-bottom:10px">
-                    <a href="tel:+79169174630" style="margin-top: -10px;color:blue">
+                    <a href="tel:+79169174630" style="margin-top: -10px;color:white">
                         +7 (916) 917-46-30
                     </a>
                     <a href="mailto:lemmaauto@gmail.com" style="color: black;">
