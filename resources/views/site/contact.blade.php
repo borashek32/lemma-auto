@@ -3,6 +3,9 @@
 @section('description')<meta name="description" content="Интернет-магазин Лемма-авто располагает тремя офисами: в центре Москвы, в поселке Коммунарка, в деревне Ватутинки. Вы всегда можете договорится о самовывозе вашего заказа на любое удобное для вас время." />@endsection('description')
 @section('content')
 <div class="autoparts-big">
+    <h1 class="text-center" style="margin-bottom:30px;margin-top:30px">
+        Наши офисы:
+    </h1>
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
             <div class="leftColumn">
@@ -10,13 +13,12 @@
             </div>
         </div>    
         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-            <h2 class="text-center">Наши офисы:</h2>
-            <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;">
+            <div style="font-size: 14px;padding: 15px;">
                 <livewire:user.contacts />
             </div>
             
-            <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;margin-top: 40px">
-                <h3>Напишите нам</h3>
+            <h3 class="text-center">Напишите нам</h3>
+            <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;margin-top: 20px">
                 <form action="{{ route('contact-form') }}" method="post" id="myForm" data-ajax-form>
                     @csrf
                     @include('includes.messages_success')
@@ -48,9 +50,11 @@
 </div>
 
 <div class="autoparts-small p-8">
+    <h1 class="text-center" style="margin-bottom:30px;margin-top:30px">
+        Наши офисы:
+    </h1>
     <livewire:user.contacts />
-                
-    <h1>Напишите нам</h1>
+    <h2>Напишите нам</h2>
     <form action="{{ route('contact-form') }}" method="post" id="myForm" data-ajax-form>
         @csrf
         @include('includes.messages_success')

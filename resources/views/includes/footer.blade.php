@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div style="margin-bottom:10px">
-                    <a href="tel:+79169174630" style="margin-top: -10px;color:white">
+                    <a href="tel:+79169174630" style="margin-top: -10px;color:black">
                         +7 (916) 917-46-30
                     </a>
                     <a href="mailto:lemmaauto@gmail.com" style="color: black;">
@@ -33,21 +33,19 @@
                 <h6>Автозапчасти</h6>
 
                 <ul class="list-unstyled text">
-                    <li><a class="text-muted" href="{{ route('auto-parts') }}">Магазин</a></li>
+                    <li><a class="text-muted" href="{{ route('auto-parts') }}">Магазин автозапчастей</a></li>
 
-                    <li><a class="text-muted" href="#">Каталог расходных материалов</a></li>
+                    {{-- <li><a class="text-muted" href="#">Каталог расходных материалов</a></li> --}}
 
                     <li><a class="text-muted" href="{{ route('partners') }}">Наши партнеры</a></li>
 
                     <li><a class="text-muted" href="{{ route('reviews') }}">Отзывы</a></li>
 
-                    <li><a class="text-muted" href="#">Доставка</a></li>
+                    <li><a class="text-muted" href="{{ route('delivery') }}">Доставка</a></li>
 
-                    <li><a class="text-muted" href="#">Оплата</a></li>
+                    <li><a class="text-muted" href="{{ route('payment') }}">Оплата</a></li>
 
-                    <li><a class="text-muted" href="{{ route('law') }}">Возврат</a></li>
-
-                    <li><a class="text-muted" href="{{ route('law') }}">Гарантия</a></li>
+                    <li><a class="text-muted" href="{{ route('laws') }}">Гарантия</a></li>
                 </ul>
             </div>
 
@@ -77,9 +75,9 @@
 
                     <li><a class="text-muted" href="{{ route('requisites') }}">Реквизиты</a></li>
 
-                    <li><a class="text-muted" href="#">Программа скидок</a></li>
+                    {{-- <li><a class="text-muted" href="#">Программа скидок</a></li>
 
-                    <li><a class="text-muted" href="#">Сотрудничество</a></li>
+                    <li><a class="text-muted" href="#">Сотрудничество</a></li> --}}
 
                     <li><a class="text-muted" href="{{ route('faq') }}">Ответы на частые вопросы FAQ</a></li>
                 </ul>

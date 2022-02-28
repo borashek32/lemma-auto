@@ -3,6 +3,9 @@
 @section('description')<meta name="description" content="Правила использования сайта компании ООО Лемма-авто" />@endsection('description')
 @section('content')
 <div class="autoparts-big">
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Ответы на частые вопросы FAQ
+    </h1>
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
             <div class="leftColumn">
@@ -26,6 +29,9 @@
 </div>
 
 <div class="autoparts-small p-8">
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Ответы на частые вопросы FAQ
+    </h1>
     <div class="col-md-12 col-sm-12 col-12">
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

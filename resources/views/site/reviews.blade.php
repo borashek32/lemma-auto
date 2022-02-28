@@ -3,6 +3,9 @@
 @section('description')<meta name="description" content="Магазин Лемма-авто сотрудничает с оптовыми и частными покупателями по России и хорошо зарекомендовал себя. На странице отзывов вы можете ознакомиться с мнением наших клиентов о магазине, а также оставить свой отзыв." />@endsection('description')
 @section('content')
 <div class="autoparts-big">
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Оставьте ваш отзыв
+    </h1>
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
             <div class="leftColumn">
@@ -10,7 +13,6 @@
             </div>
         </div>
         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-            <h1 class="text-center">Оставьте ваш отзыв</h1>
             <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;">
                 <form method="POST" action="{{ route('reviews-form') }}">
                     {{ csrf_field() }}
@@ -92,13 +94,14 @@
 </div>
 
 <div class="autoparts-small p-8">
-    <h1>Оставьте ваш отзыв</h1>
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Оставьте ваш отзыв
+    </h1>
     <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;">
         <form method="POST" action="{{ route('reviews-form') }}">
             {{ csrf_field() }}
             @if(auth()->user())
                 <div class="row">
-
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
                         <p style="font-weight:600;font-size:14px">{{ Auth::user()->name }}</p>
                         <img src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}"

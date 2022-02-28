@@ -25,18 +25,18 @@
                     <label for="message">@lang('comments::comments.enter_your_name_here')</label>
                     <input type="text" class="form-control @if($errors->has('guest_name')) is-invalid @endif" name="guest_name" />
                     @error('guest_name')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="message">@lang('comments::comments.enter_your_email_here')</label>
                     <input type="email" class="form-control @if($errors->has('guest_email')) is-invalid @endif" name="guest_email" />
                     @error('guest_email')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -97,7 +97,7 @@
         .profile-photo {
             width: 50px;
         }
-
+    
         .font-name {
             font-size: 10px;
         }

@@ -39,7 +39,8 @@ Route::post('/', [SiteController::class, 'submit'])->name('contact-form');
 Route::post('/promo-catalogue', [SiteController::class, 'orderCall'])->name('order-call');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 Route::get('/partners', [AutopartController::class, 'partners'])->name('partners');
-Route::get('/law', [AutopartController::class, 'law'])->name('law');
+Route::get('/laws', [AutopartController::class, 'laws'])->name('laws');
+Route::get('/laws/{slug}', [AutopartController::class, 'law'])->name('law');
 Route::get('/about-us', [SiteController::class, 'aboutUs'])->name('about-us');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form')->middleware('auth');
@@ -133,6 +134,9 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('/faqs', FaqController::class);
         Route::resource('/admin-orders', AdminOrderController::class);
+        Route::resource('/deliveries', App\Http\Controllers\Admin\DeliveryController::class);
+        Route::resource('/laws', App\Http\Controllers\Admin\LawController::class);
+        Route::resource('/articles', App\Http\Controllers\Admin\ArticleController::class);
         Route::post('order_status', [\App\Http\Controllers\Admin\AdminOrderController::class, 'orderStatus'])
             ->name('admin-orders.status');
 
@@ -142,6 +146,7 @@ Route::group(['middleware' => ['role:super-admin']], function () {
         Route::get('/offices', Contacts::class)->name('offices');
         Route::get('/tags', Tags::class)->name('tags');
         Route::get('/requisites', \App\Http\Livewire\Admin\Requisites::class)->name('requisites-admin');
+        Route::get('/payments', \App\Http\Livewire\Admin\Payment\Payments::class)->name('payments');
 
         Route::get('/auto-parts', Products::class)->name('auto-parts-admin');
         Route::post('auto-parts/import', [\App\Http\Controllers\Admin\ImportController::class, 'import'])

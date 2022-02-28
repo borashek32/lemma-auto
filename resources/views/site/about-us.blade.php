@@ -3,6 +3,9 @@
 @section('description')<meta name="description" content="В интернет-магазине Лемма-авто работают только профессионалы. У нас вы можете получить бесплатную консультацию по подбору запасных частей на ваш автомобиль по VIN-номеру или оставить заявку нашему менеджеру." />@endsection('description')
 @section('content')
 <div class="autoparts-big">
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Наша команда
+    </h1>
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
             <div class="leftColumn">
@@ -11,11 +14,7 @@
         </div>
 
         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-            <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px;">
-                <h2 style="text-align: center;margin-bottom: 16px;">
-                    Наша команда
-                </h2>
-
+            <div style="font-size: 14px;padding: 15px;">
                 <div class="row">
                     @foreach($members as $member)
                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
@@ -59,10 +58,9 @@
 </div>
 
 <div class="autoparts-small p-8">
-    <h2 style="text-align: center;margin-bottom: 16px;">
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
         Наша команда
-    </h2>
-
+    </h1>
     <div class="row">
         @foreach($members as $member)
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">

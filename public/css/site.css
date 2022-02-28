@@ -27,38 +27,6 @@
     color: #242222;
 }
 
-.jumbotron p {
-    color: white;
-    font-size: 14px;
-}
-
-.jumbotron h1 {
-    color: white;
-    font-size: 60px;
-}
-
-.jumbotron h2 {
-    color: white;
-}
-
-.jumbotron lead {
-    color: white;
-}
-
-.promo {
-    background-image: url("/img/truck.jpg");
-    background-size: cover;
-}
-
-.blog {
-    background-image: url("/img/blog.jpg");
-    background-size: cover;
-}
-
-.spacePromo {
-    /*font-size: 10px;*/
-}
-
 .text {
     font-size: 12px;
 }
@@ -96,16 +64,6 @@
 .listItem {
     color: white;
     font-size: 20px;
-}
-
-.law {
-    background-image: url("/img/law.jpg");
-    background-size: cover;
-}
-
-.ourPartners {
-    background-image: url("/img/beforeAfter.jpg");
-    background-size: cover;
 }
 
 .wrapCard {
@@ -177,6 +135,18 @@ pre {
     animation: shadow 1s infinite alternate
 }
 
+.margin-cats {
+    margin-top: 50px;
+}
+
+.margin-cats-without {
+    display: none;
+}
+
+.searchTopEmpty {
+    display: none;
+}
+
 @-webkit-keyframes shadow {
     from {
         box-shadow: 0 0 0px 5px white
@@ -208,6 +178,15 @@ pre {
     .header-small {
         display: block;
     }
+    .header-address {
+        display: none;
+    }
+    .searchTop {
+        display: none;
+    }
+    .searchTopEmpty {
+        display: block;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -224,6 +203,9 @@ pre {
         display: none;
     }
     .advertisements {
+        display: none;
+    }
+    .header-contacts {
         display: none;
     }
 }
@@ -245,6 +227,15 @@ pre {
 
 @media (max-width: 768px) {
     .lastPosts {
+        display: none;
+    }
+    .margin-cats {
+        display: none;
+    }
+    .margin-cats-without {
+        display: block;
+    }
+    .header-address {
         display: none;
     }
 }

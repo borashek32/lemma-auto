@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Post;
+use App\Models\Law;
+use App\Models\Article;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
@@ -12,6 +15,7 @@ class AutopartController extends Controller
 {
     public function search(Request $request)
     {
+        $articles = Article::all();
         $search = $request->input('search');
 
         $client = new Client([
@@ -41,35 +45,49 @@ class AutopartController extends Controller
             }
         }
 
-        if (Auth::user()->status_id == 1) {
+        if (!Auth::user()) {
+            foreach ($products as $product) {
+                $product->price = round($product->price + $product->price * 20 / 100, 2); //нет status_id user не вошел на сайт
+            }
+        }
+        elseif (Auth::user()->status_id == 1) {
             foreach ($products as $product) {
                 $product->price = round($product->price + $product->price * 20 / 100, 2); //физ лица
             }
         }
-        if (Auth::user()->status_id == 2) {
+        elseif (Auth::user()->status_id == 2) {
             foreach ($products as $product) {
                 $product->price = round($product->price + ($product->price * 10 / 100), 2); //юр лица
             }
         }
-        if (Auth::user()->margin) {
+        elseif (Auth::user()->margin) {
             $user_margin = Auth::user()->margin;
             foreach ($products as $product) {
                 $product->price = round($product->price + ($product->price * $user_margin / 100), 2); //индивидуальная наценка
             }
         } 
     // dd($products);
-        return view('shop.autoparts', compact('products', 'search')); 
+        return view('shop.autoparts', compact('products', 'search', 'articles')); 
     }
 
     public function autoparts(Request $request)
     {
         $search = $request->input('search');
-        return view('shop.autoparts', compact('search'));
+        $articles = Article::all();
+        $post = Post::where('id', 1)->first();
+        return view('shop.autoparts', compact('search', 'post', 'articles'));
     }
     
-    public function law()
+    public function laws()
     {
-        return view('shop.law');
+        $laws = Law::all();
+        return view('shop.laws.laws', compact('laws'));
+    }
+
+    public function law($slug)
+    {
+        $law = Law::where('slug', $slug)->first();
+        return view('shop.laws.law', compact('law'));
     }
 
     public function partners()

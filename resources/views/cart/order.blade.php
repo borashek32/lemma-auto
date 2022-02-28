@@ -1,5 +1,4 @@
 @section('title-block')Корзина@endsection('title-block')
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-md text-gray-800 leading-tight">

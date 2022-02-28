@@ -13,7 +13,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center mt-5">
                     <a href="{{ route('auto-parts') }}">
-                        <img src="{{ asset('img/icon.png') }}" width="70" alt="Lemma-auto">
+                        <img src="{{ asset('img/icon.png') }}" width="90" alt="Lemma-auto">
                     </a>
                 </div>
                 <!-- Navigation Links -->
@@ -89,6 +89,11 @@
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                     <x-jet-nav-link href="{{ route('auto-parts-admin') }}">
                                         {{ __('Автозапчасти') }}
+                                    </x-jet-nav-link>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('articles.index') }}">
+                                        {{ __('Cео-статьи') }}
                                     </x-jet-nav-link>
                                 </div>
                             </x-slot>
@@ -200,6 +205,21 @@
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
                                     <x-jet-nav-link href="{{ route('advertisements.index') }}">
                                         {{ __('Реклама') }}
+                                    </x-jet-nav-link>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('deliveries.index') }}">
+                                        {{ __('Доставка') }}
+                                    </x-jet-nav-link>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('payments') }}">
+                                        {{ __('Оплата') }}
+                                    </x-jet-nav-link>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
+                                    <x-jet-nav-link href="{{ route('laws.index') }}">
+                                        {{ __('Законодательные акты') }}
                                     </x-jet-nav-link>
                                 </div>
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-top: 20px">
@@ -446,6 +466,12 @@
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link href="{{ route('advertisements.index') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Реклама') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('deliveries.index') }}" :active="request()->routeIs('profile.show')">
+                        {{ __('Доставка') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('laws.index') }}" :active="request()->routeIs('profile.show')">
+                        {{ __('Законодательные акты') }}
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link href="{{ route('faqs.index') }}" :active="request()->routeIs('profile.show')">
                         {{ __('FAQ') }}

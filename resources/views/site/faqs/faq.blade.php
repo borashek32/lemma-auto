@@ -3,6 +3,9 @@
 @section('description')<meta name="description" content="Правила использования сайта компании ООО Лемма-авто" />@endsection('description')
 @section('content')
 <div class="autoparts-big">
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Ответы на частые вопросы FAQ
+    </h1>
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
             <div class="leftColumn">
@@ -10,10 +13,11 @@
             </div>
         </div>
         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-            <h1 class="text-center">Задайте ваш вопрос</h1>
-            <p style="font-size:12px">*если вы не нашли его в списке ниже</p>
-            <p>
-                На электронный адрес, указанный при регистрации придет ответ на ваш вопрос в течение нескольких дней. Если возникла срочная проблема, обратитесь к техническому специалисту:
+            <p style="font-size: 12px">
+                * Задайте ваш вопрос, если вы не смогли найти на него ответ в списке под формой
+                <br>
+                На электронный адрес, указанный при регистрации придет ответ на ваш вопрос в течение нескольких дней. 
+                Если возникла срочная проблема, обратитесь к техническому специалисту:
                 <br>
                 <a href="tel:+79169174630" style="margin-top: -10px;color:blue">
                     +7 (916) 917-46-30
@@ -84,7 +88,19 @@
 </div>
 
 <div class="autoparts-small p-8">
-    <h1>Введите ваш вопрос</h1>
+    <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
+        Ответы на частые вопросы FAQ
+    </h1>
+    <p style="font-size: 12px">
+        * Задайте ваш вопрос, если вы не смогли найти на него ответ в списке под формой
+        <br>
+        На электронный адрес, указанный при регистрации придет ответ на ваш вопрос в течение нескольких дней. 
+        Если возникла срочная проблема, обратитесь к техническому специалисту:
+        <br>
+        <a href="tel:+79169174630" style="margin-top: -10px;color:blue">
+            +7 (916) 917-46-30
+        </a>
+    </p>
     <div class="card shadow bg-body rounded" style="font-size: 14px;padding: 15px; text-align: left">
         <form method="POST" action="{{ route('faq-form') }}">
             {{ csrf_field() }}

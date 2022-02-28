@@ -1,13 +1,30 @@
-@foreach($categories as $category)
-    <div class="list-group shadow mb-2">
-        <a href="{{ route('category', $category->slug) }}"
-           class="list-group-item list-group-item-action list-group-item-secondary">
-            <p style="font-size:14px;color:black;margin:0px">
-                {{ $category->name }}
-                <span class="badge bg-light rounded-pill">
-                    {{ $category->posts->count() }}
-                </span>
-            </p>
+<div style="margin-top:100px" class="margin-cats">
+    @foreach($categories as $category)
+        <a href="{{ route('category', $category->slug) }}">
+            <div class="border-bottom border-success">
+                <p class="font-weight-bold" style="margin-top:8px;color:black">
+                    {{ $category->name }}
+                    <span class="badge bg-light rounded-pill">
+                        ({{ $category->posts->count() }})
+                    </span>
+                </p>
+            </div>
         </a>
-    </div>
-@endforeach
+    @endforeach
+</div>
+
+<div class="margin-cats-without">
+    @foreach($categories as $category)
+        <a href="{{ route('category', $category->slug) }}">
+            <div class="border-bottom border-success">
+                <p class="font-weight-bold" style="margin-top:8px;color:black">
+                    {{ $category->name }}
+                    <span class="badge bg-light rounded-pill">
+                        ({{ $category->posts->count() }})
+                    </span>
+                </p>
+            </div>
+        </a>
+    @endforeach
+</div>
+

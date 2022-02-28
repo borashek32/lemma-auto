@@ -18,46 +18,6 @@
     @include('includes.header')
     <div class="container">
         <div class="site-index">
-            <div class="jumbotron blog">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-6">
-                        <p> Основной офис:<br>
-                            108814, город Москва,<br>
-                            поселение Сосенское, поселок Коммунарка,<br>
-                            Бачуринская улица, дом 317Ю, офис 5а</p>
-                        <h1 class="spacePromo">Лемма-авто</h1>
-                        <h2 class="lead">Актуальные новости автомира</h2>
-
-                        @include('includes.contact_button')
-                        @include('includes.messages_success')
-
-                        <div class="phone">
-                            <a href="tel:+79267013882" class="textAddress">
-                                +7 (926) 701-38-82
-                            </a><br>
-                            <a href="mailto:mail@lemma-auto.ru">
-                                mail@lemma-auto.ru
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="header-advs col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 rounded-lg" style="background-color: rgba(227,155,12,0.5)">
-                        @include('includes.center-promo')
-                    </div>
-
-                    <div class="rounded-lg col-xl-3 col-lg-3 col-md-3 ">
-                        <div style="background-color: rgba(227,155,12,0.5)" class="rounded-lg">
-                            <div class="lastPosts" style="padding: 10px">
-                                <p class="text-right" style="font-size: 18px;">Интересное в блоге</p>
-                                @include('includes.posts-slider')
-                            </div>
-                        </div>
-                        <div class="flash1"></div>
-                    </div>
-                </div>
-                <div class="flash"></div>
-            </div>
-
             <div class="body-content">
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
@@ -72,7 +32,7 @@
                     </div>
 
                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-                        <div class="advertisements">
+                        <div class="advertisements" style="margin-top: 50px">
                             <livewire:user.advertisements.advertisements />
                         </div>
                     </div>

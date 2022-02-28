@@ -55,7 +55,7 @@ class Reviews extends Component
         ]);
 
         session()->flash('message',
-            $this->review_id ? 'Комментарий успешно обновлен.' : 'Отзыв успешно создан.');
+            $this->review_id ? 'Отзыв успешно обновлен.' : 'Отзыв успешно создан.');
 
         $this->closeModal();
         $this->resetInputFields();
@@ -72,6 +72,6 @@ class Reviews extends Component
     public function delete($id)
     {
         Review::find($id)->delete();
-        session()->flash('message', 'Комментарий успешно удален.');
+        session()->flash('message', 'Отзыв успешно удален.');
     }
 }

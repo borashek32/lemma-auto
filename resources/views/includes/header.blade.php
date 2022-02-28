@@ -1,47 +1,142 @@
-<div class="d-flex mb-3 border-bottom shadow-sm navbar sticky-top navbar-light bg-white" style="padding-bottom:-6px">
+<!--Navbar-->
+<nav class="navbar-light amber lighten-4 mb-4 mt-4">
     <div class="container">
-        <div class="column">
+        <div class="row">
+            <a href="https://goo.gl/maps/u3kXeWXDzrFDH4598" style="color:black;cursor:pointer;font-size:12px;margin-top:-10px">
+                @include('includes.map-icon')
+            </a>
+            
+            <a href="https://goo.gl/maps/u3kXeWXDzrFDH4598" style="color:black;cursor:pointer;font-size:12px;margin-top:-10px">
+                 Москва | 
+            </a>
+            
+            <a href="https://goo.gl/maps/u3kXeWXDzrFDH4598" style="color:black;cursor:pointer;font-size:12px;margin-top:-10px">
+                 Коммунарка 
+            </a>
+            
+            <a href="tel:+79169174630" style="margin-left: 10px;font-size:12px;margin-top:-10px;color:black">
+                @include('includes.phone-icon')
+                +7 (916) 917-46-30
+            </a>
+        </div>
+        <div style="margin-top:20px">
             <div class="row">
-                <h5 style="margin-right:10px;" class="my-0 text-dark mr-md-auto font-weight-normal z-40 ml-0 mt-0 bg-gray-400">
-                    <a href="{{ route('auto-parts') }}">
-                        <img src="/img/icon.png" style="margin-top:6px" width="50px">
-                    </a>
-                </h5>
-
-                <div>
-                    <div class="btn-group">
-                        <button type="button" style="margin-top:7px;margin-right:10px;margin-left: 10px" class="text-left btn btn-danger dropdown-toggle menu-b" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Меню
-                        </button>
-                        <div class="dropdown-menu" style="width:300px">
-                            <a class="dropdown-item" href="{{ route('auto-parts') }}">Поиск по каталожному номеру</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Каталог расходных материалов</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('reviews') }}">Отзывы</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('law') }}">Гарантии</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('delivery') }}">Доставка</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('partners') }}">Наши партнеры</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('requisites') }}">Реквизиты</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('blog') }}">Блог</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('contact') }}">Контакты</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('faq') }}">Ответы на частые вопросы FAQ</a>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                    <a class="navbar-brand" href="/">ООО "Лемма-авто"</a>
+                    <p style="font-size: 8px">Компания на рынке с 2018 года</p>
+                </div>
+    
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-6 searchTopEmpty">
+                </div>
+    
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7 searchTop">
+                    <div class="row mt-2" style="display:flex;">
+                        <div class="col-xl-10 cpl-lg-10 col-md-10 col-sm-10 col-10">
+                            <form method="get" action="{{ route('search') }}" class="input-group mb-4">
+                                <input type="text" class="form-control shadow p-3 bg-body rounded"
+                                    style="margin-bottom:0px;margin-right: 10px" placeholder="Введите каталожный номер или название"
+                                    aria-label="Username" id="search" name="search" aria-describedby="basic-addon1">
+                                <button type="submit" class="btn btn-secondary" style="height: 40px">
+                                    Поиск
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-2">
+                    <div class="displey:flex;flex-direction:row;justify-content:rigth">
+                        <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
+                            aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
+                            <img src="/files/menu.png" alt="Навигация по сайту" width="50px">
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+                    <ul class="navbar-nav mr-auto">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                                <li class="nav-item active">
+                                    <p style="font-weight:600" class="nav-link" href="#">Магазин автозапчастей<span class="sr-only">(current)</span></p>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('auto-parts') }}">Поиск по каталожному номеру</a>
+                                <a class="dropdown-item" href="{{ route('laws') }}">Гарантии</a>
+                                <a class="dropdown-item" href="{{ route('delivery') }}">Доставка</a>
+                                <a class="dropdown-item" href="{{ route('payment') }}">Оплата</a>
+                                <a class="dropdown-item" href="{{ route('requisites') }}">Реквизиты</a>
+                                <a class="dropdown-item" href="#">Сотрудничество</a>
+                                <a class="dropdown-item" href="#">Скидки и акции %</a>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                                <li class="nav-item active">
+                                    <p style="font-weight:600" class="nav-link" href="#">О нас<span class="sr-only">(current)</span></p>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('reviews') }}">Отзывы</a>
+                                <a class="dropdown-item" href="{{ route('contact') }}">Контакты</a>
+                                <a class="dropdown-item" href="{{ route('about-us') }}">Команда</a>
+                                <div class="dropdown-item" style="margin-top: -1px; margin-left:10px">
+                                    <a href="{{ route('faq') }}">
+                                        <img style="" src="https://img.icons8.com/external-bearicons-blue-bearicons/64/000000/external-faq-frequently-asked-questions-faq-bearicons-blue-bearicons-1.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                                <li class="nav-item active">
+                                    <p style="font-weight:600" class="nav-link" href="#">
+                                        Блог
+                                        <span class="sr-only">(current)</span>
+                                    </p>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                @foreach ($cats as $cat)
+                                    <a class="dropdown-item" href="{{ route('category', $cat->slug) }}">{{ $cat->name }}</a>
+                                @endforeach
+                                <li class="dropdown-item">
+                                    @include('includes.shop.subscription')
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+  <!--/.Navbar-->
+  
+<script>
+    $(document).ready(function () {
+    $('.first-button').on('click', function () {
+    $('.animated-icon1').toggleClass('open');
+    });
+    $('.second-button').on('click', function () {
+    $('.animated-icon2').toggleClass('open');
+    });
+    $('.third-button').on('click', function () {
+    $('.animated-icon3').toggleClass('open');
+    });
+});
+</script>
 
-                <nav class="row" style="margin-left:10px;">
+
+<div class="d-flex mb-3 border-bottom shadow-lg navbar sticky-top navbar-light bg-white">
+    <div class="container">
+        <div class="column" style="margin-bottom:-5px">
+            <div class="row">
+                <p style="margin-right:10px;" class="my-0 text-dark mr-md-auto font-weight-normal z-40 ml-0 mt-0 bg-gray-400">
+                    <a href="{{ route('auto-parts') }}">
+                        <img src="/img/icon.png" style="margin-top:9px" width="90px">
+                    </a>
+                </p>
+
+                <div class="row" style="margin-left:40px;margin-top:19px">
                     @include('includes.order_call')
-                </nav>
+                </div>
 
-                <div class="phone-sm column" style="margin-top:2px;margin-left: 40px;">
+                <div class="phone-sm column header-contacts" style="margin-top:5px;margin-left: 40px;">
                     <div>
                         <a href="tel:+79169174630" class="textAddress" style="color:black;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill phone-img" viewBox="0 0 16 16">
@@ -51,10 +146,34 @@
                         </a>
                     </div>
                     <div>
+                        <a href="mailto:lemmaauto@gmail.com" style="color: black">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                            </svg>
+                            lemmaauto@gmail.com
+                        </a>
+                    </div>
+                    <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm-fill phone-img" viewBox="0 0 16 16">
                             <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z"/>
                         </svg>
                         пн-пт 11:00 - 20:00
+                    </div>
+                </div>
+                <div class="header-address">
+                    <p style="font-size: 12px; margin-left:14px">
+                        <strong>Главный офис:</strong>
+                        <br>
+                        ООО "Лемма-авто", 108814,<br>
+                        город Москва, поселение Сосенское,<br>
+                        поселок Коммунарка, Бачуринская улица,<br>
+                        дом 317Ю, офис 006A</p>
+                </div>
+                <div>
+                    <div class="dropdown-item" style="margin-top: 10px">
+                        <a href="{{ route('faq') }}">
+                            <img style="" src="https://img.icons8.com/external-bearicons-blue-bearicons/64/000000/external-faq-frequently-asked-questions-faq-bearicons-blue-bearicons-1.png"/>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -176,10 +295,10 @@
     }
 
     @media (max-width: 1200px) {
-        .flash {
+        .searchTop {
             display: none;
         }
-        .flash1 {
+        .searchTopEmpty {
             display: block;
         }
         .header-big {
@@ -196,9 +315,6 @@
         }
         .autoparts-small {
             display: block;
-        }
-        .flash1 {
-            display: none;
         }
         .header-advs {
             display: none;
@@ -235,9 +351,6 @@
     }
 
     @media (max-width: 768px) {
-        .lastPosts {
-            display: none;
-        }
         #menu-heading {
             display: none;
         }

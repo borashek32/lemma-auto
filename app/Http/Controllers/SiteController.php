@@ -7,8 +7,10 @@ use App\Mail\ContactMail;
 use App\Models\Member;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Payment;
 use App\Models\Tag;
 use App\Models\Faq;
+use App\Models\Delivery;
 use App\Models\Requisite;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -18,12 +20,14 @@ class SiteController extends Controller
 {
     public function delivery()
     {
-        return view('site.delivery');
+        $deliveries = Delivery::all();
+        return view('site.delivery', compact('deliveries'));
     }
 
     public function payment()
     {
-        return view('site.payment');
+        $payments = Payment::all();
+        return view('site.payment', compact('payments'));
     }
     
     public function dashboard()
