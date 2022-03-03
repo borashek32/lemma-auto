@@ -19,24 +19,7 @@
     <div class="container">
         <div class="site-index">
             <div class="body-content">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-                        <livewire:user.blog.cats />
-                    </div>
-
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-                        @include('includes.blog.search')
-                        <livewire:user.blog.tags />
-
-                        @yield('content')
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
-                        <div class="advertisements" style="margin-top: 50px">
-                            <livewire:user.advertisements.advertisements />
-                        </div>
-                    </div>
-                </div>
+                @yield('content')
             </div>
         </div>
 

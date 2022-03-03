@@ -18,64 +18,66 @@ class AutopartController extends Controller
         $articles = Article::all();
         $search = $request->input('search');
 
-        $client = new Client([
-            'base_uri' => 'http://api.favorit-parts.ru/hs/hsprice/',
-            'timeout'  => 2.0,
-        ]);
-
-        $query = [
-            'key'    => '30D2E199-5AAE-4837-AABD-74518EE085FD',
-            'number' => $search
-        ];
-
-        $response = $client->request('GET', '', [
-            'query' => $query
-        ]);
-
-        $object = json_decode($response->getBody()->getContents());
-        $tmp = (object)$object;
-        $products = $tmp->goods;
-
-        foreach ($products as $product) {
-            if (!$product->warehouses) {
-                $products = Product::where('number', 'LIKE', "%{$search}%")
-                    ->orWhere('name', 'LIKE', "%{$search}%")
-                    ->latest()
-                    ->paginate(15);
-            }
-        }
-
-        if (!Auth::user()) {
+        if($search) {
+            $client = new Client([
+                'base_uri' => 'http://api.favorit-parts.ru/hs/hsprice/',
+                'timeout'  => 2.0,
+            ]);
+    
+            $query = [
+                'key'    => '30D2E199-5AAE-4837-AABD-74518EE085FD',
+                'number' => $search
+            ];
+    
+            $response = $client->request('GET', '', [
+                'query' => $query
+            ]);
+    
+            $object = json_decode($response->getBody()->getContents());
+            $tmp = (object)$object;
+            $products = $tmp->goods;
+    
             foreach ($products as $product) {
-                $product->price = round($product->price + $product->price * 20 / 100, 2); //нет status_id user не вошел на сайт
+                if (!$product->warehouses) {
+                    $products = Product::where('number', 'LIKE', "%{$search}%")
+                        ->orWhere('name', 'LIKE', "%{$search}%")
+                        ->latest()
+                        ->paginate(15);
+                }
             }
-        }
-        elseif (Auth::user()->status_id == 1) {
-            foreach ($products as $product) {
-                $product->price = round($product->price + $product->price * 20 / 100, 2); //физ лица
+    
+            if (!Auth::user()) {
+                foreach ($products as $product) {
+                    $product->price = round($product->price + $product->price * 20 / 100, 2); //нет status_id user не вошел на сайт
+                }
             }
-        }
-        elseif (Auth::user()->status_id == 2) {
-            foreach ($products as $product) {
-                $product->price = round($product->price + ($product->price * 10 / 100), 2); //юр лица
+            elseif (Auth::user()->status_id == 1) {
+                foreach ($products as $product) {
+                    $product->price = round($product->price + $product->price * 20 / 100, 2); //физ лица
+                }
             }
-        }
-        elseif (Auth::user()->margin) {
-            $user_margin = Auth::user()->margin;
-            foreach ($products as $product) {
-                $product->price = round($product->price + ($product->price * $user_margin / 100), 2); //индивидуальная наценка
+            elseif (Auth::user()->status_id == 2) {
+                foreach ($products as $product) {
+                    $product->price = round($product->price + ($product->price * 10 / 100), 2); //юр лица
+                }
             }
+            elseif (Auth::user()->margin) {
+                $user_margin = Auth::user()->margin;
+                foreach ($products as $product) {
+                    $product->price = round($product->price + ($product->price * $user_margin / 100), 2); //индивидуальная наценка
+                }
+            } 
+        // dd($products);
+            return view('shop.autoparts', compact('products', 'search', 'articles'));
         } 
-    // dd($products);
-        return view('shop.autoparts', compact('products', 'search', 'articles')); 
+        return view('shop.autoparts', compact('search', 'articles'));
     }
 
     public function autoparts(Request $request)
     {
         $search = $request->input('search');
         $articles = Article::all();
-        $post = Post::where('id', 1)->first();
-        return view('shop.autoparts', compact('search', 'post', 'articles'));
+        return view('shop.autoparts', compact('search', 'articles'));
     }
     
     public function laws()

@@ -24,11 +24,15 @@ class DatabaseSeeder extends Seeder
         $this->call(MemberSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(ModelHasRolesSeeder::class);
+        $this->call(DeliverySeeder::class);
         \App\Models\User::factory(10)->create();
         \App\Models\Category::factory(10)->create();
         \App\Models\Post::factory(40)->create();
-//        \App\Models\Product::factory(100)->create();
+        \App\Models\Article::factory(1)->create();
+        // \App\Models\Product::factory(100)->create();
         \App\Models\Advertisement::factory(4)->create();
         \App\Models\PostTag::factory(100)->create();
+        \App\Models\Faq::factory(10)->create();
+        \App\Models\Law::factory(10)->create();
     }
 }

@@ -25,8 +25,8 @@ class PostController extends Controller
         $categories = Category::all();
         $search = request()->query('search');
         if ($search) {
-            $posts = Post::where('page_text', 'LIKE', "%{$search}%")
-                ->orWhere('title', 'LIKE', "%{$search}%")
+            $posts = Post::where('title', 'LIKE', "%{$search}%")
+                ->orWhere('page_text', 'LIKE', "%{$search}%")
                 ->latest()
                 ->paginate(6);
         } else {

@@ -1,4 +1,4 @@
-<form method="get" action="{{ route('blog') }}" class="input-group mb-3" style="margin-top:30px">
+<form method="get" action="{{ route('blog') }}" class="input-group mb-3" style="">
     <input type="text" class="form-control shadow p-3 bg-body rounded" style="margin-bottom:0px;margin-right: 10px" placeholder="Поиск по автоблогу"
            aria-label="Username" id="search" name="search" aria-describedby="basic-addon1">
 

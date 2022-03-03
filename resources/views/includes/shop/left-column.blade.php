@@ -1,12 +1,14 @@
 <div style="">
     <div class="border-bottom border-success">
-        <p class="font-weight-bold" style="margin-top:8px">
-            Магазин автозавпчастей
-        </p>
+        <a href="{{ route('auto-parts') }}">
+            <p class="font-weight-bold" style="margin-top:8px; color: black">
+                Магазин автозавпчастей
+            </p>
+        </a>
         <ul>
             <li>
                 <p class="font-weight" style="font-size:14px;margin-top:-10px;margin-left:15px">
-                    <a href="/" style="color:black">Поиск по каталожному номеру</a>
+                    <a href="{{ route('auto-parts') }}" style="color:black">Поиск по каталожному номеру</a>
                 </p>
             </li>
             <li>
@@ -32,9 +34,11 @@
         </ul>
     </div>
     <div class="border-bottom border-success">
-        <p class="font-weight-bold" style="margin-top:8px">
-            О нас
-        </p>
+        <a href="{{ route('about-us') }}">
+            <p class="font-weight-bold" style="margin-top:8px; color: black">
+                О нас
+            </p>
+        </a>    
         <ul>
             <li>
                 <p class="font-weight" style="font-size:14px;margin-top:-10px;margin-left:15px">
@@ -59,9 +63,11 @@
         </ul>
     </div>
     <div class="border-bottom border-success">
-        <p class="font-weight-bold" style="margin-top:8px">
-            Блог
-        </p>
+        <a href="{{ route('blog') }}">
+            <p class="font-weight-bold" style="margin-top:8px; color: black">
+                Блог
+            </p>
+        </a>
         <ul>
             @foreach ($cats as $cat)
                 <li>

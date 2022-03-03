@@ -1,4 +1,4 @@
-<div style="margin-top:100px" class="margin-cats">
+<div style="margin-top:-10px" class="margin-cats">
     @foreach($categories as $category)
         <a href="{{ route('category', $category->slug) }}">
             <div class="border-bottom border-success">

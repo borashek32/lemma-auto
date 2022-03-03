@@ -58,7 +58,12 @@
                         <div class="row">
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
                                 <li class="nav-item active">
-                                    <p style="font-weight:600" class="nav-link" href="#">Магазин автозапчастей<span class="sr-only">(current)</span></p>
+                                    <a href="{{ route('auto-parts') }}">
+                                        <p style="font-weight:600;color:black" class="nav-link">
+                                            Магазин автозапчастей
+                                            <span class="sr-only">(current)</span>
+                                        </p>
+                                    </a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('auto-parts') }}">Поиск по каталожному номеру</a>
@@ -71,7 +76,12 @@
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
                                 <li class="nav-item active">
-                                    <p style="font-weight:600" class="nav-link" href="#">О нас<span class="sr-only">(current)</span></p>
+                                    <a href="{{ route('about-us') }}">
+                                        <p style="font-weight:600; color:black" class="nav-link">
+                                            О нас
+                                            <span class="sr-only">(current)</span>
+                                        </p>
+                                    </a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('reviews') }}">Отзывы</a>
@@ -85,10 +95,12 @@
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
                                 <li class="nav-item active">
-                                    <p style="font-weight:600" class="nav-link" href="#">
-                                        Блог
-                                        <span class="sr-only">(current)</span>
-                                    </p>
+                                    <a href="{{ route('blog') }}">
+                                        <p style="font-weight:600; color:black" class="nav-link" href="#">
+                                            Блог
+                                            <span class="sr-only">(current)</span>
+                                        </p>
+                                    </a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 @foreach ($cats as $cat)
