@@ -103,4 +103,9 @@ class SiteController extends Controller
 
         return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
     }
+
+    // public function error()
+    // {
+    //     return view('site.error');
+    // }
 }

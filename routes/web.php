@@ -31,6 +31,9 @@ Route::get('/clear', function () {
     return "Кэш очищен.";
 });
 
+// ERROR PAGE
+// Route::any('/', [SiteController::class, 'error'])->where('any', '.*');
+
 // SITE
 // COMMON ROUTES
 Route::get('/', [AutopartController::class, 'autoparts'])->name('auto-parts');
