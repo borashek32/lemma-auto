@@ -43,7 +43,7 @@
                 <x-jet-label for="status" value="{{ __('Ваш статус') }}" />
                 @foreach(\App\Models\Status::all() as $status)
                     <label class="inline-flex items-center mt-3">
-                        <input type="radio" name="status" value="{{ $status->id }}"
+                        <input type="radio" name="status" id="status" value="{{ $status->id }}"
                                class="form-checkbox h-5 w-5 text-gray-600">
                         <span class="ml-2 text-gray-700">{{ $status->title }}</span>
                     </label>
