@@ -171,6 +171,7 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Spatie\Tags\TagsServiceProvider::class,
+        Laravel\Dusk\DuskServiceProvider::class,
         /*
          * Application Service Providers...
          */
