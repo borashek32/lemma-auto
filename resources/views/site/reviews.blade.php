@@ -42,7 +42,7 @@
                         <p style="font-weight:600;font-size:14px">Войдите на сайт под своим именем или зарегистрируйтесь для того, чтобы оставить отзыв</p>
                         <div class="row">
                             <div class="col-12">
-                            <textarea name="body" rows="6" id="body" class="form-control"
+                            <textarea id="review" name="body" rows="6" id="body" class="form-control"
                                       placeholder="Введите ваш отзыв" required minlength="5"></textarea>
     
                                 <input type="submit" value="Добавить отзыв" class="btn btn-md btn-success"
@@ -114,7 +114,7 @@
                     </div>
                     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9">
                         <p>Сегодня: {{ Date::now()->format('j F Y') }}</p>
-                        <textarea name="body" rows="6" id="body" class="form-control commentForm"
+                        <textarea id="review" name="body" rows="6" id="body" class="form-control commentForm"
                                   placeholder="Введите ваш отзыв" required minlength="5" ></textarea>
 
                         <input type="submit" value="Добавить отзыв" class="btn btn-md btn-success"

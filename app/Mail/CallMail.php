@@ -11,8 +11,6 @@ class CallMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    use Queueable, SerializesModels;
-
     public $request;
 
     public function __construct($request)

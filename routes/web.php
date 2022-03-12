@@ -65,7 +65,7 @@ Route::post('/blog/{post}/likes', [PostLikeController::class, 'store'])
     ->name('post.like')->middleware('auth');
 Route::delete('/blog/{post}/likes', [PostLikeController::class, 'destroy'])
     ->name('post.like')->middleware('auth');
-Route::get('/blog/tag/{slug}', [BlogController::class, 'tag'])->name('tag');
+Route::get('/blog/tag/{name}', [BlogController::class, 'tag'])->name('tag');
 Route::get('/requisites', [SiteController::class, 'requisites'])->name('requisites');
 
 //COMMENTS
