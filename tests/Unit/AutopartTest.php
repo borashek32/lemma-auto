@@ -33,7 +33,7 @@ class AutopartTest extends TestCase
 
     public function test_user_can_get_one_law_page()
     {
-        $law_id     = random_int(1, 10);
+        $law_id     = random_int(1, Law::count());
         $law        = Law::where('id', $law_id)->first();
 
         $response = $this->get('/laws' . '/' . $law->slug, [
@@ -46,7 +46,7 @@ class AutopartTest extends TestCase
     public function test_user_can_get_partners_page()
     {
         $advertisements    = Advertisement::all();
-        $advertisement_id  = random_int(1, 4);
+        $advertisement_id  = random_int(1, Advertisement::count());
         $advertisement     = Advertisement::where('id', $advertisement_id)->first();
         
         $response = $this->get('/partners', [

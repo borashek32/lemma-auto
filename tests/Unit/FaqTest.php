@@ -35,7 +35,7 @@ class FaqTest extends TestCase
 
     public function test_user_can_post_review()
     {
-        $user = User::find(4);
+        $user = User::where('id', User::count())->first();
 
         $response = $this->actingAs($user);
         $response = $this->post(route('faq-form'), [
@@ -47,7 +47,7 @@ class FaqTest extends TestCase
 
     public function test_user_can_get_one_question_page()
     {
-        $faq_id  = random_int(1, 10);
+        $faq_id  = random_int(1, Faq::count());
         $faq     = Faq::where('id', $faq_id)->first();
         
         $response = $this->get(route('faq') . '/' . $faq->slug);

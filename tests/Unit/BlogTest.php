@@ -23,7 +23,7 @@ class BlogTest extends TestCase
 
     public function test_user_can_get_one_post_page()
     {
-        $post_id  = random_int(1, 40);
+        $post_id  = random_int(1, Post::count());
         $post     = Post::where('id', $post_id)->first();
         
         $response = $this->get('/blog' . '/' . $post->slug);
@@ -33,7 +33,7 @@ class BlogTest extends TestCase
 
     public function test_user_can_get_one_category_page()
     {
-        $category_id  = random_int(1, 10);
+        $category_id  = random_int(1, Category::count());
         $category     = Category::where('id', $category_id)->first();
         
         $response = $this->get('/blog/category' . '/' . $category->slug);
@@ -61,11 +61,6 @@ class BlogTest extends TestCase
         $post    = Post::where('id', 5)->first();
         $search  = $post->title;
         
-        $response = $this->get('/blog');
-        $response = $this->get(route('blog'), [
-            'search' => $search
-        ]);
-        
         $posts = Post::where('page_text', 'LIKE', "%{$search}%")
                 ->orWhere('title', 'LIKE', "%{$search}%");
 
@@ -75,7 +70,7 @@ class BlogTest extends TestCase
 
     public function test_user_can_search_blog_posts_by_page_text()
     {
-        $post    = Post::where('id', 5)->first();
+        $post    = Post::where('id', Post::count())->first();
         $body    = $post->page_text;
         $search  = mb_substr($body, 50, 6);
 
@@ -94,6 +89,7 @@ class BlogTest extends TestCase
     }
 
     // package of tags behave strange during test
+    // cuz of the names in database
 
     public function test_user_can_get_one_tag_page()
     {

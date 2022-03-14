@@ -30,7 +30,7 @@ class ReviewTest extends TestCase
 
     public function test_user_can_post_review()
     {
-        $user_id = random_int(1, 12);
+        $user_id = random_int(1, User::count());
         $user    = User::where('id', $user_id)->first();
         
         $response = $this->actingAs($user);
