@@ -25,12 +25,26 @@ class AuthTest extends TestCase
         ]);
     }
 
-    public function test_user_can_login()
+    public function test_user_cannot_register_with_invalid_credentials()
     {
-        $response = $this->post(route('login'), [
-            'email'     => 'mail@mail.ru',
-            'password'  => '11111111'
+        $this->artisan('migrate:fresh --seed');
+        $response = $this->post(route('register'), [
+            'name'                  => '',
+            'email'                 => 'mailmail.ru',
+            'phone'                 => '10000000000',
+            'password'              => '11111111',
+            'password_confirmation' => '11111111',
+            'status'                => '1',
         ]);
-        $response->assertRedirect('/dashboard');
+        $response->assertSessionHasErrors(['name', 'email']);
     }
+
+    // public function test_user_can_login()
+    // {
+    //     $response = $this->post(route('login'), [
+    //         'email'     => 'mail@mail.ru',
+    //         'password'  => '11111111'
+    //     ]);
+    //     $response->assertSessionHasNoErrors();
+    // }
 }

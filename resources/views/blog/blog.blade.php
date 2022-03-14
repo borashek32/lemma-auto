@@ -16,12 +16,12 @@
             <livewire:user.blog.tags />
 
             <div style="padding: 10px;">
-                <div class="row">
+                <div class="row">  
                     @forelse($posts as $post)
                         @include('includes.blog.card-post')
                     @empty
                         <p class="text-center" style="margin-left: 6px">
-                            Ничего не найдено по вашему запросу <strong>{{ request()->query('search') }}</strong>
+                            Ничего не найдено по вашему запросу <strong>{{ $search }}</strong>
                         </p>
                     @endforelse
                 </div>

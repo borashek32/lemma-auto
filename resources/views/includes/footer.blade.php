@@ -20,8 +20,9 @@
                     <a href="tel:+79169174630" style="margin-top: -10px;color:black">
                         +7 (916) 917-46-30
                     </a>
-                    <a href="mailto:lemmaauto@gmail.com" style="color: black;">
-                        lemmaauto@gmail.com
+                    <br>
+                    <a href="mailto:borashek@inbox.ru" style="color: black;">
+                        mail@lemma-auto.ru
                     </a>
                 </div>
 
@@ -50,7 +51,9 @@
             </div>
 
             <div class="col-lg-2 col-xl-2 col-md-2 col-6 col-sm-6">
-                <h6>Наши партнеры</h6>
+                <a href="{{ route('partners') }}" style="color:black">
+                    <h6>Наши партнеры</h6>
+                </a>
 
                 <ul class="list-unstyled text">
                     <li><a class="text-muted" href="http://motul-ishop.ru/">Motul</a></li>

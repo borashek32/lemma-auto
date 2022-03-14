@@ -22,7 +22,7 @@ class BlogController extends Controller
             $posts->withPath('/blog');
         }
 
-        return view('blog.blog', compact( 'posts'));
+        return view('blog.blog', compact('search', 'posts'));
     }
 
     public function onePost($slug)

@@ -4,7 +4,7 @@
 @section('content')
 <div class="autoparts-big">
     <h1 style="text-align: center;margin-bottom:30px;margin-top:30px">
-        Условия гарантии на запасные части на ваш автомобиль
+        Условия гарантии на запасные части
     </h1>
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">

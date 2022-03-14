@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReviewTest extends TestCase
 {
-    public function test_user_can_access_review_page()
+    public function test_user_can_get_review_page()
     {
         $reviews = Review::all();
 
