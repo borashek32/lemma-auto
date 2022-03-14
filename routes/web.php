@@ -46,13 +46,16 @@ Route::get('/laws', [AutopartController::class, 'laws'])->name('laws');
 Route::get('/laws/{slug}', [AutopartController::class, 'law'])->name('law');
 Route::get('/about-us', [SiteController::class, 'aboutUs'])->name('about-us');
 Route::get('/reviews', [ReviewController::class, 'reviewsPost'])->name('reviews');
-Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form')->middleware('auth');
+Route::post('/reviews', [ReviewController::class, 'reviewsWrite'])->name('reviews-form')
+    ->middleware('auth');
 Route::get('/requisites', [SiteController::class, 'requisites'])->name('requisites');
 Route::get('/delivery', [SiteController::class, 'delivery'])->name('delivery');
 Route::get('/payment', [SiteController::class, 'payment'])->name('payment');
 Route::get('/faq', [App\Http\Controllers\FaqController::class, 'faq'])->name('faq');
-Route::post('/faq', [App\Http\Controllers\FaqController::class, 'faqWrite'])->name('faq-form')->middleware('auth');
+Route::post('/faq', [App\Http\Controllers\FaqController::class, 'faqWrite'])->name('faq-form')
+    ->middleware('auth');
 Route::get('/faq/{slug}', [App\Http\Controllers\FaqController::class, 'question'])->name('faq-one');
+Route::get('/requisites', [SiteController::class, 'requisites'])->name('requisites');
 
 
 // BLOG ROUTES
@@ -61,12 +64,12 @@ Route::get('/blog/{slug}', [BlogController::class, 'onePost'])->name('post');
 Route::post('/blog/{slug}', [BlogController::class, 'addComment'])->name('comment');
 Route::post('/blog', [BlogController::class, 'reply'])->name('reply');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('category');
-Route::post('/blog/{post}/likes', [PostLikeController::class, 'store'])
-    ->name('post.like')->middleware('auth');
-Route::delete('/blog/{post}/likes', [PostLikeController::class, 'destroy'])
-    ->name('post.like')->middleware('auth');
+Route::post('/blog/{post}/likes', [PostLikeController::class, 'store'])->name('post.like')
+    ->middleware('auth');
+Route::delete('/blog/{post}/likes', [PostLikeController::class, 'destroy'])->name('post.like')
+    ->middleware('auth');
 Route::get('/blog/tag/{name}', [BlogController::class, 'tag'])->name('tag');
-Route::get('/requisites', [SiteController::class, 'requisites'])->name('requisites');
+
 
 //COMMENTS
 Route::post('comments', [\App\Http\Controllers\Comments\CommentController::class, 'store'])

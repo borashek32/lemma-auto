@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-// use App\Models\Tag;
+use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use App\Models\Category;
@@ -93,14 +93,11 @@ class BlogTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // packages behave strange during tests
+    // package of tags behave strange during test
 
-    // public function test_user_can_get_one_tag_page()
-    // {
-    //     $tag_id = random_int(1, 10);
-    //     $tag = Tag::where('id', $tag_id)->first();
-
-    //     $response = $this->get('/blog/tag' . '/' . $tag->name);
-    //     $response->assertOk();
-    // }
+    public function test_user_can_get_one_tag_page()
+    {
+        $response = $this->get('/blog/tag/one');
+        $response->assertOk();
+    }
 }

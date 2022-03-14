@@ -11,14 +11,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SiteTest extends TestCase
 {
-    // use RefreshDatabase;
-    // public function test_get_main_page()
-    // {
-        // $response = $this->get('/');
-        // $response->assertSee('Автозапчасти по каталожному номеру');
-        // $response->assertOk();
-    // }
-
     public function test_user_can_get_delivery_page()
     {
         $deliveries = Delivery::all();

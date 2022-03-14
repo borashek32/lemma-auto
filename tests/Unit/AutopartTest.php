@@ -46,9 +46,9 @@ class AutopartTest extends TestCase
     public function test_user_can_get_partners_page()
     {
         $advertisements    = Advertisement::all();
-        $advertisement_id  = random_int(1, 10);
+        $advertisement_id  = random_int(1, 4);
         $advertisement     = Advertisement::where('id', $advertisement_id)->first();
-
+        
         $response = $this->get('/partners', [
             'advertisements' => $advertisements
         ]);
