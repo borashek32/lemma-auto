@@ -19,7 +19,7 @@
 
                 <li class="list-group-item" style="display:flex;justify-content: center;align-items: center;padding: 10px;overflow: hidden; ">
                     <img src="{{ $post->img }}"
-                         style="height: 100px; background-size: cover"
+                         style="height: 100px; background-size: cover;"
                          alt="{{ $post->title }}" />
                 </li>
             </a>    

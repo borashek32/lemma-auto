@@ -18,7 +18,7 @@ class FaqFactory extends Factory
     {
         return [
             'user_id'   => $this->faker->numberBetween(1,10),
-            'question'  => $this->faker->words(4, true),
+            'question'  => $this->faker->words(6, true),
             'answer'    => $this->faker->words(200, true)
         ];
     }

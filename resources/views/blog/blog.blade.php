@@ -16,7 +16,7 @@
             <livewire:user.blog.tags />
 
             <div style="padding: 10px;">
-                <div class="row">  
+                <div class="row"> 
                     @forelse($posts as $post)
                         @include('includes.blog.card-post')
                     @empty

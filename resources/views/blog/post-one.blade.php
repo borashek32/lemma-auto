@@ -18,11 +18,45 @@
             <div style="padding: 10px;">
                 <div class="mb-4">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item w-40" style="display: flex; justify-content: center;">
-                            <img src="{{ url($post->img) }}" style="height:auto" class="img-sm" width="400px" alt="{{ $post->title }}" />
+                        <li class="list-group-item w-40" 
+                        style="display: flex; justify-content: center;">
+                            <a href="#popup">
+                                <img src="{{ url($post->img) }}" 
+                                style="height:auto" class="img-md" 
+                                width="600px" alt="{{ $post->title }}" />
+                            </a>
                         </li>
+
+                        {{-- popup start --}}
+                        <div id="popup" class="popup">
+                            <a href="#header" class="popup__area"></a>
+
+                            <div class="popup__body">
+                                <div class="popup__content">
+                                    <a href="#header" class="popup__close">
+                                       <img src="/img/close.png" alt="закрыть окно" width="15"> 
+                                    </a>
+                                    
+                                    <div class="popup__img">
+                                        <img src="{{ url($post->img) }}" 
+                                        style="height:auto" 
+                                        alt="{{ $post->title }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- popup end --}}
+
                         
                         <style>
+                            @media (max-width: 1000px) {
+                                .img-md {
+                                    width: 450px;
+                                }
+                                .popup {
+                                    display: none;
+                                }
+                            }
                             @media (max-width: 450px) {
                                 .img-sm {
                                     width: 300px;

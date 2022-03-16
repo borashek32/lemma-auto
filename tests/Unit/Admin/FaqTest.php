@@ -99,10 +99,11 @@ class FaqTest extends TestCase
 
     public function test_admin_can_search_faqs_by_question()
     {
+        // $this->artisan('migrate:fresh --seed');
         $faq_id    = random_int(1, Faq::count());
         $faq       = Faq::where('id', $faq_id)->first();
         $question  = $faq->question;
-        $search    = mb_substr($question, 10, 10);
+        $search    = mb_substr($question, 2, 6);
         
         $faqs = Faq::where('question', 'LIKE', "%{$search}%")
                 ->orWhere('answer', 'LIKE', "%{$search}%");
@@ -119,12 +120,13 @@ class FaqTest extends TestCase
         $faq_id    = random_int(1, Faq::count());
         $faq       = Faq::where('id', $faq_id)->first();
         $answer    = $faq->answer;
-        $search    = mb_substr($answer, 10, 10);
+        $search    = mb_substr($answer, 2, 8);
+        $url = str_replace(' ', '+', $search);
         
         $faqs = Faq::where('question', 'LIKE', "%{$search}%")
                 ->orWhere('answer', 'LIKE', "%{$search}%");
 
-        $response = $this->get('/dashboard/faqs?search=' . $search, [
+        $response = $this->get('/dashboard/faqs?search=' . $url, [
             'faqs' => $faqs
         ]);
         $response->assertStatus(200);

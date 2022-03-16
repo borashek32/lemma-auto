@@ -10,7 +10,7 @@
                  Москва | 
             </a>
             
-            <a href="https://goo.gl/maps/u3kXeWXDzrFDH4598" style="color:black;cursor:pointer;font-size:12px;margin-top:-10px">
+            <a href="https://goo.gl/maps/u3kXeWXDzrFDH4598" style="color:black;cursor:pointer;font-size:12px;margin-top:-10px;margin-left:3px">
                  Коммунарка 
             </a>
             
@@ -135,7 +135,7 @@
 </script>
 
 
-<div class="d-flex mb-3 border-bottom shadow-lg navbar sticky-top navbar-light bg-white">
+<div id="header" class="d-flex mb-3 border-bottom shadow-lg navbar sticky-top navbar-light bg-white">
     <div class="container">
         <div class="column" style="margin-bottom:-5px">
             <div class="row">

@@ -147,6 +147,69 @@ pre {
     display: none;
 }
 
+/* popup */
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.8s ease 0s;
+}
+
+.popup:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup:target .popup__content {
+    transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
+    opacity: 1;
+}
+
+.popup__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    max-width: 1800px;
+}
+
+.popup__content {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+    transition: all 0.8s ease 0s;
+}
+
+.popup__area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.popup__close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    font-size: 20px;
+    color: red;
+    text-decoration: none;
+}
+
 @-webkit-keyframes shadow {
     from {
         box-shadow: 0 0 0px 5px white
@@ -164,7 +227,7 @@ pre {
         box-shadow: 0 0 100px 100px white
     }
 }
-
+a
 @media (max-width: 1200px) {
     .flash {
         display: none;

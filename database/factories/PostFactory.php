@@ -25,7 +25,7 @@ class PostFactory extends Factory
         return [
             'title'          => $this->faker->words(2, true),
             'page_text'      => $this->faker->words(200, true),
-            'img'            => $this->faker->imageUrl('400', '200'),
+            'img'            => '/img/blog.jpg',
             'category_id'    => $this->faker->randomElement(Category::pluck('id')->toArray()),
             'status'         => $this->faker->randomElement(['active', 'inactive']),
             'link'           => $this->faker->domainName
