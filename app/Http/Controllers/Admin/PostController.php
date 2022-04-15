@@ -98,7 +98,6 @@ class PostController extends Controller
         $tags = explode(',', $request->tags);
         $post->syncTags($tags);
 
-
         return redirect('dashboard/posts')
             ->with('success', 'Новый пост был успешно обновлен.');
     }

@@ -5,15 +5,35 @@
 </x-slot>
 <div class="py-4">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        @if (session()->has('message'))
+        @if (session()->has('success'))
             <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
                 <div class="flex">
                     <div>
-                        <p class="text-sm">{{ session('message') }}</p>
+                        <p class="text-sm">{{ session('success') }}</p>
                     </div>
                 </div>
             </div>
         @endif
+        @if (session()->has('error'))
+            <div class="bg-red-100 rounded-b text-red-900 px-4 py-3 shadow-md my-3" role="alert">
+                <div class="flex">
+                    <div>
+                        <p class="text-sm">{{ session('error') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @error('file')
+            <div class="bg-red-100 rounded-b text-red-900 px-4 py-3 shadow-md my-3" role="alert">
+                <div class="flex">
+                    <div>
+                        <p class="text-sm">
+                            {{ $message }}   
+                        </p>
+                    </div>
+                </div>
+            </div>
+        @enderror
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             <div class="grid grid-cols-3 text-left">
                 <div class="grid-cols-1">
@@ -28,7 +48,7 @@
                         <div class="grid-cols-1">
                             <input wire:model="search" type="text" class="w-full shadow appearance-none border my-3 rounded py-2
                                    px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1"
-                                   placeholder="Поиск автозапчастей" name="search">
+                                   placeholder="Поиск автозапчастей" name="search" required>
                             @error('search')<span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
 

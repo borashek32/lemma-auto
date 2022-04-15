@@ -6,19 +6,22 @@ use Illuminate\Http\Request;
 use App\Imports\ProductsImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidateImportForm;
 
 class ImportController extends Controller
 {
-    public function import(Request $request)
+    public function import(ValidateImportForm $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:xlsx,csv,htm,tsv,ods,xls,slk,xml,gnumeric,html'
-        ]);
-
         $data = $request->file('file');
 
-        Excel::import(new ProductsImport, $data);
+        if($data) {
+            if ($data->validate()) {
+                $data = $request->file('file');
+                Excel::import(new ProductsImport, $data);
 
-        return back()->with('success', 'Прайс успешно обновлен');
+                return back()->with('success', 'Прайс успешно обновлен');
+            }
+        }
+        return back()->with('error', 'Вы не загрузили файл');
     }
 }

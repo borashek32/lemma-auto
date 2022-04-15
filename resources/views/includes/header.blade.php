@@ -174,13 +174,18 @@
                     </div>
                 </div>
                 <div class="header-address">
-                    <p style="font-size: 12px; margin-left:14px">
+                    <div style="font-size: 12px; margin-left:14px; color: black">
                         <strong>Главный офис:</strong>
                         <br>
-                        ООО "Лемма-авто", 108814,<br>
-                        город Москва, поселение Сосенское,<br>
-                        поселок Коммунарка, Бачуринская улица,<br>
-                        дом 317Ю, офис 006A</p>
+                        <a href="https://yandex.ru/maps/213/moscow/house/bachurinskaya_ulitsa_4k1/Z04YcgBkSU0DQFtvfXl2dn9hZg==/?ll=37.474085%2C55.577322&z=16.87">
+                            <p style="color: black">
+                                ООО "Лемма-авто", 108814,<br>
+                                город Москва, поселение Сосенское,<br>
+                                поселок Коммунарка, Бачуринская улица,<br>
+                                дом 317Ю, офис 006A
+                            </p>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <div class="dropdown-item" style="margin-top: 10px">
@@ -289,6 +294,7 @@
         @endif
     </div>
 </div>
+<div id=success_message></div>
 
 <style>
     #menu-small {
@@ -412,3 +418,4 @@
         }
     }
 </style>
+

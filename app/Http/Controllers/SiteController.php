@@ -56,7 +56,7 @@ class SiteController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email'   => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'subject' => ['required', 'string', 'max:50'],
             'message' => ['required', 'string', 'max:500'],
         ]);
@@ -101,7 +101,11 @@ class SiteController extends Controller
 
         Mail::to("borashek@inbox.ru")->send(new CallMail($request));
 
-        return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
+        return response()->json([
+            'status'   => 200,
+            'message'  => 'New student added successfully'
+        ]);
+        // return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
     }
 
     // public function error()
