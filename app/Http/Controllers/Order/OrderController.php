@@ -30,11 +30,13 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $status_id = Auth::user()->status_id;
+        $user      = Auth::user();
+        $user_id   = $user->id;
+        $status_id = $user->status_id;
 
         if ($request->contact_id) {
             if ($status_id == 2) {
-                $user_requisites = UserRequisites::where('user_id', Auth::user()->id);
+                $user_requisites = UserRequisites::where('user_id', $user_id);
                 if ($user_requisites->exists()) {
                     $order = new Order();
                     $order->order_number      = uniqid('LA-');
@@ -57,13 +59,11 @@ class OrderController extends Controller
                             'required_product_quantity' => $item->qty,
                             'shipment_date'             => $item->options->shipment_date
                         ]);
-                        // $product = Product::where('id', $item->id);
-                        // $product->delete();
 
                     Cart::destroy();
 
-                    Mail::to($request->user())->send(new OrderPlaced($order));
-                    Mail::to("borashek@inbox.ru")->send(new OrderNotification($order));
+                    dispath(new OrderMailJob($order, $user));
+                    $this->dispatch(new OrderMailJob($order, $user));
 
                     return redirect()->route('auto-parts')->with('success', 'Ваш заказ был успешно размещен');
                 } else {

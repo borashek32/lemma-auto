@@ -9,6 +9,7 @@
     @yield('keywords')
     <title>@yield('title-block') - Лемма-авто</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />

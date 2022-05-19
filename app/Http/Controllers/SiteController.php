@@ -14,6 +14,7 @@ use App\Models\Delivery;
 use App\Models\Requisite;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -55,7 +56,7 @@ class SiteController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'name'    => ['required', 'string', 'min:3', 'max:255'],
             'email'   => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'subject' => ['required', 'string', 'max:50'],
             'message' => ['required', 'string', 'max:500'],
@@ -65,8 +66,8 @@ class SiteController extends Controller
     public function submit(Request $data)
     {
         $data = array(
-            'name' => $data->name,
-            'email' => $data->email,
+            'name'    => $data->name,
+            'email'   => $data->email,
             'message' => $data->message,
         );
 
@@ -84,9 +85,9 @@ class SiteController extends Controller
     
     public function sitemap()
     {
-        $posts = Post::orderBy('updated_at', 'DESC')->get();
+        $posts      = Post::orderBy('updated_at', 'DESC')->get();
         $categories = Category::orderBy('updated_at', 'DESC')->get();
-        $tags = Tag::orderBy('created_at', 'DESC')->get();
+        $tags       = Tag::orderBy('created_at', 'DESC')->get();
 
         return response()->view('sitemap', compact('posts', 'categories', 'tags'))
             ->header('Content-Type', 'text/xml');
@@ -95,17 +96,13 @@ class SiteController extends Controller
     public function orderCall(Request $request)
     {
         $request = array(
-            'name' => $request->name,
+            'name'  => $request->name,
             'phone' => $request->phone
         );
 
         Mail::to("borashek@inbox.ru")->send(new CallMail($request));
 
-        return response()->json([
-            'status'   => 200,
-            'message'  => 'New student added successfully'
-        ]);
-        // return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
+        return redirect()->back()->with('success', 'Обратный звонок успешно заказан.');
     }
 
     // public function error()

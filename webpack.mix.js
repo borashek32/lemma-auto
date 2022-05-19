@@ -10,3 +10,5 @@ mix.postCss('resources/css/tailwind.css', 'public/css');
 
 mix.js('resources/js/app.js', 'public/js/app.js');
     // .sass('resources/assets/sass/app.scss', 'public/css/app.css');
+
+mix.browserSync('laravel.test');

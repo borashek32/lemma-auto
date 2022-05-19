@@ -26,7 +26,9 @@
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Номер заказа</th>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Стоимость</th>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Статус</th>
-                            <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Детали</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Оплата</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Адрес доставки</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-center text-sm leading-4 tracking-wider w-10">Позиции</th>
                         </tr>
                         </thead>
 
@@ -37,15 +39,25 @@
                                     <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">{{ $order->order_number }}</td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $order->total, 2 }} руб.</td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5">{{ $order->status }}</td>
-                                    <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5">
-                                        <div class="">
-                                            <a href="{{ route('order.details', $order->id) }}">
-                                                <button class="mb-2 bg-blue-500 mr-2 hover:bg-blue-700 text-white font-bold py-2
-                                                px-4 rounded">
-                                                    Подробнее
-                                                </button>
-                                            </a>
-                                        </div>
+                                    <td class="px-6 py-4 border-b border-gray-300 text-sm leading-5" style="white-space: normal">{{ $order->payment->payment_method }}</td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5" style="white-space: normal">
+                                        @if($order->contact_id) 
+                                            {{ $order->contact->address }}
+                                        @else
+                                            <p>{{ $order->shipping_fullname }}</p>
+                                            <p>{{ $order->shipping_city }}</p>
+                                            <p>{{ $order->shipping_postcode }}</p>
+                                            <p>{{ $order->shipping_address }}</p>
+                                            <p>{{ $order->shipping_phone }}</p>
+                                        @endif    
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300 text-sm leading-5" style="white-space: normal">
+                                        @foreach($order->products as $product)
+                                            <wbr>№ {{ $product->pivot->number }}</wbr><br>
+                                            <wbr>{{ $product->pivot->name }}</wbr><br>
+                                            <wbr>Количество: {{ $product->pivot->required_product_quantity }}</wbr><br> 
+                                            <wbr>Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</wbr><br><br>
+                                        @endforeach
                                     </td>
                                 </tr>
                             @endforeach
@@ -53,35 +65,59 @@
                     </table>
                     
                     <div class="flex flex-cols-2 items-center card-orders">
-                            @foreach(Auth::user()->orders as $order)
-                                <div class="bg-white shadow-xl rounded-lg border-gray-200 m-4">
-                                    <div class="p-4">
-                                        <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
-                                            Номер заказа • {{ $order->order_number }}
-                                        </p>
-                                        <p class="text-lg text-gray-900">
-                                            Стоимость • {{ $order->total }} руб.
-                                        </p>
-                                    </div>
-                                    <div class="p-4">
-                                        <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
-                                            Статус заказа • {{ $order->status }}
-                                        </p>
-                                    </div>
-                                    <div class="px-4 pt-3 pb-4 border-t border-gray-300 bg-gray-100">
-                                        <div class="flex items-center pt-2">
-                                            <div class="">
-                                                <a href="{{ route('order.details', $order->id) }}">
-                                                    <button class="mb-2 bg-blue-500 mr-2 hover:bg-blue-700 text-white font-bold py-2
-                                                    px-4 rounded">
-                                                        Подробнее
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                        @foreach(Auth::user()->orders as $order)
+                            <div class="bg-white shadow-xl rounded-lg border-gray-200 m-4">
+                                <div class="p-4">
+                                    <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
+                                        Номер заказа • {{ $order->order_number }}
+                                    </p>
+                                    <p class="text-lg text-gray-900">
+                                        Стоимость • {{ $order->total }} руб.
+                                    </p>
                                 </div>
-                            @endforeach
+                                <div class="p-4">
+                                    <p class="bg-white uppercase tracking-wide text-sm font-bold text-gray-700">
+                                        Статус заказа • {{ $order->status }}
+                                    </p>
+                                </div>
+                                <div class="bg-white px-4 pt-3 pb-4 border-t border-gray-300">
+                                    <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
+                                        Оплата • {{ $order->payment->payment_method  }}
+                                    </p>
+                                </div>
+                                <div class="bg-white px-4 pt-3 pb-4 border-t border-gray-300">
+                                    <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
+                                        Адрес доставки 
+                                        <br>
+                                    </p>
+                                    <p class="text-sm font-bold text-gray-700">
+                                        @if($order->contact_id) 
+                                            {{ $order->contact->address }}
+                                        @else
+                                            <p>{{ $order->shipping_fullname }}</p>
+                                            <p>{{ $order->shipping_city }}</p>
+                                            <p>{{ $order->shipping_postcode }}</p>
+                                            <p>{{ $order->shipping_address }}</p>
+                                            <p>{{ $order->shipping_phone }}</p>
+                                        @endif   
+                                    </p>
+                                </div>
+                                <div class="bg-white px-4 pt-3 pb-4 border-t border-gray-300">
+                                    <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
+                                        Позиции 
+                                        <br>
+                                    </p>
+                                    <p class="text-sm font-bold text-gray-700">
+                                        @foreach($order->products as $product)
+                                            <wbr>№ {{ $product->pivot->number }}</wbr><br>
+                                            <wbr>{{ $product->pivot->name }}</wbr><br>
+                                            <wbr>Количество: {{ $product->pivot->required_product_quantity }}</wbr><br> 
+                                            <wbr>Срок доставки: {{ date("d.m.y", strtotime($product->pivot->shipment_date)) }}</wbr><br><br>
+                                        @endforeach
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 @else
                     <div class="text-lg">

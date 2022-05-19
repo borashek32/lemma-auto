@@ -62,7 +62,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-jet-nav-link dusk='logout-link' href="{{ route('logout') }}" :active="request()->routeIs('dashboard')"
+                            <x-jet-nav-link href="{{ route('logout') }}" :active="request()->routeIs('dashboard')"
                                                        onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Выйти') }}

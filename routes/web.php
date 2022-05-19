@@ -38,7 +38,7 @@ Route::get('/clear', function () {
 // COMMON ROUTES
 Route::get('/', [AutopartController::class, 'autoparts'])->name('auto-parts');
 Route::get('/search', [AutopartController::class, 'search'])->name('search');
-Route::post('/', [SiteController::class, 'submit'])->name('contact-form');
+Route::post('/', [SiteController::class, 'submit'])->name('contact-form')->middleware('auth');
 Route::post('/promo-catalogue', [SiteController::class, 'orderCall'])->name('order-call');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
 Route::get('/partners', [AutopartController::class, 'partners'])->name('partners');
@@ -126,8 +126,6 @@ Route::resource('/orders', \App\Http\Controllers\Order\OrderController::class)
     ->middleware('auth');
 Route::get('/dashboard/orders', [\App\Http\Controllers\DashboardController::class, 'orders'])
     ->name('orders.all');
-Route::get('/dashboard/orders/{id}', [\App\Http\Controllers\DashboardController::class, 'orderDetails'])
-    ->name('order.details');
 
 
 // ADMIN DASHBOARD

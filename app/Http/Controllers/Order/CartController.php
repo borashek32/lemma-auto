@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Requests\ValidateOrderForm;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -16,7 +15,7 @@ class CartController extends Controller
         return view('cart.index');
     }
 
-    public function store(ValidateOrderForm $request)
+    public function store(Request $request)
     {
         // dd($request->all());
         $duplicates = Cart::search(function($cartItem, $rowId) use ($request) {
@@ -25,11 +24,10 @@ class CartController extends Controller
 
         if ($duplicates->isNotEmpty()) {
             return redirect()->route('cart.index')
-                ->with('error', 'Товар уже есть в вашей корзине. Для того, чтобы изменить количество, перейдите в корзину');
+                ->with('error', 'Товар уже есть в вашей корзинею Для того, чтобы изменить количество, перейдите в корзину');
         }
 
         $product    = Product::where('number', $request->code)->first();
-        // $product_id = $product->id;
         if (!$product) {
             $product = new Product();
             $product->goodsID        = $request->goodsID;

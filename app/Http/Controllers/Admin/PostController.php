@@ -25,8 +25,8 @@ class PostController extends Controller
         $categories = Category::all();
         $search = request()->query('search');
         if ($search) {
-            $posts = Post::where('title', 'LIKE', "%{$search}%")
-                ->orWhere('page_text', 'LIKE', "%{$search}%")
+            $posts = Post::where('page_text', 'LIKE', "%{$search}%")
+                ->orWhere('title', 'LIKE', "%{$search}%")
                 ->latest()
                 ->paginate(6);
         } else {
@@ -97,6 +97,7 @@ class PostController extends Controller
 
         $tags = explode(',', $request->tags);
         $post->syncTags($tags);
+
 
         return redirect('dashboard/posts')
             ->with('success', 'Новый пост был успешно обновлен.');

@@ -16,12 +16,12 @@ class DashboardController extends Controller
         return view('profile.orders', compact('orders'));
     }
 
-    public function orderDetails($id)
-    {
-        $order = Order::where('id', $id)->first();
+    // public function orderDetails($id)
+    // {
+    //     $order = Order::where('id', $id)->first();
 
-        return view('profile.order', compact('order'));
-    }
+    //     return view('profile.order', compact('order'));
+    // }
 
     public function contacts()
     {
