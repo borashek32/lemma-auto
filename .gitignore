@@ -16,5 +16,6 @@ yarn-error.log
 /.vscode
 /storage
 database/.DS_Store
+/.DS_Store
 
 
