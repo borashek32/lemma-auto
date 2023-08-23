@@ -143,7 +143,7 @@
 
 <div class="autoparts-small p-8">
     <h1 class="text-center" style="margin-bottom:30px;margin-top:30px">
-        Автозапчасти по каталожному номеру
+        Автозапчасти <strong style="color:red">ОПТОМ</strong> по каталожному номеру
     </h1>
     @include('includes.shop.search')
     @if(!empty($search))
